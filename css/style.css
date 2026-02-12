@@ -239,6 +239,17 @@ h6 {
     background-color: var(--slate-900);
 }
 
+.hover\:bg-primary:hover {
+    background-color: var(--primary);
+}
+
+.hover\:bg-primary\/90:hover {
+    background-color: var(--primary-hover);
+}
+
+.active\:bg-primary:active {
+    background-color: var(--primary);
+}
 /* Semantic Backgrounds */
 .bg-surface-light {
     background-color: var(--surface-light);
