@@ -48,7 +48,7 @@
 </head>
 
 <body
-    class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 min-h-screen transition-colors duration-300 space-y-40">
+    class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 min-h-screen transition-colors duration-300 space-y-12">
     <!-- Sticky Action Bar -->
       <nav class="fixed top-0 w-full z-50 glass py-4">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -73,19 +73,7 @@
         </div>
     </nav>
 
-    <div class="flex items-center gap-4">
-                <button
-                    
-                    onclick="window.print()">
-                   
-                   
-                </button>
-                <a class="flex items-center gap-2 bg-primary hover:bg-primary/90 text-white px-5 py-2 rounded shadow-lg shadow-primary/20 transition-all"
-                    href="#">
-                    <span class="material-icons text-xl">file_download</span>
-                    <span class="text-sm font-medium">Download PDF</span>
-                </a>
-            </div>
+    
     <main class="max-w-5xl mx-auto px-6 py-12 md:py-20">
         <!-- Resume Page Container -->
         <div
@@ -406,8 +394,8 @@
         </div>
         <!-- Print Note -->
         <div class="mt-8 text-center text-slate-400 dark:text-slate-500 text-sm no-print">
-            <p>Looking for a physical copy? Use the  <span class=" md:inline text-sm font-medium">Print</span> button above or <span
-                    class="text-primary cursor-pointer hover:underline">Download the PDF</span>.</p>
+            <p>Looking for a physical copy? Click to  <span class=" md:inline text-sm font-medium text-primary" onclick="window.print()">Print</span>  or <span
+                    class="text-primary">Download the PDF</span>.</p>
                     
         </div>
     </main>
