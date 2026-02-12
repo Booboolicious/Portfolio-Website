@@ -495,10 +495,6 @@ h6 {
     padding-bottom: var(--spacing-12);
 }
 
-.py-15 {
-    padding-top: 3.75rem;
-    padding-bottom: 3.75rem;
-}
 .py-16 {
     padding-top: var(--spacing-16);
     padding-bottom: var(--spacing-16);
