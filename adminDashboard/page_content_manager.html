@@ -29,42 +29,52 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
 <div class="flex h-screen overflow-hidden">
-<aside class="w-64 flex-shrink-0 bg-white dark:bg-surface-dark border-r border-slate-200 dark:border-border-dark hidden md:flex flex-col">
+<aside
+    class="w-64 border-r border-slate-200 dark:border-slate-800 flex flex-col bg-white dark:bg-background-dark/50 shrink-0 hidden md:flex">
 <div class="p-6 flex items-center space-x-3">
-<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white">
-<span class="material-icons text-sm">terminal</span>
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+    <span class="material-icons text-white text-lg">terminal</span>
 </div>
-<span class="font-bold text-lg tracking-tight">DevAdmin</span>
+<span class="font-bold text-xl tracking-tight text-slate-900 dark:text-white">Portfolio OS</span>
 </div>
-<nav class="flex-1 px-4 space-y-1 mt-4">
-<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-<span class="material-icons text-xl">dashboard</span>
-<span class="font-medium">Dashboard</span>
+<div class="px-6 mb-4">
+    <p class="text-xxs font-bold text-slate-400 uppercase tracking-widest">Core Pages</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+    <a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white transition-colors"
+        href="admin_analytics_dashboard.html">
+        <span class="material-symbols-outlined text-xl">dashboard</span>
+        <span>Dashboard</span>
 </a>
-<a class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-primary/10 text-primary transition-colors" href="#">
-<span class="material-icons text-xl">edit_note</span>
-<span class="font-medium">Page Info Manager</span>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-medium border border-primary/20 transition-colors"
+    href="page_content_manager.html">
+    <span class="material-symbols-outlined text-xl">edit_note</span>
+    <span>Content Manager</span>
 </a>
-<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-<span class="material-icons text-xl">analytics</span>
-<span class="font-medium">Analytics</span>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white transition-colors"
+    href="skills_&_proficiency_manager.html">
+    <span class="material-symbols-outlined text-xl">psychology</span>
+    <span>Skills & Tech</span>
 </a>
-<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-<span class="material-icons text-xl">photo_library</span>
-<span class="font-medium">Assets</span>
-</a>
-<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-<span class="material-icons text-xl">settings</span>
-<span class="font-medium">Settings</span>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white transition-colors"
+    href="project_management_dashboard.html">
+    <span class="material-symbols-outlined text-xl">work</span>
+    <span>Projects Gallery</span>
 </a>
 </nav>
-<div class="p-4 border-t border-slate-200 dark:border-border-dark mt-auto">
-<div class="flex items-center space-x-3 p-2">
-<img alt="User profile portrait for admin user" class="w-10 h-10 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAV4HjXiGia7tIa6XfnFBjRwdPWoVTWGD805v92mHkxAB2ht9Ed5C79T3AhITdsQ1kwWb5fk0bCRPnuDJkpifsPwBCh_4bieRfR4vn6sNSYTsK6CnBIRnia2XO2jy4lCErm4s2EauhB3ATn3AM6xXo5orZW1eIPppe6GTT461S77Feu8O39UEmHF042LyrmL6l2gCYm9hnjRDPFwcr6rlaoAS6pyz3a0s0_czwAWpr8XjzBB8HT144V6baO185uPg1vVaaV57Sro0A"/>
-<div>
-<p class="text-sm font-semibold">Alex Rivera</p>
-<p class="text-xs text-slate-500 dark:text-slate-400 uppercase tracking-wider">Sr. Engineer</p>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+    <div
+        class="flex items-center space-x-3 p-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer group">
+        <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden shrink-0">
+            <img class="w-full h-full object-cover" data-alt="Professional portrait"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNsR6z7vbHTE5fGJZaVjb2ktZvHzzzFsvpP0NHkU1ai0xMaBvf4MkH4ZeOYPq2qbAA9NBQufdRwSjyLbGK18yuapnbwAG_vH6Bw-wjYeYXdaoL5GYAdwqnD2z0RN_S_NUiW3m1M1-VAGbaP3jg9R6hcxq4DV_Ki72PbPlRSD2vCNt208G6hSp0SgRJHzC23kKPGxOhDM9jdczbiHOIBzBqHbIiB6dyG9pelk26jV0KCi6nKgSjIoZm8522NveskkWJGmbvDE8vYhg" />
 </div>
+<div class="overflow-hidden">
+    <p class="text-sm font-semibold truncate text-slate-900 dark:text-white">Alex Rivera</p>
+    <p class="text-xxs text-slate-500 dark:text-slate-400 font-bold uppercase">Super Admin</p>
+</div>
+<span
+    class="material-icons text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-200 ml-auto text-sm transition-colors">logout</span>
 </div>
 </div>
 </aside>
