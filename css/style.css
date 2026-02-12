@@ -245,6 +245,7 @@ h6 {
 
 .hover\:bg-primary\/90:hover {
     background-color: var(--primary-hover);
+    padding: var(--spacing-2);
 }
 
 .active\:bg-primary:active {
