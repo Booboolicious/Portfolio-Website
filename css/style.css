@@ -304,6 +304,13 @@ h6 {
     z-index: 50;
 }
 
+.w-64 {
+    width: 16rem;
+}
+
+.w-px {
+    width: 1px;
+}
 .pointer-events-none {
     pointer-events: none;
 }
@@ -356,6 +363,21 @@ h6 {
     min-height: 100vh;
 }
 
+.h-screen {
+    height: 100vh;
+}
+
+.h-8 {
+    height: 2rem;
+}
+
+.w-10 {
+    width: 2.5rem;
+}
+
+.h-10 {
+    height: 2.5rem;
+}
 .max-w-7xl {
     max-width: 80rem;
 }
@@ -514,6 +536,9 @@ h6 {
     margin-left: 1rem;
 }
 
+.space-x-3>*+* {
+    margin-left: 0.75rem;
+}
 .space-x-6>*+* {
     margin-left: 1.5rem;
 }
@@ -601,6 +626,13 @@ h6 {
     border-bottom: 1px solid var(--slate-800);
 }
 
+.border-r {
+    border-right: 1px solid var(--slate-800);
+}
+
+.border-l {
+    border-left: 1px solid var(--slate-800);
+}
 .border-slate-200 {
     border-color: var(--slate-200);
 }
@@ -630,6 +662,21 @@ h6 {
     overflow: hidden;
 }
 
+.overflow-y-auto {
+    overflow-y: auto;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-1 {
+    flex: 1 1 0%;
+}
+
+.shrink-0 {
+    flex-shrink: 0;
+}
 /* Peer emulation for custom checkbox/toggles */
 .peer:checked~.peer-checked\:bg-primary {
     background-color: var(--primary);
@@ -659,6 +706,44 @@ h6 {
     color: #10b981;
 }
 
+.bg-emerald-500 {
+    background-color: #10b981;
+}
+
+.bg-emerald-500\/10 {
+    background-color: rgba(16, 185, 129, 0.1);
+}
+
+.text-amber-500 {
+    color: #f59e0b;
+}
+
+.bg-amber-500 {
+    background-color: #f59e0b;
+}
+
+.bg-amber-500\/10 {
+    background-color: rgba(245, 158, 11, 0.1);
+}
+
+.ring-1 {
+    box-shadow: 0 0 0 1px var(--primary);
+    /* Simplified ring */
+}
+
+/* Divide utilities */
+.divide-y>*+* {
+    border-top: 1px solid var(--slate-200);
+}
+
+.dark .divide-slate-800>*+* {
+    border-color: var(--slate-800);
+}
+
+.text-xxs {
+    font-size: 0.625rem;
+    /* 10px */
+}
 .active\:scale-\[0\.98\]:active {
     transform: scale(0.98);
 }
