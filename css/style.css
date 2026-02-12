@@ -482,6 +482,11 @@ h6 {
     padding-right: var(--spacing-6);
 }
 
+.px-8 {
+    padding-left: var(--spacing-8);
+    padding-right: var(--spacing-8);
+}
+
 .py-1 {
     padding-top: 0.25rem;
     padding-bottom: 0.25rem;
