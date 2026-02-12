@@ -14,8 +14,10 @@
 <body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
 <!-- Background Texture -->
 <div class="absolute inset-0 tech-grid pointer-events-none"></div>
-<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full"></div>
-<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full"></div>
+<div class="absolute bg-primary/10 rounded-full blur-3xl"
+    style="top: -10%; left: -10%; width: 40%; height: 40%; filter: blur(120px)"></div>
+<div class="absolute bg-primary/10 rounded-full blur-3xl"
+    style="bottom: -10%; right: -10%; width: 40%; height: 40%; filter: blur(120px)"></div>
 <main class="w-full max-w-md relative z-10">
 <!-- Logo/Brand Header -->
 <div class="text-center mb-8">
@@ -56,8 +58,7 @@
 <!-- Controls -->
 <div class="flex items-center">
 <label class="relative inline-flex items-center cursor-pointer">
-<input class="sr-only peer" name="remember" type="checkbox"/>
-<div class="w-9 h-5 bg-slate-300 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+<input class="toggle-checkbox" name="remember" type="checkbox" />
 <span class="ml-3 text-sm text-slate-600 dark:text-slate-400">Remember session</span>
 </label>
 </div>
@@ -70,7 +71,7 @@
 <!-- Security Badge -->
 <div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex items-center justify-center gap-2">
 <span class="material-icons text-emerald-500 text-sm">verified_user</span>
-<span class="text-[10px] uppercase tracking-widest text-slate-500 font-medium">Encrypted System Hub</span>
+<span class="text-xxs uppercase tracking-widest text-slate-500 font-medium">Encrypted System Hub</span>
 </div>
 </div>
 <!-- Footer Navigation -->
@@ -90,7 +91,7 @@
 </div>
 </div>
 <div class="fixed top-6 right-6 hidden lg:block">
-<div class="text-[10px] font-mono text-slate-500 dark:text-slate-600 select-none">
+<div class="text-xxs font-mono text-slate-500 dark:text-slate-600 select-none">
             &lt;sys_status: operational /&gt;
         </div>
 </div>

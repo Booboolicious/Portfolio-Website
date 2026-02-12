@@ -1017,3 +1017,47 @@ h6 {
     border-radius: 9999px;
     filter: blur(100px);
 }
+/* Toggle Switch */
+.toggle-checkbox {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 2.25rem;
+    /* w-9 */
+    height: 1.25rem;
+    /* h-5 */
+    background-color: var(--slate-300);
+    border-radius: 9999px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.toggle-checkbox::after {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 1rem;
+    /* w-4 */
+    height: 1rem;
+    /* h-4 */
+    background-color: white;
+    border-radius: 50%;
+    transition: transform 0.3s;
+}
+
+.toggle-checkbox:checked {
+    background-color: var(--primary);
+}
+
+.toggle-checkbox:checked::after {
+    transform: translateX(100%);
+}
+
+.dark .toggle-checkbox {
+    background-color: var(--slate-700);
+}
+
+.dark .toggle-checkbox:checked {
+    background-color: var(--primary);
+}

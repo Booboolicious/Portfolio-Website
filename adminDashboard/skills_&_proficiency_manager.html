@@ -13,7 +13,7 @@
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
 <!-- Top Navigation / Header -->
 <header class="border-b border-primary/10 bg-white/5 backdrop-blur-md sticky top-0 z-50">
-<div class="max-w-[1440px] mx-auto px-6 h-16 flex items-center justify-between">
+<div class="mx-auto px-6 h-16 flex items-center justify-between" style="max-width: 1440px">
 <div class="flex items-center gap-3">
 <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
 <span class="material-icons-round text-white text-sm">terminal</span>
@@ -32,7 +32,7 @@
 </div>
 </div>
 </header>
-<main class="max-w-[1440px] mx-auto px-6 py-8 flex gap-8">
+<main class="mx-auto px-6 py-8 flex gap-8" style="max-width: 1440px">
 <!-- Sidebar: Categories -->
 <aside class="w-72 shrink-0">
 <div class="flex items-center justify-between mb-4 px-2">
@@ -169,7 +169,9 @@
 </div>
 </div>
 <!-- Empty/Placeholder Card -->
-<button class="group border-2 border-dashed border-white/10 rounded-xl p-5 flex flex-col items-center justify-center gap-2 hover:border-primary/50 hover:bg-primary/5 transition-all min-h-[140px]">
+<button
+    class="group border-2 border-dashed border-white/10 rounded-xl p-5 flex flex-col items-center justify-center gap-2 hover:border-primary/50 hover:bg-primary/5 transition-all"
+    style="min-height: 140px">
 <span class="material-icons-round text-slate-500 group-hover:text-primary text-3xl">add_circle_outline</span>
 <span class="text-sm font-medium text-slate-500 group-hover:text-primary">Add Skill</span>
 </button>
@@ -177,7 +179,8 @@
 </section>
 </main>
 <!-- Overlay / Edit Modal Placeholder (Simulated) -->
-<div class="fixed inset-0 bg-background-dark/80 backdrop-blur-sm z-[100] flex items-center justify-center p-6 hidden">
+<div class="fixed inset-0 bg-background-dark/80 backdrop-blur-sm flex items-center justify-center p-6 hidden"
+    style="z-index: 100">
 <div class="bg-slate-900 border border-white/10 w-full max-w-lg rounded-xl shadow-2xl overflow-hidden">
 <div class="px-6 py-4 border-b border-white/5 flex justify-between items-center">
 <h3 class="text-lg font-bold">Edit Skill: TypeScript</h3>
@@ -196,7 +199,7 @@
 <span class="text-primary font-bold">95%</span>
 </div>
 <input class="w-full h-2 bg-white/10 rounded-lg appearance-none cursor-pointer accent-primary" type="range"/>
-<div class="flex justify-between text-[10px] text-slate-500 uppercase font-bold tracking-widest">
+<div class="flex justify-between text-xxs text-slate-500 uppercase font-bold tracking-widest">
 <span>Beginner</span>
 <span>Proficient</span>
 <span>Expert</span>
@@ -225,7 +228,7 @@
 <div class="bg-primary/90 backdrop-blur-md text-white px-6 py-3 rounded-full shadow-2xl flex items-center gap-4 border border-white/10">
 <span class="material-icons-round text-sm">info</span>
 <span class="text-sm font-medium">Unsaved changes in 'Languages' category</span>
-<div class="w-[1px] h-4 bg-white/20"></div>
+<div class="w-px h-4 bg-white/20"></div>
 <button class="text-sm font-bold hover:underline">Discard</button>
 <button class="bg-white text-primary text-sm font-bold px-4 py-1.5 rounded-full hover:bg-slate-100 transition-colors">Publish Now</button>
 </div>
