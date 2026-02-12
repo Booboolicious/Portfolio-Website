@@ -12,28 +12,77 @@
 </head>
 <body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 min-h-screen">
 <!-- Top Navigation / Header -->
-<header class="border-b border-primary/10 bg-white/5 backdrop-blur-md sticky top-0 z-50">
-<div class="mx-auto px-6 h-16 flex items-center justify-between" style="max-width: 1440px">
-<div class="flex items-center gap-3">
+<div class="flex h-screen overflow-hidden">
+    <aside
+        class="w-64 border-r border-slate-200 dark:border-slate-800 flex flex-col bg-white dark:bg-background-dark/50 shrink-0 hidden md:flex">
+        <div class="p-6 flex items-center space-x-3">
 <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-<span class="material-icons-round text-white text-sm">terminal</span>
+<span class="material-icons text-white text-lg">terminal</span>
 </div>
-<h1 class="text-xl font-bold tracking-tight">Skills &amp; Proficiency <span class="text-primary">Manager</span></h1>
+<span class="font-bold text-xl tracking-tight text-slate-900 dark:text-white">Portfolio OS</span>
+</div>
+<div class="px-6 mb-4">
+    <p class="text-xxs font-bold text-slate-400 uppercase tracking-widest">Core Pages</p>
+</div>
+<nav class="flex-1 px-4 space-y-1">
+    <a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white transition-colors"
+        href="admin_analytics_dashboard.html">
+        <span class="material-symbols-outlined text-xl">dashboard</span>
+        <span>Dashboard</span>
+    </a>
+    <a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white transition-colors"
+        href="page_content_manager.html">
+        <span class="material-symbols-outlined text-xl">edit_note</span>
+        <span>Content Manager</span>
+    </a>
+    <a class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-medium border border-primary/20 transition-colors"
+        href="skills_&_proficiency_manager.html">
+        <span class="material-symbols-outlined text-xl">psychology</span>
+        <span>Skills & Tech</span>
+    </a>
+    <a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white transition-colors"
+        href="project_management_dashboard.html">
+        <span class="material-symbols-outlined text-xl">work</span>
+        <span>Projects Gallery</span>
+    </a>
+</nav>
+<div class="p-4 border-t border-slate-200 dark:border-slate-800">
+    <div
+        class="flex items-center space-x-3 p-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer group">
+        <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden shrink-0">
+            <img class="w-full h-full object-cover" data-alt="Professional portrait"
+                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNsR6z7vbHTE5fGJZaVjb2ktZvHzzzFsvpP0NHkU1ai0xMaBvf4MkH4ZeOYPq2qbAA9NBQufdRwSjyLbGK18yuapnbwAG_vH6Bw-wjYeYXdaoL5GYAdwqnD2z0RN_S_NUiW3m1M1-VAGbaP3jg9R6hcxq4DV_Ki72PbPlRSD2vCNt208G6hSp0SgRJHzC23kKPGxOhDM9jdczbiHOIBzBqHbIiB6dyG9pelk26jV0KCi6nKgSjIoZm8522NveskkWJGmbvDE8vYhg" />
+        </div>
+        <div class="overflow-hidden">
+            <p class="text-sm font-semibold truncate text-slate-900 dark:text-white">Alex Rivera</p>
+            <p class="text-xxs text-slate-500 dark:text-slate-400 font-bold uppercase">Super Admin</p>
+        </div>
+        <span
+            class="material-icons text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-200 ml-auto text-sm transition-colors">logout</span>
+    </div>
+</div>
+</aside>
+<main class="flex-1 flex flex-col overflow-hidden bg-background-light dark:bg-background-dark">
+    <header
+        class="h-16 flex items-center justify-between px-8 bg-white dark:bg-surface-dark border-b border-slate-200 dark:border-border-dark shrink-0">
+        <div class="flex items-center gap-3">
+            <h1 class="text-xl font-bold tracking-tight text-slate-900 dark:text-white">Skills &amp; Proficiency Manager
+            </h1>
 </div>
 <div class="flex items-center gap-4">
-<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-primary/10 text-primary hover:bg-primary/20 transition-all font-medium">
+<button
+    class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-100 dark:bg-primary/10 text-slate-600 dark:text-primary hover:bg-slate-200 dark:hover:bg-primary/20 transition-all font-medium border border-slate-200 dark:border-primary/20">
 <span class="material-icons-round text-sm">settings</span>
-                    Global Settings
-                </button>
+Global Settings
+</button>
 <button class="flex items-center gap-2 px-6 py-2 rounded-lg bg-primary text-white hover:bg-primary/90 shadow-lg shadow-primary/20 transition-all font-medium">
 <span class="material-icons-round text-sm">cloud_upload</span>
-                    Save &amp; Publish
-                </button>
-</div>
+Save &amp; Publish
+</button>
 </div>
 </header>
-<main class="mx-auto px-6 py-8 flex gap-8" style="max-width: 1440px">
-<!-- Sidebar: Categories -->
+<div class="flex-1 overflow-y-auto p-8 custom-scrollbar">
+    <div class="flex gap-8 max-w-7xl mx-auto">
 <aside class="w-72 shrink-0">
 <div class="flex items-center justify-between mb-4 px-2">
 <h2 class="text-sm font-semibold uppercase tracking-wider text-slate-500">Categories</h2>
@@ -49,48 +98,57 @@
 </div>
 <span class="text-xs bg-primary/20 px-2 py-0.5 rounded-full">8</span>
 </a>
-<a class="group flex items-center justify-between px-4 py-3 hover:bg-white/5 text-slate-400 hover:text-white rounded-lg transition-all" href="#">
+<a class="group flex items-center justify-between px-4 py-3 hover:bg-slate-100 dark:hover:bg-white/5 text-slate-600 dark:text-slate-400 dark:hover:text-white rounded-lg transition-all"
+    href="#">
 <div class="flex items-center gap-3">
-<span class="material-icons-round text-slate-600 group-hover:text-slate-400">drag_indicator</span>
+<span
+    class="material-icons-round text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-400">drag_indicator</span>
 <span>Frameworks</span>
 </div>
-<span class="text-xs bg-white/5 px-2 py-0.5 rounded-full">12</span>
+<span class="text-xs bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded-full">12</span>
 </a>
-<a class="group flex items-center justify-between px-4 py-3 hover:bg-white/5 text-slate-400 hover:text-white rounded-lg transition-all" href="#">
+<a class="group flex items-center justify-between px-4 py-3 hover:bg-slate-100 dark:hover:bg-white/5 text-slate-600 dark:text-slate-400 dark:hover:text-white rounded-lg transition-all"
+    href="#">
 <div class="flex items-center gap-3">
-<span class="material-icons-round text-slate-600 group-hover:text-slate-400">drag_indicator</span>
+<span
+    class="material-icons-round text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-400">drag_indicator</span>
 <span>Databases</span>
 </div>
-<span class="text-xs bg-white/5 px-2 py-0.5 rounded-full">5</span>
+<span class="text-xs bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded-full">5</span>
 </a>
-<a class="group flex items-center justify-between px-4 py-3 hover:bg-white/5 text-slate-400 hover:text-white rounded-lg transition-all" href="#">
+<a class="group flex items-center justify-between px-4 py-3 hover:bg-slate-100 dark:hover:bg-white/5 text-slate-600 dark:text-slate-400 dark:hover:text-white rounded-lg transition-all"
+    href="#">
 <div class="flex items-center gap-3">
-<span class="material-icons-round text-slate-600 group-hover:text-slate-400">drag_indicator</span>
+<span
+    class="material-icons-round text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-400">drag_indicator</span>
 <span>Cloud &amp; Tools</span>
 </div>
-<span class="text-xs bg-white/5 px-2 py-0.5 rounded-full">15</span>
+<span class="text-xs bg-slate-100 dark:bg-white/5 px-2 py-0.5 rounded-full">15</span>
 </a>
 </nav>
 <div class="mt-8 p-4 bg-primary/5 rounded-xl border border-primary/10">
-<p class="text-xs text-slate-400 mb-2">Pro Tip</p>
-<p class="text-sm text-slate-300">Drag categories to reorder them as they appear in your navigation menu.</p>
+<p class="text-xs text-slate-500 dark:text-slate-400 mb-2 font-bold uppercase tracking-wide">Pro Tip</p>
+<p class="text-sm text-slate-600 dark:text-slate-300">Drag categories to reorder them as they appear in your navigation
+    menu.</p>
 </div>
 </aside>
 <!-- Main Content: Skill Items Grid -->
 <section class="flex-1">
 <div class="flex items-center justify-between mb-8">
 <div>
-<h2 class="text-2xl font-bold">Languages</h2>
-<p class="text-slate-400 text-sm mt-1">Manage programming languages and markup standards.</p>
+<h2 class="text-2xl font-bold text-slate-900 dark:text-white">Languages</h2>
+<p class="text-slate-500 dark:text-slate-400 text-sm mt-1">Manage programming languages and markup standards.</p>
 </div>
-<button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-white/5 border border-white/10 hover:bg-white/10 transition-all font-medium text-sm">
+<button
+    class="flex items-center gap-2 px-4 py-2 rounded-lg bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-white/10 hover:bg-slate-50 dark:hover:bg-white/10 transition-all font-medium text-sm text-slate-700 dark:text-slate-200">
 <span class="material-icons-round text-sm">add</span>
-                    Add New Skill
-                </button>
+Add New Skill
+</button>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 <!-- Skill Card -->
-<div class="group relative bg-white/5 border border-white/10 p-5 rounded-xl hover:border-primary/50 transition-all cursor-move">
+<div
+    class="group relative bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-slate-800 p-5 rounded-xl hover:border-primary/50 transition-all cursor-move shadow-sm">
 <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 flex gap-1 transition-opacity">
 <button class="p-1.5 hover:bg-primary/20 rounded-lg text-slate-400 hover:text-primary transition-colors">
 <span class="material-icons-round text-lg">edit</span>
@@ -100,26 +158,28 @@
 </button>
 </div>
 <div class="flex items-center gap-4 mb-4">
-<div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center border border-white/10">
+<div
+    class="w-12 h-12 bg-slate-50 dark:bg-slate-800 rounded-lg flex items-center justify-center border border-slate-200 dark:border-slate-700">
 <img class="w-8 h-8 object-contain" data-alt="TypeScript official logo blue and white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCQINyfUyaLOAUIDqJ1PyJUiDTaufIyJvZA3HjBawUqorlRdsp2NkFsxzEBbhkUmEooNRglGaKxxGbF_KU5VoV2ceuGeQKex3uy0LjGaxiuC_hJG46EqN2Q6vyIDEQOWCunY4VqFfAy99ezlr0wKBNcOplpY28slEQAAkBTJXDZcZW_Ly2V9x-pgC37hQC3a0v1xvy4qLedzVJBAsKBlshhwZ4XQYzEAfPjuei7S1Uob6fPkngsktFpIu7NJDOiJ4cEr7u-gVUTDOk"/>
 </div>
 <div>
-<h3 class="font-bold">TypeScript</h3>
+<h3 class="font-bold text-slate-900 dark:text-white">TypeScript</h3>
 <span class="text-xs text-primary font-semibold uppercase">Expert</span>
 </div>
 </div>
 <div class="space-y-2">
 <div class="flex justify-between items-center text-xs">
-<span class="text-slate-400">Proficiency</span>
-<span class="text-slate-200">95%</span>
+<span class="text-slate-500 dark:text-slate-400">Proficiency</span>
+<span class="text-slate-700 dark:text-slate-200 font-bold">95%</span>
 </div>
-<div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+<div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
 <div class="h-full bg-primary rounded-full" style="width: 95%"></div>
 </div>
 </div>
 </div>
 <!-- Skill Card -->
-<div class="group relative bg-white/5 border border-white/10 p-5 rounded-xl hover:border-primary/50 transition-all cursor-move">
+<div
+    class="group relative bg-surface-light dark:bg-surface-dark border border-slate-200 dark:border-slate-800 p-5 rounded-xl hover:border-primary/50 transition-all cursor-move shadow-sm">
 <div class="absolute top-2 right-2 opacity-0 group-hover:opacity-100 flex gap-1 transition-opacity">
 <button class="p-1.5 hover:bg-primary/20 rounded-lg text-slate-400 hover:text-primary transition-colors">
 <span class="material-icons-round text-lg">edit</span>
@@ -129,57 +189,65 @@
 </button>
 </div>
 <div class="flex items-center gap-4 mb-4">
-<div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center border border-white/10">
+<div
+    class="w-12 h-12 bg-slate-50 dark:bg-slate-800 rounded-lg flex items-center justify-center border border-slate-200 dark:border-slate-700">
 <img class="w-8 h-8 object-contain" data-alt="Python official logo blue and yellow" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC5WrkVSSJDEtZQO_jzYwEd39-ou5Rv7f6tMGpfMBasq9Ln2egbWWbdaOskCdYnj-TL9y1cwn5mdpKiI-olNjGTPjOvUvR3SD0XFeTLJSE814nm7nu3fg7-Pmd6LAbBBx63_l3PD3EXnv1JosB2dlsIwz-UJ8jzX2ZtkKJtDfwWUpUeM_eraYnwKjl5YLLTPnHuHXGD9oZPcLg32rDqaHEpcSn4fe8Qjr6p7OB1X88_ZNeqNQUj8-uygtB73xAYxkm6I-xH4i3reYo"/>
 </div>
 <div>
-<h3 class="font-bold">Python</h3>
+<h3 class="font-bold text-slate-900 dark:text-white">Python</h3>
 <span class="text-xs text-primary font-semibold uppercase">Advanced</span>
 </div>
 </div>
 <div class="space-y-2">
 <div class="flex justify-between items-center text-xs">
-<span class="text-slate-400">Proficiency</span>
-<span class="text-slate-200">88%</span>
+<span class="text-slate-500 dark:text-slate-400">Proficiency</span>
+<span class="text-slate-700 dark:text-slate-200 font-bold">88%</span>
 </div>
-<div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+<div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
 <div class="h-full bg-primary rounded-full" style="width: 88%"></div>
 </div>
 </div>
 </div>
 <!-- Ghost State / Dragging Example -->
-<div class="group relative bg-primary/10 border-2 border-dashed border-primary p-5 rounded-xl opacity-80 cursor-grabbing">
+<div
+    class="group relative bg-primary/5 border-2 border-dashed border-primary/50 p-5 rounded-xl opacity-60 cursor-grabbing filter grayscale-[0.5]">
 <div class="flex items-center gap-4 mb-4">
-<div class="w-12 h-12 bg-primary/20 rounded-lg flex items-center justify-center border border-primary/20">
+<div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center border border-primary/20">
 <img class="w-8 h-8 object-contain" data-alt="Rust official logo black and white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAdkFG8GO95AVtROzbgv1iw80UG7zuUxfHdhRxe2lm7W8VbcPDpN2qGZUNfZv5Y_KL3Ol9gujRDhBjPfACjBVoPJSAxp1BfoPyPhzoqtZ9ZMZ2bzyHBk3KSjBMb_0S-wSZhgEEKeNnc_5VOS7uRekPDqo8QY5QzYsPgibX4vi2g56bFwKDbHhZ5q0uQVNnyv7Xh4XqqawUi1KHCcQEruI77UG--ABxXwsvHr1WJSmWMnkPM1QXv3pzjHCegF85hAFyhl2ToSMWqBbA"/>
 </div>
 <div>
-<h3 class="font-bold">Rust</h3>
+<h3 class="font-bold text-slate-700 dark:text-slate-200">Rust</h3>
 <span class="text-xs text-primary font-semibold uppercase">Learning</span>
 </div>
 </div>
 <div class="space-y-2">
 <div class="flex justify-between items-center text-xs">
-<span class="text-slate-400">Proficiency</span>
-<span class="text-slate-200">40%</span>
+<span class="text-slate-500">Proficiency</span>
+<span class="text-slate-400">40%</span>
 </div>
-<div class="w-full h-2 bg-white/10 rounded-full overflow-hidden">
+<div class="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
 <div class="h-full bg-primary rounded-full" style="width: 40%"></div>
 </div>
 </div>
 </div>
 <!-- Empty/Placeholder Card -->
+<!-- Empty/Placeholder Card -->
 <button
-    class="group border-2 border-dashed border-white/10 rounded-xl p-5 flex flex-col items-center justify-center gap-2 hover:border-primary/50 hover:bg-primary/5 transition-all"
+    class="group border-2 border-dashed border-slate-200 dark:border-white/10 rounded-xl p-5 flex flex-col items-center justify-center gap-2 hover:border-primary/50 hover:bg-primary/5 transition-all"
     style="min-height: 140px">
-<span class="material-icons-round text-slate-500 group-hover:text-primary text-3xl">add_circle_outline</span>
+    <span
+        class="material-icons-round text-slate-400 dark:text-slate-500 group-hover:text-primary text-3xl">add_circle_outline</span>
 <span class="text-sm font-medium text-slate-500 group-hover:text-primary">Add Skill</span>
 </button>
 </div>
 </section>
+</section>
+</div>
+</div>
 </main>
+</div>
 <!-- Overlay / Edit Modal Placeholder (Simulated) -->
-<div class="fixed inset-0 bg-background-dark/80 backdrop-blur-sm flex items-center justify-center p-6 hidden"
+<div class="fixed inset-0 bg-background-dark/80 backdrop-blur-sm hidden flex items-center justify-center p-6"
     style="z-index: 100">
 <div class="bg-slate-900 border border-white/10 w-full max-w-lg rounded-xl shadow-2xl overflow-hidden">
 <div class="px-6 py-4 border-b border-white/5 flex justify-between items-center">
