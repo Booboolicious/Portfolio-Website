@@ -1102,3 +1102,13 @@ h6 {
 .dark .toggle-checkbox:checked {
     background-color: var(--primary);
 }
+
+a {
+    text-decoration: none;
+    color: white;
+}
+
+li {
+    text-decoration: none;
+    /* color: white; */
+}
