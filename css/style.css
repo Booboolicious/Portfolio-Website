@@ -879,7 +879,7 @@ h6 {
     background-image:
         linear-gradient(to right, rgba(19, 91, 236, 0.05) 1px, transparent 1px),
         linear-gradient(to bottom, rgba(19, 91, 236, 0.05) 1px, transparent 1px);
-    mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
+    /* mask-image: radial-gradient(circle at center, black 40%, transparent 100%); */
     -webkit-mask-image: radial-gradient(circle at center, black 40%, transparent 100%);
 }
 
