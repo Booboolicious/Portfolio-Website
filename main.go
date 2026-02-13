@@ -1,20 +1,22 @@
 package main
 
 import (
+	"fmt"
 	"html/template"
 	"net/http"
 )
 
 
 func main(){
-	http.HandleFunc("/", servePage)
+	http.HandleFunc("dev/", servePage)
 
 	http.ListenAndServe(":8081", nil)
+	fmt.Println("hey")
 }
 
-func servePage(w http.Response, r *http.Request)  {
+func servePage(w http.ResponseWriter, r *http.Request)  {
 	pages := map[string]string{
-		"/" : "home_page.html",
+		"dev/" : "home_page.html",
 	}
 
 	page := pages[r.URL.Path]
