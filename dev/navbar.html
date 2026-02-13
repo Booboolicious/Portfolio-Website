@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
+
 
 <head>
     <meta charset="UTF-8">
@@ -9,8 +8,8 @@
     <script src="js/main.js" defer></script>
 </head>
 
-<body>
- {{define }}   <nav class="sticky top-0 w-full z-50 glass py-4">
+
+ {{define `navbar`}}   <nav class="sticky top-0 w-full z-50 glass py-4">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <div class="flex items-center space-x-2">
                 <div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white font-bold text-lg">EA
@@ -35,7 +34,6 @@
                 <span class="material-icons">menu</span>
             </button>
         </div>
-    </nav>
-</body>
+    </nav> {{end}}
 
-</html>
+

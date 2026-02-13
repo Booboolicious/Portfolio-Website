@@ -34,9 +34,9 @@ func servePage(w http.ResponseWriter, r *http.Request)  {
 		return
 	}
 
-	data := PageData{Page: "home"}
+	// data := PageData{Page: "home"}
 
-	t.ExecuteTemplate(w, "navbar.html", data)
+	// t.ExecuteTemplate(w, "navbar.html", data)
 	t.ExecuteTemplate(w, page, nil)
-	t.ExecuteTemplate(w, "footer.html", data)
+	// t.ExecuteTemplate(w, "footer.html", data)
 }
