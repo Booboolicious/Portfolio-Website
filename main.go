@@ -55,14 +55,14 @@ func servePage(w http.ResponseWriter, r *http.Request) {
 		page = "about"
 	}
 
-	t, err := template.ParseFiles("dev/navbar.html", "dev/footer.html", page)
+	t, err := template.ParseFiles("dev/navbar.html", "dev/footer.html", filePath)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
 	data := PageData{Page: page}
-	templateName := filepath.Base(page)
+	templateName := filepath.Base(filePath)
 
 
 	err = t.ExecuteTemplate(w, templateName, data)
