@@ -12,6 +12,7 @@ type PageData struct {
 
 func main(){
 	http.HandleFunc("/dev/", servePage)
+	http
 
 	fmt.Println("server running")
 	http.ListenAndServe(":8081", nil)
