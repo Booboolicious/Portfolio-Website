@@ -8,7 +8,7 @@ import (
 
 
 func main(){
-	http.HandleFunc("dev/", servePage)
+	http.HandleFunc("/dev/", servePage)
 
 	http.ListenAndServe(":8081", nil)
 	fmt.Println("hey")
@@ -16,7 +16,7 @@ func main(){
 
 func servePage(w http.ResponseWriter, r *http.Request)  {
 	pages := map[string]string{
-		"dev/" : "dev/home_page.html",
+		"/dev/" : "dev/home_page.html",
 	}
 
 	page := pages[r.URL.Path]
