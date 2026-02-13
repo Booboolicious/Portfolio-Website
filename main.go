@@ -18,7 +18,7 @@ func main() {
 	http.HandleFunc("/dev/projects_gallery", servePage)
 	http.HandleFunc("/dev/skills_&_expertise", servePage)
 	http.HandleFunc("/dev/contact_information", servePage)
-	http.HandleFunc("/dev/about_me.html", servePage)
+	http.HandleFunc("/dev/about_me", servePage)
 
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("dev/css"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("dev/js"))))

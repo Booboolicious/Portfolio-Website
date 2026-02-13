@@ -1701,13 +1701,43 @@ li {
 }
 
 .hero-code-content {
-    font-family: 'Courier New', monospace;
+    padding: 1.5rem;
+        font-family: 'JetBrains Mono', 'Fira Code', monospace;
     font-size: 0.875rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
+    line-height: 1.6;
 }
 
+.code-keyword {
+    color: var(--primary);
+}
+
+.code-variable {
+    color: var(--slate-300);
+}
+
+.code-string {
+    color: #fde68a;
+}
+
+/* amber-200 equivalent */
+.code-comment {
+    color: var(--slate-500);
+    font-style: italic;
+}
+
+.code-method {
+    color: #34d399;
+}
+
+/* emerald-400 equivalent */
+.code-bracket {
+    color: #60a5fa;
+}
+
+/* blue-400 equivalent */
+.code-indent {
+    padding-left: 1.5rem;
+}
 .hero-code-bg-circle {
     position: absolute;
     top: -2.5rem;
