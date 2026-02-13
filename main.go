@@ -6,18 +6,21 @@ import (
 )
 
 
-func main (){
+func main(){
 	http.HandleFunc("/", servePage)
+
+	http.ListenAndServe(":8081", nil)
 }
 
-func servePage (w http.Response, r *http.Request)  {
+func servePage(w http.Response, r *http.Request)  {
 	pages := map[string]string{
-		"/" : "home_page.html"
+		"/" : "home_page.html",
 	}
 
 	page := pages[r.URL.Path]
 	if page == ""{
 		page = "home_page.html"
+
 	}
 
 	t, err := template.ParseFiles("navbar.html", "footer.html", page)
