@@ -16,7 +16,7 @@ func main() {
 	http.HandleFunc("/dev/", servePage)
 	http.HandleFunc("/dev/professional_resume", servePage)
 	http.HandleFunc("/dev/projects_gallery", servePage)
-	http.HandleFunc("/dev/skills_expertise", servePage)
+	http.HandleFunc("/dev/skills_&_expertise", servePage)
 	http.HandleFunc("/dev/contact_information", servePage)
 	http.HandleFunc("/dev/about_me.html", servePage)
 
@@ -32,7 +32,7 @@ func servePage(w http.ResponseWriter, r *http.Request) {
 		"/dev/": "dev/home_page.html",
 		"/dev/professional_resume": "dev/professional_resume.html",
 		"/dev/projects_gallery": "dev/projects_gallery.html",
-		"/dev/skills_expertise": "dev/skills_expertise.html",
+		"/dev/skills_&_expertise": "dev/skills_&_expertise.html",
 		"/dev/contact_information": "dev/contact_information.html",
 		"/dev/about_me": "dev/about_me.html",
 	}
@@ -47,7 +47,7 @@ func servePage(w http.ResponseWriter, r *http.Request) {
 		page = "resume"
 	} else if strings.Contains(r.URL.Path, "projects_gallery"){
 		page = "projects"
-	}else if strings.Contains(r.URL.Path, "skills_expertise"){
+	}else if strings.Contains(r.URL.Path, "skills_&_expertise"){
 		page = "skills"
 	}else if strings.Contains(r.URL.Path, "contact_information"){
 		page = "contact"
