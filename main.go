@@ -37,10 +37,20 @@ func servePage(w http.ResponseWriter, r *http.Request) {
 	}
 
 	page := "home" 
-	if strings.Contains(r.URL.Path, "")
-	 page == "" {
-		page = "dev/home_page.html"
-
+	if strings.Contains(r.URL.Path, "professional_resume"){
+		page = "resume"
+	}
+	if strings.Contains(r.URL.Path, "projects_gallery"){
+		page = "projects"
+	}
+	if strings.Contains(r.URL.Path, "skills_expertise"){
+		page = "skills"
+	}
+	if strings.Contains(r.URL.Path, "contact_information"){
+		page = "contact_information"
+	}
+	if strings.Contains(r.URL.Path, "about_me"){
+		page = "about_me"
 	}
 
 	t, err := template.ParseFiles("dev/navbar.html", "dev/footer.html", page)
