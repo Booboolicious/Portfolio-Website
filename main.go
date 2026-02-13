@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"path/filepath"
 	"strings"
 )
 
@@ -47,10 +48,10 @@ func servePage(w http.ResponseWriter, r *http.Request) {
 		page = "skills"
 	}
 	if strings.Contains(r.URL.Path, "contact_information"){
-		page = "contact_information"
+		page = "contact"
 	}
 	if strings.Contains(r.URL.Path, "about_me"){
-		page = "about_me"
+		page = "about"
 	}
 
 	t, err := template.ParseFiles("dev/navbar.html", "dev/footer.html", page)
@@ -59,13 +60,14 @@ func servePage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	data := PageData{Page: "home"}
+	data := PageData{Page: page}
+	tName := filepath.Base(page)
 
 
-	// err = t.ExecuteTemplate(w, "home_page.html", data)
-	// if err != nil {
-	// 	fmt.Println("Execution error:", err)
-	// }
+	err = t.ExecuteTemplate(w, tName, data)
+	if err != nil {
+		http.Error(w)
+	}
 	
 	t.ExecuteTemplate(w, page, data)
 }
