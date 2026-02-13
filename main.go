@@ -13,8 +13,8 @@ type PageData struct {
 func main(){
 	http.HandleFunc("/dev/", servePage)
 
+	fmt.Println("server running")
 	http.ListenAndServe(":8081", nil)
-	fmt.Println("hey")
 }
 
 func servePage(w http.ResponseWriter, r *http.Request)  {
@@ -34,9 +34,9 @@ func servePage(w http.ResponseWriter, r *http.Request)  {
 		return
 	}
 
-	// data := PageData{Page: "home"}
+	data := PageData{Page: "home"}
 
-	// t.ExecuteTemplate(w, "navbar.html", data)
+	t.ExecuteTemplate(w, "navbar.html", data)
 	t.ExecuteTemplate(w, page, nil)
-	// t.ExecuteTemplate(w, "footer.html", data)
+	t.ExecuteTemplate(w, "footer.html", data)
 }
