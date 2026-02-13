@@ -10,7 +10,7 @@ type PageData struct {
 	Page string
 }
 
-func main(){
+func main() {
 	http.HandleFunc("/dev/", servePage)
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
@@ -19,13 +19,13 @@ func main(){
 	http.ListenAndServe(":8081", nil)
 }
 
-func servePage(w http.ResponseWriter, r *http.Request)  {
+func servePage(w http.ResponseWriter, r *http.Request) {
 	pages := map[string]string{
-		"/dev/" : "dev/home_page.html",
+		"/dev/": "dev/home_page.html",
 	}
 
 	page := pages[r.URL.Path]
-	if page == ""{
+	if page == "" {
 		page = "dev/home_page.html"
 
 	}
@@ -38,9 +38,9 @@ func servePage(w http.ResponseWriter, r *http.Request)  {
 
 	data := PageData{Page: "home"}
 
-	err = t.ExecuteTemplate(w, "home_page.html", data) 
+	err = t.ExecuteTemplate(w, "home_page.html", data)
 	if err != nil {
-    fmt.Println("Execution error:", err)
+		fmt.Println("Execution error:", err)
 	}
 }
 
