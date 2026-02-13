@@ -13,333 +13,243 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
     <script src="../js/main.js" defer></script>
-    <style>
-        @media print {
-            .no-print {
-                display: none !important;
-            }
-
-            body {
-                background-color: white !important;
-                color: black !important;
-            }
-
-            .resume-container {
-                box-shadow: none !important;
-                border: none !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                width: 100% !important;
-            }
-
-            .text-primary {
-                color: #135bec !important;
-            }
-
-            .bg-background-dark {
-                background-color: white !important;
-            }
-
-            .dark {
-                color-scheme: light;
-            }
-        }
-    </style>
 </head>
-
-<body
-    class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 min-h-screen transition-colors duration-300 ">
-    <!-- Sticky Action Bar -->
+<body class="page-body">
+    <!-- Navigation -->
 {{template "navbar" .}}
 
-    <main class="max-w-5xl mx-auto px-6 py-12 md:py-20">
+    <main class="resume-wrapper">
         <!-- Resume Page Container -->
-        <div
-            class="resume-container bg-white dark:bg-slate-900/40 rounded-xl border border-slate-200 dark:border-slate-800 shadow-2xl overflow-hidden">
+        <div class="resume-card">
             <!-- Header -->
-            <header
-                class="p-8 md:p-12 border-b border-slate-200 dark:border-slate-800 grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
-                <div class="md:col-span-2">
-                    <h1 class="text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-2 tracking-tight">Alex
-                        Rivera</h1>
-                    <h2 class="text-xl font-medium text-primary mb-4">Senior Full-Stack Software Engineer</h2>
-                    <p class="text-slate-600 dark:text-slate-400 max-w-xl leading-relaxed">
+            <header class="resume-header">
+                <div class="resume-header-info">
+                    <h1 class="resume-name">Alex Rivera</h1>
+                    <h2 class="resume-role">Senior Full-Stack Software Engineer</h2>
+                    <p class="resume-header-bio">
                         Passionate engineer with 8+ years of experience building scalable distributed systems and
                         high-performance web applications. Specialized in cloud architecture and modern JavaScript
                         ecosystems.
                     </p>
                 </div>
-                <div class="flex flex-col gap-3 text-sm">
-                    <div class="flex items-center gap-3 text-slate-600 dark:text-slate-400">
-                        <span class="material-icons text-primary text-lg">alternate_email</span>
+                <div class="resume-header-contacts">
+                    <div class="resume-contact-item">
+                        <span class="material-icons">alternate_email</span>
                         <span>alex.rivera@dev.io</span>
                     </div>
-                    <div class="flex items-center gap-3 text-slate-600 dark:text-slate-400">
-                        <span class="material-icons text-primary text-lg">public</span>
+                    <div class="resume-contact-item">
+                        <span class="material-icons">public</span>
                         <span>rivera-dev.portfolio</span>
                     </div>
-                    <div class="flex items-center gap-3 text-slate-600 dark:text-slate-400">
-                        <span class="material-icons text-primary text-lg">place</span>
+                    <div class="resume-contact-item">
+                        <span class="material-icons">place</span>
                         <span>San Francisco, CA</span>
                     </div>
-                    <div class="flex items-center gap-3 text-slate-600 dark:text-slate-400">
-                        <span class="material-icons text-primary text-lg">code</span>
+                    <div class="resume-contact-item">
+                        <span class="material-icons">code</span>
                         <span>github.com/arivera-code</span>
                     </div>
                 </div>
             </header>
-            <div class="grid grid-cols-1 lg:grid-cols-12">
-
+            <div class="resume-grid">
                 <!-- Main Content (Experience) -->
-                <div class="lg:col-span-8 p-8 md:p-12 border-r border-slate-200 dark:border-slate-800">
+                <div class="resume-main-content">
                     <!-- Section: Experience -->
-                    <section class="mb-12">
-                        <div class="flex items-center gap-3 mb-8">
+                    <section class="resume-section">
+                        <div class="resume-section-title-wrapper">
                             <span class="material-icons text-primary">work_outline</span>
-                            <h3 class="text-2xl font-bold uppercase tracking-wider text-slate-900 dark:text-white">Work
-                                Experience</h3>
+                            <h3 class="resume-section-title">Work Experience</h3>
                         </div>
                         <div class="space-y-10">
                             <!-- Job 1 -->
-                            <div class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group">
-                                <div
-                                    class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white dark:bg-slate-900 border-2 border-primary group-hover:scale-125 transition-transform">
+                            <div class="resume-job-item">
+                                <div class="resume-job-dot"></div>
+                                <div class="resume-job-header">
+                                    <h4 class="resume-job-title">Lead Software Engineer</h4>
+                                    <span class="resume-job-date">2021 — PRESENT</span>
                                 </div>
-                                <div class="flex flex-wrap justify-between items-baseline mb-2 gap-2">
-                                    <h4 class="text-xl font-bold text-slate-900 dark:text-white">Lead Software Engineer
-                                    </h4>
-                                    <span
-                                        class="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-semibold">2021
-                                        — PRESENT</span>
-                                </div>
-                                <div class="text-primary font-medium mb-4">CloudScale Solutions Inc.</div>
-                                <ul class="space-y-3 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                    <li class="flex gap-2">
+                                <div class="resume-job-company">CloudScale Solutions Inc.</div>
+                                <ul class="resume-job-list">
+                                    <li>
                                         <span class="text-primary">•</span>
-                                        <span>Architected and migrated legacy monolith to AWS microservices, resulting
-                                            in a 40% reduction in infrastructure costs.</span>
+                                        <span>Architected and migrated legacy monolith to AWS microservices, resulting in a 40% reduction in infrastructure
+                                            costs.</span>
                                     </li>
-                                    <li class="flex gap-2">
+                                    <li>
                                         <span class="text-primary">•</span>
-                                        <span>Led a team of 12 engineers in developing a real-time data visualization
-                                            dashboard using React, GraphQL, and D3.js.</span>
+                                        <span>Led a team of 12 engineers in developing a real-time data visualization dashboard using React, GraphQL, and
+                                            D3.js.</span>
                                     </li>
-                                    <li class="flex gap-2">
+                                    <li>
                                         <span class="text-primary">•</span>
-                                        <span>Implemented CI/CD pipelines with GitHub Actions reducing deployment time
-                                            by 60%.</span>
+                                        <span>Implemented CI/CD pipelines with GitHub Actions reducing deployment time by 60%.</span>
                                     </li>
                                 </ul>
                             </div>
                             <!-- Job 2 -->
-                            <div class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group">
-                                <div
-                                    class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 group-hover:border-primary transition-colors">
+                            <div class="resume-job-item">
+                                <div class="resume-job-dot"></div>
+                                <div class="resume-job-header">
+                                    <h4 class="resume-job-title">Full Stack Developer</h4>
+                                    <span class="resume-job-date">2018 — 2021</span>
                                 </div>
-                                <div class="flex flex-wrap justify-between items-baseline mb-2 gap-2">
-                                    <h4 class="text-xl font-bold text-slate-900 dark:text-white">Full Stack Developer
-                                    </h4>
-                                    <span
-                                        class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-500 rounded-full text-xs font-semibold">2018
-                                        — 2021</span>
-                                </div>
-                                <div class="text-primary font-medium mb-4">Nexus Fintech</div>
-                                <ul class="space-y-3 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                    <li class="flex gap-2">
+                                <div class="resume-job-company">Nexus Fintech</div>
+                                <ul class="resume-job-list">
+                                    <li>
                                         <span class="text-primary">•</span>
-                                        <span>Developed secure payment processing modules handling $2M+ in daily
-                                            transactions using Node.js and PostgreSQL.</span>
+                                        <span>Developed secure payment processing modules handling $2M+ in daily transactions using Node.js and
+                                            PostgreSQL.</span>
                                     </li>
-                                    <li class="flex gap-2">
+                                    <li>
                                         <span class="text-primary">•</span>
-                                        <span>Optimized database queries and indexing, improving API response times by
-                                            300ms.</span>
+                                        <span>Optimized database queries and indexing, improving API response times by 300ms.</span>
                                     </li>
-                                    <li class="flex gap-2">
+                                    <li>
                                         <span class="text-primary">•</span>
-                                        <span>Collaborated with designers to build a reusable UI component library used
-                                            across 4 internal products.</span>
+                                        <span>Collaborated with designers to build a reusable UI component library used across 4 internal products.</span>
                                     </li>
                                 </ul>
                             </div>
                             <!-- Job 3 -->
-                            <div class="relative pl-8 border-l-2 border-slate-200 dark:border-slate-800 group">
-                                <div
-                                    class="absolute -left-[9px] top-0 w-4 h-4 rounded-full bg-white dark:bg-slate-900 border-2 border-slate-300 dark:border-slate-700 group-hover:border-primary transition-colors">
+                            <div class="resume-job-item">
+                                <div class="resume-job-dot"></div>
+                                <div class="resume-job-header">
+                                    <h4 class="resume-job-title">Software Engineer Intern</h4>
+                                    <span class="resume-job-date">2017 — 2018</span>
                                 </div>
-                                <div class="flex flex-wrap justify-between items-baseline mb-2 gap-2">
-                                    <h4 class="text-xl font-bold text-slate-900 dark:text-white">Software Engineer
-                                        Intern</h4>
-                                    <span
-                                        class="px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-500 rounded-full text-xs font-semibold">2017
-                                        — 2018</span>
-                                </div>
-                                <div class="text-primary font-medium mb-4">StartUp Alpha</div>
-                                <ul class="space-y-3 text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
-                                    <li class="flex gap-2">
+                                <div class="resume-job-company">StartUp Alpha</div>
+                                <ul class="resume-job-list">
+                                    <li>
                                         <span class="text-primary">•</span>
-                                        <span>Assisted in building a Python-based web scraper for market research,
-                                            collecting over 1M data points daily.</span>
+                                        <span>Assisted in building a Python-based web scraper for market research, collecting over 1M data points daily.</span>
                                     </li>
-                                    <li class="flex gap-2">
+                                    <li>
                                         <span class="text-primary">•</span>
-                                        <span>Participated in daily stand-ups and code reviews following Agile
-                                            methodologies.</span>
+                                        <span>Participated in daily stand-ups and code reviews following Agile methodologies.</span>
                                     </li>
                                 </ul>
                             </div>
                         </div>
                     </section>
                     <!-- Section: Education -->
-                    <section>
-                        <div class="flex items-center gap-3 mb-8">
+                    <section class="resume-section">
+                        <div class="resume-section-title-wrapper">
                             <span class="material-icons text-primary">school</span>
-                            <h3 class="text-2xl font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-                                Education</h3>
+                            <h3 class="resume-section-title">Education</h3>
                         </div>
                         <div class="space-y-8">
-                            <div class="flex justify-between items-start">
+                            <div class="resume-edu-item">
                                 <div>
-                                    <h4 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">M.S. in
-                                        Computer Science</h4>
-                                    <div class="text-primary mb-1">Stanford University</div>
-                                    <div class="text-sm text-slate-500 italic">Specialization in Distributed Systems
+                                    <h4 class="resume-edu-title">M.S. in Computer Science</h4>
+                                    <div class="resume-edu-school">Stanford University</div>
+                                    <div class="resume-edu-details">Specialization in Distributed Systems</div>
                                     </div>
-                                </div>
-                                <span class="text-sm text-slate-500 font-medium">2015 — 2017</span>
+                                <span class="resume-edu-date">2015 — 2017</span>
                             </div>
-                            <div class="flex justify-between items-start">
+                            <div class="resume-edu-item">
                                 <div>
-                                    <h4 class="text-lg font-bold text-slate-900 dark:text-white leading-tight">B.S. in
-                                        Software Engineering</h4>
-                                    <div class="text-primary mb-1">UC Berkeley</div>
-                                    <div class="text-sm text-slate-500 italic">GPA 3.9/4.0, Dean's List</div>
+                                    <h4 class="resume-edu-title">B.S. in Software Engineering</h4>
+                                    <div class="resume-edu-school">UC Berkeley</div>
+                                    <div class="resume-edu-details">GPA 3.9/4.0, Dean's List</div>
                                 </div>
-                                <span class="text-sm text-slate-500 font-medium">2011 — 2015</span>
+                                <span class="resume-edu-date">2011 — 2015</span>
                             </div>
                         </div>
                     </section>
                 </div>
                 <!-- Sidebar Content -->
-                <aside class="lg:col-span-4 bg-slate-50/50 dark:bg-slate-800/20 p-8 md:p-12">
+                <aside class="resume-sidebar">
                     <!-- Section: Tech Skills -->
-                    <section class="mb-12">
-                        <div class="flex items-center gap-3 mb-6">
+                    <section class="resume-sidebar-section">
+                        <div class="resume-sidebar-title-wrapper">
                             <span class="material-icons text-primary">psychology</span>
-                            <h3 class="text-lg font-bold uppercase tracking-wider text-slate-900 dark:text-white">Core
-                                Skills</h3>
+                            <h3 class="resume-sidebar-title">Core Skills</h3>
                         </div>
                         <div class="space-y-6">
-                            <div>
-                                <h4
-                                    class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase mb-3 tracking-widest">
-                                    Languages</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    <span
-                                        class="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-lg text-xs font-semibold">TypeScript</span>
-                                    <span
-                                        class="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-lg text-xs font-semibold">Python</span>
-                                    <span
-                                        class="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-lg text-xs font-semibold">Go</span>
-                                    <span
-                                        class="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-lg text-xs font-semibold">Rust</span>
-                                    <span
-                                        class="px-3 py-1 bg-primary/10 text-primary border border-primary/20 rounded-lg text-xs font-semibold">SQL</span>
+                            <div class="resume-skill-group">
+                                <h4 class="resume-skill-group-title">Languages</h4>
+                                <div class="resume-skill-tags">
+                                    <span class="resume-skill-tag resume-skill-tag-primary">TypeScript</span>
+                                    <span class="resume-skill-tag resume-skill-tag-primary">Python</span>
+                                    <span class="resume-skill-tag resume-skill-tag-primary">Go</span>
+                                    <span class="resume-skill-tag resume-skill-tag-primary">Rust</span>
+                                    <span class="resume-skill-tag resume-skill-tag-primary">SQL</span>
                                 </div>
                             </div>
-                            <div>
-                                <h4
-                                    class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase mb-3 tracking-widest">
-                                    Frontend</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    <span
-                                        class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold">React</span>
-                                    <span
-                                        class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold">Next.js</span>
-                                    <span
-                                        class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold">Tailwind
-                                        CSS</span>
-                                    <span
-                                        class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold">Redux</span>
+                            <div class="resume-skill-group">
+                                <h4 class="resume-skill-group-title">Frontend</h4>
+                                <div class="resume-skill-tags">
+                                    <span class="resume-skill-tag">React</span>
+                                    <span class="resume-skill-tag">Next.js</span>
+                                    <span class="resume-skill-tag">Tailwind CSS</span>
+                                    <span class="resume-skill-tag">Redux</span>
                                 </div>
                             </div>
-                            <div>
-                                <h4
-                                    class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase mb-3 tracking-widest">
-                                    Backend &amp; Cloud</h4>
-                                <div class="flex flex-wrap gap-2">
-                                    <span
-                                        class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold">Node.js</span>
-                                    <span
-                                        class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold">PostgreSQL</span>
-                                    <span
-                                        class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold">Docker</span>
-                                    <span
-                                        class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold">AWS</span>
-                                    <span
-                                        class="px-3 py-1 bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 rounded-lg text-xs font-semibold">Kubernetes</span>
+                            <div class="resume-skill-group">
+                                <h4 class="resume-skill-group-title">Backend &amp; Cloud</h4>
+                                <div class="resume-skill-tags">
+                                    <span class="resume-skill-tag">Node.js</span>
+                                    <span class="resume-skill-tag">PostgreSQL</span>
+                                    <span class="resume-skill-tag">Docker</span>
+                                    <span class="resume-skill-tag">AWS</span>
+                                    <span class="resume-skill-tag">Kubernetes</span>
                                 </div>
                             </div>
                         </div>
                     </section>
                     <!-- Section: Honors -->
-                    <section class="mb-12">
-                        <div class="flex items-center gap-3 mb-6">
+                    <section class="resume-sidebar-section">
+                        <div class="resume-sidebar-title-wrapper">
                             <span class="material-icons text-primary">emoji_events</span>
-                            <h3 class="text-lg font-bold uppercase tracking-wider text-slate-900 dark:text-white">Honors
-                            </h3>
+                            <h3 class="resume-sidebar-title">Honors</h3>
                         </div>
                         <ul class="space-y-4">
-                            <li>
-                                <div class="text-sm font-bold text-slate-900 dark:text-white">AWS Certified Solutions
-                                    Architect</div>
-                                <div class="text-xs text-slate-500">Professional Level, 2022</div>
+                            <li class="resume-honor-item">
+                                <div class="resume-honor-title">AWS Certified Solutions Architect</div>
+                                <div class="resume-honor-desc">Professional Level, 2022</div>
                             </li>
-                            <li>
-                                <div class="text-sm font-bold text-slate-900 dark:text-white">Global Fintech Hackathon
-                                </div>
-                                <div class="text-xs text-slate-500">1st Place Winner, London 2019</div>
+                            <li class="resume-honor-item">
+                                <div class="resume-honor-title">Global Fintech Hackathon</div>
+                                <div class="resume-honor-desc">1st Place Winner, London 2019</div>
                             </li>
-                            <li>
-                                <div class="text-sm font-bold text-slate-900 dark:text-white">Open Source Contributor
-                                </div>
-                                <div class="text-xs text-slate-500">Top 5% Contributor to React Core</div>
+                            <li class="resume-honor-item">
+                                <div class="resume-honor-title">Open Source Contributor</div>
+                                <div class="resume-honor-desc">Top 5% Contributor to React Core</div>
                             </li>
                         </ul>
                     </section>
                     <!-- Section: Languages -->
-                    <section>
-                        <div class="flex items-center gap-3 mb-6">
+                    <section class="resume-sidebar-section">
+                        <div class="resume-sidebar-title-wrapper">
                             <span class="material-icons text-primary">language</span>
-                            <h3 class="text-lg font-bold uppercase tracking-wider text-slate-900 dark:text-white">
-                                Languages</h3>
+                            <h3 class="resume-sidebar-title">Languages</h3>
                         </div>
                         <div class="space-y-3">
-                            <div>
-                                <div class="flex justify-between text-xs font-semibold mb-1">
+                            <div class="resume-lang-item">
+                                <div class="resume-lang-header">
                                     <span>English</span>
-                                    <span class="text-primary">Native</span>
+                                    <span class="resume-lang-proficiency">Native</span>
                                 </div>
-                                <div class="w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-full">
-                                    <div class="bg-primary h-full rounded-full" style="width: 100%"></div>
+                                <div class="resume-lang-bar-bg">
+                                    <div class="resume-lang-bar-fill" style="width: 100%"></div>
                                 </div>
                             </div>
-                            <div>
-                                <div class="flex justify-between text-xs font-semibold mb-1">
+                            <div class="resume-lang-item">
+                                <div class="resume-lang-header">
                                     <span>Spanish</span>
-                                    <span class="text-primary">Fluent</span>
+                                    <span class="resume-lang-proficiency">Fluent</span>
                                 </div>
-                                <div class="w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-full">
-                                    <div class="bg-primary h-full rounded-full" style="width: 85%"></div>
+                                <div class="resume-lang-bar-bg">
+                                    <div class="resume-lang-bar-fill" style="width: 85%"></div>
                                 </div>
                             </div>
-                            <div>
-                                <div class="flex justify-between text-xs font-semibold mb-1">
+                            <div class="resume-lang-item">
+                                <div class="resume-lang-header">
                                     <span>Japanese</span>
-                                    <span class="text-primary">Conversational</span>
+                                    <span class="resume-lang-proficiency">Conversational</span>
                                 </div>
-                                <div class="w-full h-1 bg-slate-200 dark:bg-slate-800 rounded-full">
-                                    <div class="bg-primary h-full rounded-full" style="width: 40%"></div>
+                                <div class="resume-lang-bar-bg">
+                                    <div class="resume-lang-bar-fill" style="width: 40%"></div>
                                 </div>
                             </div>
                         </div>
@@ -347,9 +257,8 @@
                 </aside>
             </div>
             <!-- Footer -->
-            <footer
-                class="p-8 bg-slate-50 dark:bg-slate-900/60 border-t border-slate-200 dark:border-slate-800 text-center">
-                <p class="text-xs text-slate-400 dark:text-slate-500 uppercase tracking-widest font-semibold mb-2">
+            <footer class="resume-footer">
+                <p class="resume-footer-text">
                     Updated June 2024 • References available upon request
                 </p>
                 <div class="flex justify-center gap-4 no-print">
@@ -371,10 +280,9 @@
             </footer>
         </div>
         <!-- Print Note -->
-        <div class="mt-8 text-center text-slate-400 dark:text-slate-500 text-sm no-print">
-            <p>Looking for a physical copy? Click to <span class=" md:inline text-sm font-medium text-primary"
-                    onclick="window.print()">Print</span> or <span class="text-primary">Download the PDF</span>.</p>
-
+        <div class="resume-print-note no-print">
+            <p>Looking for a physical copy? Click to <span class="resume-print-link" onclick="window.print()">Print</span> or
+                <span class="text-primary cursor-pointer">Download the PDF</span>.</p>
         </div>
     </main>
 </body>
