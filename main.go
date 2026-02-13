@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"html/template"
 	"net/http"
+	"strings"
 )
 
 type PageData struct {
@@ -35,8 +36,9 @@ func servePage(w http.ResponseWriter, r *http.Request) {
 		"/dev/about_me": "dev/about_me.html",
 	}
 
-	page := pages[r.URL.Path]
-	if page == "" {
+	page := "home" 
+	if strings.Contains(r.URL.Path, "")
+	 page == "" {
 		page = "dev/home_page.html"
 
 	}
