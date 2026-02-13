@@ -37,8 +37,9 @@ func servePage(w http.ResponseWriter, r *http.Request)  {
 	data := PageData{Page: "home"}
 
 	err = t.ExecuteTemplate(w, "home_page.html", data) 
-if err != nil {
+	if err != nil {
     fmt.Println("Execution error:", err)
+	}
 }
 
 // 	t.ExecuteTemplate(w, "navbar", data)
