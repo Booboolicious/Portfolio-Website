@@ -12,6 +12,12 @@ type PageData struct {
 
 func main() {
 	http.HandleFunc("/dev/", servePage)
+	http.HandleFunc("/dev/professional_resume", servePage)
+	http.HandleFunc("/dev/projects_gallery", servePage)
+	http.HandleFunc("/dev/skills_expertise", servePage)
+	http.HandleFunc("/dev/contact_information", servePage)
+	http.HandleFunc("/dev/about_me.html", servePage)
+
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("dev/css"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("dev/js"))))
 
@@ -22,6 +28,11 @@ func main() {
 func servePage(w http.ResponseWriter, r *http.Request) {
 	pages := map[string]string{
 		"/dev/": "dev/home_page.html",
+		"/dev/professional_resume": "dev/professional_resume.html",
+		"/dev/projects_gallery": "dev/projects_gallery.html",
+		"/dev/skills_expertise": "dev/skills_expertise.html",
+		"/dev/contact_information": "dev/contact_information.html",
+		"/dev/about_me": "dev/about_me.html",
 	}
 
 	page := pages[r.URL.Path]
