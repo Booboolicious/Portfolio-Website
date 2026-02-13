@@ -12,7 +12,8 @@ type PageData struct {
 
 func main(){
 	http.HandleFunc("/dev/", servePage)
-	http
+	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("css"))))
+	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("js"))))
 
 	fmt.Println("server running")
 	http.ListenAndServe(":8081", nil)
