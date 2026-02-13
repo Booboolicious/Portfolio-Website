@@ -6,6 +6,9 @@ import (
 	"net/http"
 )
 
+type PageData struct {
+	Page string
+}
 
 func main(){
 	http.HandleFunc("/dev/", servePage)
@@ -30,6 +33,8 @@ func servePage(w http.ResponseWriter, r *http.Request)  {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
+
+	data := Page
 
 	t.ExecuteTemplate(w, "navbar.html", nil)
 	t.ExecuteTemplate(w, page, nil)
