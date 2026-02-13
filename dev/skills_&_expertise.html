@@ -6,13 +6,13 @@
     <meta charset="utf-8" />
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <title>Skills &amp; Expertise | Software Engineer Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="../css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
         rel="stylesheet" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
         rel="stylesheet" />
-    <script src="js/main.js" defer></script>
+    <script src="../js/main.js" defer></script>
     <style>
         body {
             font-family: 'Inter', sans-serif;
@@ -36,32 +36,7 @@
 <body
     class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 font-display transition-colors duration-300 ">
     <!-- Navigation -->
- <nav class="sticky top-0 w-full z-50 glass py-4">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white font-bold text-lg">EA
-                </div>
-                <span class="text-xl font-bold tracking-tight">Ezekiel<span class="text-primary">Augustine</span></span>
-            </div>
-            <div class="hidden md:flex items-center space-x-8 text-sm font-medium project-card:hover ">
-                <a class="hover:text-primary transition-all hover:-translate-y-1 nav-link hover rounded"
-                    href="home_page.html">Home</a>
-                <a class="hover:text-primary transition-all hover:-translate-y-1 nav-link hover rounded"
-                    href="professional_resume.html">Experience</a>
-                <a class="hover:text-primary transition-all hover:-translate-y-1 nav-link hover rounded"
-                    href="projects_gallery.html">Projects</a>
-                <a class="hover:text-primary transition-all hover:-translate-y-1 nav-link hover rounded"
-                    href="skills_&_expertise.html">Skills</a>
-                <a class=" hover:text-primary transition-all hover:-translate-y-1 nav-link hover rounded "
-                    href="contact_information.html">Let's Talk</a>
-                <a class=" hover:text-primary transition-all hover:-translate-y-1 nav-link hover rounded "
-                    href="about_me.html">About Me</a>
-            </div>
-            <!-- <button class="md:hidden text-slate-100">
-                <span class="material-icons">menu</span>
-            </button> -->
-        </div>
-    </nav>
+{{template "navbar" .}}
     <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <!-- Header Section -->
         <header class="mb-16">
@@ -358,6 +333,7 @@
         </section>
     </main>
     <!-- Footer -->
+     {{template "footer" .}}
     <footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8">
