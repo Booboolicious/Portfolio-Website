@@ -16,16 +16,16 @@ func main(){
 
 func servePage(w http.ResponseWriter, r *http.Request)  {
 	pages := map[string]string{
-		"dev/" : "home_page.html",
+		"dev/" : "dev/home_page.html",
 	}
 
 	page := pages[r.URL.Path]
 	if page == ""{
-		page = "home_page.html"
+		page = "dev/home_page.html"
 
 	}
 
-	t, err := template.ParseFiles("navbar.html", "footer.html", page)
+	t, err := template.ParseFiles("dev/navbar.html", "dev/footer.html", page)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
