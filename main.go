@@ -37,11 +37,16 @@ func servePage(w http.ResponseWriter, r *http.Request) {
 		"/dev/about_me": "dev/about_me.html",
 	}
 
+	filePath := pages[r.URL.Path]
+    if filePath == "" {
+        filePath = "dev/home_page.html"
+    }
+
 	page := "home" 
 	if strings.Contains(r.URL.Path, "professional_resume"){
 		page = "resume"
 	}
-	if strings.Contains(r.URL.Path, "projects_gallery"){
+	else if strings.Contains(r.URL.Path, "projects_gallery"){
 		page = "projects"
 	}
 	if strings.Contains(r.URL.Path, "skills_expertise"){
@@ -66,8 +71,8 @@ func servePage(w http.ResponseWriter, r *http.Request) {
 
 	err = t.ExecuteTemplate(w, tName, data)
 	if err != nil {
-		http.Error(w)
+		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
 	
-	t.ExecuteTemplate(w, page, data)
+	// t.ExecuteTemplate(w, page, data)
 }
