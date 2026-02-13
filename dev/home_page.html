@@ -15,68 +15,59 @@
     <script src="../js/main.js" defer></script>
 </head>
 
-<body
-    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display selection:bg-primary selection:text-white space-y-4">
+<body class="page-body">
     <!-- Navigation -->
 {{template "navbar" .}}
     <!-- Main Content -->
-    <main class="relative pt-20 ">
-        <!-- Hero Section --> <!-- tech-grid-->
-        <section class="relative min-h-[90vh] flex items-center overflow-hidden tech-grid">
+    <main class="page-main">
+        <!-- Hero Section -->
+        <section class="hero-section">
             <!-- Background Decoration -->
-            <div class="absolute top-1/4 -left-20 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
-            <div class="absolute bottom-1/4 -right-20 w-80 h-80 bg-primary/5 rounded-full blur-[100px]"></div>
-            <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
-                <div class="space-y-4">
-                    <div
-                        class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold uppercase tracking-widest">
-                        <span class="relative flex h-2 w-2">
-                            <span
-                                class="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75"></span>
-                            <span class="relative inline-flex rounded-full h-2 w-2 bg-primary"></span>
+            <div class="hero-bg-blob-1"></div>
+            <div class="hero-bg-blob-2"></div>
+            <div class="hero-container">
+                <div class="hero-content">
+                    <div class="hero-badge">
+                        <span class="hero-badge-pulse">
+                            <span class="hero-badge-pulse-ring"></span>
+                            <span class="hero-badge-pulse-dot"></span>
                         </span>
                         <span>Available for New Projects</span>
                     </div>
-                    <h1 class="text-5xl md:text-7xl font-bold">
+                    <h1 class="hero-title">
                         Building Scalable <br />
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r ">Solutions</span>
+                        <span class="hero-title-gradient">Solutions</span>
                         through <br />
                         Efficiency.
                     </h1>
-                    <p class="text-lg md:text-xl text-slate-400 max-w-lg leading-relaxed">
+                    <p class="hero-description">
                         Full-stack Software Engineer specializing in high-performance web applications and distributed
                         systems. Crafting digital experiences that matter.
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a class="px-3 py-4 bg-primary text-white font-semibold rounded-lg flex items-center justify-center space-x-2  shadow-xl shadow-primary/25"
-                            href="projects_gallery.html">
+                    <div class="hero-cta-group">
+                        <a class="hero-cta-primary" href="projects_gallery.html">
                             <span>View My Work</span>
                             <span class="material-icons text-sm">arrow_forward</span>
                         </a>
-                        <a class="px-3 py-4 border border-slate-700 hover:border-primary/50 hover:bg-primary/5 text-slate-200 font-semibold rounded-lg flex items-center justify-center transition-all"
-                            href="professional_resume.html">
+                        <a class="hero-cta-secondary" href="professional_resume.html">
                             <span>Download Resume</span>
                         </a>
                     </div>
-                    <div class="flex items-center space-x-6 pt-4">
-                        <a class="text-slate-500 hover:text-primary " href="#"><i
-                                class="material-icons">code</i></a>
-                        <a class="text-slate-500 hover:text-primary transition-colors" href="#"><i
-                                class="material-icons">terminal</i></a>
-                        <a class="text-slate-500 hover:text-primary transition-colors" href="#"><i
-                                class="material-icons">public</i></a>
+                    <div class="hero-social-links">
+                        <a class="hero-social-link" href="#"><i class="material-icons">code</i></a>
+                        <a class="hero-social-link" href="#"><i class="material-icons">terminal</i></a>
+                        <a class="hero-social-link" href="#"><i class="material-icons">public</i></a>
                     </div>
                 </div>
-                <div class="hidden md:block relative">
-                    <div
-                        class="relative z-10 p-4 bg-slate-800/50 backdrop-blur-sm border border-slate-700/50 rounded-xl shadow-2xl">
-                        <div class="flex items-center space-x-2 mb-4 border-b border-slate-700/50 pb-3">
-                            <div class="w-3 h-3 rounded-full bg-red-500/50"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500/50"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500/50"></div>
-                            <div class="ml-4 text-xs text-slate-500 font-mono">portfolio_v2.ts</div>
+                <div class="hero-code-preview">
+                    <div class="hero-code-window">
+                        <div class="hero-code-header">
+                            <div class="hero-code-dot hero-code-dot-red"></div>
+                            <div class="hero-code-dot hero-code-dot-yellow"></div>
+                            <div class="hero-code-dot hero-code-dot-green"></div>
+                            <div class="hero-code-filename">portfolio_v2.ts</div>
                         </div>
-                        <div class="font-mono text-sm space-y-2">
+                        <div class="hero-code-content">
                             <p class="text-primary">const <span class="text-slate-300">engineer</span> = {</p>
                             <p class="pl-4 text-slate-300">name: <span class="text-amber-200">"John Doe"</span>,</p>
                             <p class="pl-4 text-slate-300">role: <span class="text-amber-200">"Full Stack
@@ -92,71 +83,69 @@
                         </div>
                     </div>
                     <!-- Decorative Circle behind code box -->
-                    <div class="absolute -top-10 -right-10 w-64 h-64 bg-primary/20 rounded-full blur-3xl -z-10"></div>
+                    <div class="hero-code-bg-circle"></div>
                 </div>
             </div>
         </section>
         <!-- Tech Stack Bar -->
-        <section class="border-y border-slate-800 bg-background-dark/50 py-12">
-            <div class="max-w-7xl mx-auto px-6">
-                <p class="text-center text-slate-500 text-sm font-semibold uppercase tracking-widest mb-10">Trusted
-                    Technology Stack</p>
-                <div
-                    class="grid grid-cols-3 md:grid-cols-6 gap-8 opacity-50 grayscale hover:grayscale-0 transition-all duration-700">
-                    <div class="flex flex-col items-center space-y-2">
-                        <img alt="React" class="w-12 h-12 object-contain" data-alt="Svelte JavaScript library logo icon"
+        <section class="tech-stack-section">
+            <div class="tech-stack-container">
+                <p class="tech-stack-title">Trusted Technology Stack</p>
+                <div class="tech-stack-grid">
+                    <div class="tech-stack-item">
+                        <img alt="React" class="tech-stack-icon" data-alt="Svelte JavaScript library logo icon"
                             src="https://blog.logrocket.com/wp-content/uploads/2021/05/Exploring-Newest-Svelte-Based-Framework-SvelteKit.png" />
-                        <span class="text-xs font-medium">Svelte</span>
+                        <span class="tech-stack-name">Svelte</span>
                     </div>
-                    <div class="flex flex-col items-center space-y-2">
-                        <img alt="NodeJS" class="w-12 h-12 object-contain"
+                    <div class="tech-stack-item">
+                        <img alt="NodeJS" class="tech-stack-icon"
                             data-alt="Node.js server-side platform logo icon"
                             src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS5O-bOnuJsQpneKtKbJ5DUV0UzYK7gfebGtA&s" />
-                        <span class="text-xs font-medium">Golang</span>
+                        <span class="tech-stack-name">Golang</span>
                     </div>
-                    <div class="flex flex-col items-center space-y-2">
-                        <img alt="TypeScript" class="w-12 h-12 object-contain"
+                    <div class="tech-stack-item">
+                        <img alt="TypeScript" class="tech-stack-icon"
                             data-alt="TypeScript programming language logo icon"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuC2o8zB3f3BNfRrDbsd_jxGuZCyh7cgzLadKN8crESTzfNDB_vVMC4j73NQzUPGUFRtWqV_qMoRvqt7svSw5Dq0A07XVrqeCl5hZW8gOcVqbSXbEbCi310dNYc2Zi81Gv5ZaaK3cshYtKDhBXDLE5TWjHwHZ4OSX9XCX2UxXPiLPdi4FKYz-w8zpA2jjsNTKmOcKqHhaYv1BhruelQMHiGmow_MXhD-1q1wd5wgZhHIRyZQgd-lX5RH6CtDHMMeZu6yzN0BG8sADq4" />
-                        <span class="text-xs font-medium">TypeScript</span>
+                        <span class="tech-stack-name">TypeScript</span>
                     </div>
-                    <div class="flex flex-col items-center space-y-2">
-                        <img alt="Python" class="w-12 h-12 object-contain"
+                    <div class="tech-stack-item">
+                        <img alt="Python" class="tech-stack-icon"
                             data-alt="Python programming language logo icon"
                             src="https://lh3.googleusercontent.com/aida-public/AB6AXuD6sjmeR1Lt_-HPDApxiz36EMsXat99nRPZLTJjXI4_MTPvKNkbK1nRWfN_m3DJCnyeyymITtkCXBndf5clHUh4RjJmqPJ7rZc1SvuEGudOyuuCfSCMv5BztTtw70NmwBLcMhDzAdWVaL5tXnRmFzIIQMJ8KSHk9GEdDzO83sRAExvWVRS1GVaorAzSHngi8RYlQl2kmplptMAFn_P-hcg3FZXu3qetvVhDG7fsjiCPzRKq4KbBt4_aP1u2NMVL-j_2eN4Dnhs7i9M" />
-                        <span class="text-xs font-medium">Python</span>
+                        <span class="tech-stack-name">Python</span>
                     </div>
-                    <div class="flex flex-col items-center space-y-2">
-                        <img alt="Docker" class="w-12 h-12 object-contain" data-alt="Docker containerization logo icon"
+                    <div class="tech-stack-item">
+                        <img alt="Docker" class="tech-stack-icon" data-alt="Docker containerization logo icon"
                             src="https://cdn.payara.fish/wp-content/uploads/2025/07/Docker-2.png" />
-                        <span class="text-xs font-medium">Docker</span>
+                        <span class="tech-stack-name">Docker</span>
                     </div>
-                    <div class="flex flex-col items-center space-y-2">
-                        <img alt="AWS" class="w-12 h-12 object-contain" data-alt="AWS cloud services logo icon"
+                    <div class="tech-stack-item">
+                        <img alt="AWS" class="tech-stack-icon" data-alt="AWS cloud services logo icon"
                             src="https://toppng.com/uploads/preview/amazon-web-services-aws-logo-11760037608kihongewng.webp" />
-                        <span class="text-xs font-medium">AWS</span>
+                        <span class="tech-stack-name">AWS</span>
                     </div>
                 </div>
             </div>
         </section>
         <!-- Stats Section -->
-        <section class="py-24 max-w-7xl mx-auto px-6">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
-                <div class="p-8 rounded-xl bg-slate-800/30 border border-slate-800 text-center">
-                    <div class="text-4xl font-bold text-primary mb-2">5+</div>
-                    <div class="text-slate-400 text-sm font-medium">Years of Experience</div>
+        <section class="stats-section">
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <div class="stat-number">5+</div>
+                    <div class="stat-label">Years of Experience</div>
                 </div>
-                <div class="p-8 rounded-xl bg-slate-800/30 border border-slate-800 text-center">
-                    <div class="text-4xl font-bold text-primary mb-2">120+</div>
-                    <div class="text-slate-400 text-sm font-medium">Project Completed</div>
+                <div class="stat-card">
+                    <div class="stat-number">120+</div>
+                    <div class="stat-label">Project Completed</div>
                 </div>
-                <div class="p-8 rounded-xl bg-slate-800/30 border border-slate-800 text-center">
-                    <div class="text-4xl font-bold text-primary mb-2">40+</div>
-                    <div class="text-slate-400 text-sm font-medium">Happy Clients</div>
+                <div class="stat-card">
+                    <div class="stat-number">40+</div>
+                    <div class="stat-label">Happy Clients</div>
                 </div>
-                <div class="p-8 rounded-xl bg-slate-800/30 border border-slate-800 text-center">
-                    <div class="text-4xl font-bold text-primary mb-2">15k</div>
-                    <div class="text-slate-400 text-sm font-medium">Lines of Code</div>
+                <div class="stat-card">
+                    <div class="stat-number">15k</div>
+                    <div class="stat-label">Lines of Code</div>
                 </div>
             </div>
         </section>
