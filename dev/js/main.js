@@ -56,13 +56,18 @@ function initTheme() {
 
 // Mobile Menu Toggle
 function setupMobileMenu() {
-  const menuButton = document.querySelector('button[class*="md:hidden"]');
-  if (!menuButton) return;
+  const menuButton = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  if (!menuButton || !mobileMenu) return;
   
   menuButton.addEventListener('click', () => {
-    const nav = document.querySelector('nav div[class*="flex items-center space-x-8"]');
-    if (nav) {
-      nav.classList.toggle('hidden');
+    mobileMenu.classList.toggle('hidden');
+
+    // Change icon if needed
+    const icon = menuButton.querySelector('.material-icons');
+    if (icon) {
+      icon.textContent = mobileMenu.classList.contains('hidden') ? 'menu' : 'close';
     }
   });
 }

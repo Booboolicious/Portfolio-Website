@@ -9,41 +9,42 @@
         <div id="desktop-menu" class="hidden md:flex items-center space-x-4 text-sm font-medium">
             <a class="px-5 py-2.5 transition-all duration-300 rounded-lg {{ if eq .Page `home` }} bg-primary text-white shadow-lg shadow-primary/25 hover:bg-primary/90 {{ else }} text-slate-300 hover:text-primary {{ end }}"
                 href="/dev/">Home</a>
-        
+
             <a class="px-5 py-2.5 transition-all duration-300 rounded-lg {{ if eq .Page `resume` }} bg-primary text-white shadow-lg shadow-primary/25 hover:bg-primary/90 {{ else }} text-slate-300 hover:text-primary {{ end }}"
                 href="/dev/professional_resume">Experience</a>
             <a class="px-5 py-2.5 transition-all duration-300 rounded-lg {{ if eq .Page `projects` }} bg-primary text-white shadow-lg shadow-primary/25 hover:bg-primary/90 {{ else }} text-slate-300 hover:text-primary {{ end }}"
                 href="/dev/projects_gallery">Projects</a>
-            
+
             <a class="px-5 py-2.5 transition-all duration-300 rounded-lg {{ if eq .Page `skills` }} bg-primary text-white shadow-lg shadow-primary/25 hover:bg-primary/90 {{ else }} text-slate-300 hover:text-primary {{ end }}"
                 href="/dev/skills_&_expertise">Skills</a>
             <a class="px-5 py-2.5 transition-all duration-300 rounded-lg {{ if eq .Page `about` }} bg-primary text-white shadow-lg shadow-primary/25 hover:bg-primary/90 {{ else }} text-slate-300 hover:text-primary {{ end }}"
                 href="/dev/about_me">About</a>
-            
-            <a class="ml-4 px-6 py-2.5 bg-primary text-white rounded-lg shadow-lg shadow-primary/20 hover:bg-primary/90 hover:-translate-y-0.5 transition-all duration-300 {{ if eq .Page `contact` }} ring-2 ring-primary ring-offset-2 ring-offset-background-dark {{ end }}"
+
+            <a class="px-5 py-2.5 transition-all duration-300 rounded-lg {{ if eq .Page `about` }} bg-primary text-white shadow-lg shadow-primary/25 hover:bg-primary/90 {{ else }} text-slate-300 hover:text-primary {{ end }}"
                 href="/dev/contact_information">Let's Talk</a>
         </div>
-        <button id="mobile-menu-toggle" class="md:hidden text-slate-100 p-2 hover:bg-slate-800 rounded-lg transition-colors">
+        <button id="mobile-menu-toggle"
+            class="md:hidden text-slate-100 p-2 hover:bg-slate-800 rounded-lg transition-colors">
             <span class="material-icons">menu</span>
         </button>
     </div>
-<!-- Mobile Menu -->
-<div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-background-dark/95 backdrop-blur-xl">
-    <div class="px-6 py-8 flex flex-col space-y-4">
-        <a class="px-4 py-3 rounded-lg transition-all {{ if eq .Page `home` }} bg-primary text-white {{ else }} text-slate-300 {{ end }}"
-            href="/dev/">Home</a>
-        <a class="px-4 py-3 rounded-lg transition-all {{ if eq .Page `resume` }} bg-primary text-white {{ else }} text-slate-300 {{ end }}"
-            href="/dev/professional_resume">Experience</a>
-        <a class="px-4 py-3 rounded-lg transition-all {{ if eq .Page `projects` }} bg-primary text-white {{ else }} text-slate-300 {{ end }}"
-            href="/dev/projects_gallery">Projects</a>
-        <a class="px-4 py-3 rounded-lg transition-all {{ if eq .Page `skills` }} bg-primary text-white {{ else }} text-slate-300 {{ end }}"
-            href="/dev/skills_&_expertise">Skills</a>
-        <a class="px-4 py-3 rounded-lg transition-all {{ if eq .Page `about` }} bg-primary text-white {{ else }} text-slate-300 {{ end }}"
-            href="/dev/about_me">About</a>
-        <a class="px-4 py-4 rounded-lg bg-primary text-white text-center font-bold shadow-lg shadow-primary/20"
-            href="/dev/contact_information">Let's Talk</a>
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-t border-slate-800 bg-background-dark/95 backdrop-blur-xl">
+        <div class="px-6 py-8 flex flex-col space-y-4">
+            <a class="px-4 py-3 rounded-lg transition-all {{ if eq .Page `home` }} bg-primary text-white {{ else }} text-slate-300 {{ end }}"
+                href="/dev/">Home</a>
+            <a class="px-4 py-3 rounded-lg transition-all {{ if eq .Page `resume` }} bg-primary text-white {{ else }} text-slate-300 {{ end }}"
+                href="/dev/professional_resume">Experience</a>
+            <a class="px-4 py-3 rounded-lg transition-all {{ if eq .Page `projects` }} bg-primary text-white {{ else }} text-slate-300 {{ end }}"
+                href="/dev/projects_gallery">Projects</a>
+            <a class="px-4 py-3 rounded-lg transition-all {{ if eq .Page `skills` }} bg-primary text-white {{ else }} text-slate-300 {{ end }}"
+                href="/dev/skills_&_expertise">Skills</a>
+            <a class="px-4 py-3 rounded-lg transition-all {{ if eq .Page `about` }} bg-primary text-white {{ else }} text-slate-300 {{ end }}"
+                href="/dev/about_me">About</a>
+            <a class="px-4 py-4 rounded-lg bg-primary text-white text-center font-bold shadow-lg shadow-primary/20"
+                href="/dev/contact_information">Let's Talk</a>
+        </div>
     </div>
-</div>
 </nav>
 <!-- <nav class="site-navbar">
     <div class="navbar-container">
