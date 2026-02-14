@@ -73,17 +73,17 @@ function setupMobileMenu() {
 }
 
 // Set active nav link based on current page
-function setActiveNavLink() {
-  const currentPath = window.location.pathname;
-  const navLinks = document.querySelectorAll('a[href*=".html"]');
+// function setActiveNavLink() {
+//   const currentPath = window.location.pathname;
+//   const navLinks = document.querySelectorAll('a[href*=".html"]');
   
-  navLinks.forEach(link => {
-    link.classList.remove('active', 'text-primary', 'border-b-2', 'border-primary');
-    if (link.getAttribute('href') === currentPath) {
-      link.classList.add('active', 'text-primary');
-    }
-  });
-}
+//   navLinks.forEach(link => {
+//     link.classList.remove('active', 'text-primary', 'border-b-2', 'border-primary');
+//     if (link.getAttribute('href') === currentPath) {
+//       link.classList.add('active', 'text-primary');
+//     }
+//   });
+// }
 
 // Smooth scroll for anchor links
 function setupSmoothScroll() {
