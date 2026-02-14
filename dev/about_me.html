@@ -14,20 +14,7 @@
 <body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 font-display transition-colors duration-300">
 <!-- Navigation -->
   {{template "navbar" .}}
-<nav class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
-<div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-<div class="text-xl font-bold tracking-tight">
-<span class="text-primary">&lt;</span>Dev<span class="text-primary">/&gt;</span>
-</div>
-<div class="hidden md:flex items-center space-x-8 text-sm font-medium">
-<a class="hover:text-primary transition-colors" href="#">Home</a>
-<a class="hover:text-primary transition-colors" href="#">Projects</a>
-<a class="text-primary" href="#">About</a>
-<a class="hover:text-primary transition-colors" href="#">Resume</a>
-<a class="bg-primary text-white px-5 py-2 rounded-lg hover:bg-primary/90 transition-all" href="#">Contact</a>
-</div>
-</div>
-</nav>
+
 <!-- Hero Section -->
 <header class="relative pt-20 pb-12 overflow-hidden">
 <div class="max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
@@ -216,14 +203,8 @@
                     View Full Resume
                 </a>
 </div>
-<div class="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between text-slate-500 text-sm">
-<p>© 2024 Alex Sterling. All rights reserved.</p>
-<div class="flex space-x-6 mt-4 md:mt-0">
-<a class="hover:text-primary transition-colors" href="#">GitHub</a>
-<a class="hover:text-primary transition-colors" href="#">LinkedIn</a>
-<a class="hover:text-primary transition-colors" href="#">Twitter</a>
-</div>
-</div>
+{{template "footer" .}}
+
 </div>
 </footer>
 </body></html>
