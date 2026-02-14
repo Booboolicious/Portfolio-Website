@@ -1,289 +1,346 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en">
-
-<head>
-    <meta charset="utf-8" />
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-    <title>Skills &amp; Expertise | Software Engineer Portfolio</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
-        rel="stylesheet" />
-    <script src="../js/main.js" defer></script>
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Skills &amp; Expertise | Software Engineer Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 4px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #135bec40;
+            border-radius: 10px;
+        }
+    </style>
 </head>
-
-<body class="page-body">
-    <!-- Navigation -->
-{{template "navbar" .}}
-    <main class="skills-main">
-        <!-- Header Section -->
-        <header class="skills-header">
-            <div class="skills-badge">
-                <span class="skills-badge-dot"></span>
+<body class="bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 font-display transition-colors duration-300">
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between h-16 items-center">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-white font-bold">JD</div>
+<span class="font-bold text-xl tracking-tight dark:text-white">DevPortfolio</span>
+</div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Home</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Projects</a>
+<a class="text-primary font-semibold" href="#">Skills</a>
+<a class="text-slate-600 dark:text-slate-400 hover:text-primary dark:hover:text-primary transition-colors" href="#">Experience</a>
+<button class="bg-primary text-white px-5 py-2 rounded-lg font-medium hover:bg-primary/90 transition-all">Contact Me</button>
+</div>
+</div>
+</div>
+</nav>
+<main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+<!-- Header Section -->
+<header class="mb-16">
+<div class="inline-flex items-center px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm font-medium mb-4">
+<span class="flex h-2 w-2 rounded-full bg-primary mr-2"></span>
                 My Technical Stack
             </div>
-            <h1 class="skills-title">
-                Skills &amp; <span class="skills-title-accent">Expertise.</span>
-            </h1>
-            <p class="skills-description">
-                Over 6 years of experience building scalable web applications. Specialized in full-stack architecture,
-                distributed systems, and cloud-native infrastructure.
+<h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 dark:text-white mb-6">
+                Skills &amp; <span class="text-primary">Expertise.</span>
+</h1>
+<p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed">
+                Over 6 years of experience building scalable web applications. Specialized in full-stack architecture, distributed systems, and cloud-native infrastructure.
             </p>
-        </header>
-        <!-- Core Competencies -->
-        <section class="skills-section">
-            <h2 class="skills-section-title">
-                <span class="material-icons text-primary">stars</span>
+</header>
+<!-- Core Competencies -->
+<section class="mb-20">
+<h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
+<span class="material-icons text-primary">stars</span>
                 Core Competencies
             </h2>
-            <div class="skills-competency-grid">
-                <!-- Competency 1 -->
-                <div class="skills-competency-card">
-                    <div class="skills-competency-icon-wrapper">
-                        <span class="material-icons text-3xl">architecture</span>
-                    </div>
-                    <h3 class="skills-competency-title">System Architecture</h3>
-                    <p class="skills-competency-text">Designing robust microservices, API
-                        gateways, and distributed message queues for high-traffic platforms.</p>
-                </div>
-                <!-- Competency 2 -->
-                <div class="skills-competency-card">
-                    <div class="skills-competency-icon-wrapper">
-                        <span class="material-icons text-3xl">cloud_done</span>
-                    </div>
-                    <h3 class="skills-competency-title">Cloud Engineering</h3>
-                    <p class="skills-competency-text">Architecting serverless solutions and
-                        multi-region deployments on AWS and Google Cloud Platform.</p>
-                </div>
-                <!-- Competency 3 -->
-                <div class="skills-competency-card">
-                    <div class="skills-competency-icon-wrapper">
-                        <span class="material-icons text-3xl">security</span>
-                    </div>
-                    <h3 class="skills-competency-title">Performance &amp; Security</h3>
-                    <p class="skills-competency-text">Implementing advanced caching
-                        strategies, SQL optimization, and Zero Trust security protocols.</p>
-                </div>
-            </div>
-        </section>
-        <!-- Technical Skill Grid -->
-        <section class="skills-tech-layout skills-section">
-            <!-- Left Column: Primary Tech Stack -->
-            <div class="skills-mastery-group">
-                <div>
-                    <h2 class="skills-section-title">
-                        <span class="material-icons text-primary">code</span>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+<!-- Competency 1 -->
+<div class="p-8 rounded-xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all group">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-icons text-3xl">architecture</span>
+</div>
+<h3 class="text-xl font-bold mb-3 dark:text-white">System Architecture</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Designing robust microservices, API gateways, and distributed message queues for high-traffic platforms.</p>
+</div>
+<!-- Competency 2 -->
+<div class="p-8 rounded-xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all group">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-icons text-3xl">cloud_done</span>
+</div>
+<h3 class="text-xl font-bold mb-3 dark:text-white">Cloud Engineering</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Architecting serverless solutions and multi-region deployments on AWS and Google Cloud Platform.</p>
+</div>
+<!-- Competency 3 -->
+<div class="p-8 rounded-xl bg-white dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-all group">
+<div class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center text-primary mb-6 group-hover:scale-110 transition-transform">
+<span class="material-icons text-3xl">security</span>
+</div>
+<h3 class="text-xl font-bold mb-3 dark:text-white">Performance &amp; Security</h3>
+<p class="text-slate-600 dark:text-slate-400 leading-relaxed">Implementing advanced caching strategies, SQL optimization, and Zero Trust security protocols.</p>
+</div>
+</div>
+</section>
+<!-- Technical Skill Grid -->
+<section class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+<!-- Left Column: Primary Tech Stack -->
+<div class="space-y-12">
+<div>
+<h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
+<span class="material-icons text-primary">code</span>
                         Frontend Mastery
                     </h2>
-                    <div class="space-y-6">
-                        <!-- Skill Item -->
-                        <div class="skills-bar-item">
-                            <div class="skills-bar-header">
-                                <span class="skills-bar-label">React / Next.js</span>
-                                <span class="skills-bar-percent">95%</span>
-                            </div>
-                            <div class="skills-bar-bg">
-                                <div class="skills-bar-fill" style="width: 95%"></div>
-                            </div>
-                        </div>
-                        <!-- Skill Item -->
-                        <div class="skills-bar-item">
-                            <div class="skills-bar-header">
-                                <span class="skills-bar-label">TypeScript</span>
-                                <span class="skills-bar-percent">90%</span>
-                            </div>
-                            <div class="skills-bar-bg">
-                                <div class="skills-bar-fill" style="width: 90%"></div>
-                            </div>
-                        </div>
-                        <!-- Skill Item -->
-                        <div class="skills-bar-item">
-                            <div class="skills-bar-header">
-                                <span class="skills-bar-label">Tailwind CSS / UI Design</span>
-                                <span class="skills-bar-percent">85%</span>
-                            </div>
-                            <div class="skills-bar-bg">
-                                <div class="skills-bar-fill" style="width: 85%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="skills-section-title">
-                        <span class="material-icons text-primary">storage</span>
+<div class="space-y-6">
+<!-- Skill Item -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="font-semibold dark:text-white">React / Next.js</span>
+<span class="text-sm font-medium text-primary bg-primary/10 px-2 py-0.5 rounded">95%</span>
+</div>
+<div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 95%"></div>
+</div>
+</div>
+<!-- Skill Item -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="font-semibold dark:text-white">TypeScript</span>
+<span class="text-sm font-medium text-primary bg-primary/10 px-2 py-0.5 rounded">90%</span>
+</div>
+<div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 90%"></div>
+</div>
+</div>
+<!-- Skill Item -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="font-semibold dark:text-white">Tailwind CSS / UI Design</span>
+<span class="text-sm font-medium text-primary bg-primary/10 px-2 py-0.5 rounded">85%</span>
+</div>
+<div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 85%"></div>
+</div>
+</div>
+</div>
+</div>
+<div>
+<h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
+<span class="material-icons text-primary">storage</span>
                         Backend Systems
                     </h2>
-                    <div class="space-y-6">
-                        <!-- Skill Item -->
-                        <div class="skills-bar-item">
-                            <div class="skills-bar-header">
-                                <span class="skills-bar-label">Node.js / Express</span>
-                                <span class="skills-bar-percent">92%</span>
-                            </div>
-                            <div class="skills-bar-bg">
-                                <div class="skills-bar-fill" style="width: 92%"></div>
-                            </div>
-                        </div>
-                        <!-- Skill Item -->
-                        <div class="skills-bar-item">
-                            <div class="skills-bar-header">
-                                <span class="skills-bar-label">PostgreSQL / MongoDB</span>
-                                <span class="skills-bar-percent">88%</span>
-                            </div>
-                            <div class="skills-bar-bg">
-                                <div class="skills-bar-fill" style="width: 88%"></div>
-                            </div>
-                        </div>
-                        <!-- Skill Item -->
-                        <div class="skills-bar-item">
-                            <div class="skills-bar-header">
-                                <span class="skills-bar-label">Python / Django</span>
-                                <span class="skills-bar-percent">80%</span>
-                            </div>
-                            <div class="skills-bar-bg">
-                                <div class="skills-bar-fill" style="width: 80%"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!-- Right Column: Tools & Cloud -->
-            <div class="skills-mastery-group">
-                <div>
-                    <h2 class="skills-section-title">
-                        <span class="material-icons text-primary">settings_suggest</span>
+<div class="space-y-6">
+<!-- Skill Item -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="font-semibold dark:text-white">Node.js / Express</span>
+<span class="text-sm font-medium text-primary bg-primary/10 px-2 py-0.5 rounded">92%</span>
+</div>
+<div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 92%"></div>
+</div>
+</div>
+<!-- Skill Item -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="font-semibold dark:text-white">PostgreSQL / MongoDB</span>
+<span class="text-sm font-medium text-primary bg-primary/10 px-2 py-0.5 rounded">88%</span>
+</div>
+<div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 88%"></div>
+</div>
+</div>
+<!-- Skill Item -->
+<div>
+<div class="flex justify-between items-center mb-2">
+<span class="font-semibold dark:text-white">Python / Django</span>
+<span class="text-sm font-medium text-primary bg-primary/10 px-2 py-0.5 rounded">80%</span>
+</div>
+<div class="h-2 w-full bg-slate-200 dark:bg-slate-800 rounded-full overflow-hidden">
+<div class="h-full bg-primary rounded-full" style="width: 80%"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Tools & Cloud -->
+<div class="space-y-12">
+<div>
+<h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
+<span class="material-icons text-primary">settings_suggest</span>
                         DevOps &amp; Tooling
                     </h2>
-                    <div class="skills-tags-grid">
-                        <span class="skills-tag">
-                            <span class="material-icons text-sm">terminal</span> Docker
+<div class="flex flex-wrap gap-3">
+<span class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2 hover:border-primary hover:text-primary transition-all cursor-default">
+<span class="material-icons text-sm">terminal</span> Docker
                         </span>
-                        <span class="skills-tag">
-                            <span class="material-icons text-sm">cloud_queue</span> Kubernetes
+<span class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2 hover:border-primary hover:text-primary transition-all cursor-default">
+<span class="material-icons text-sm">cloud_queue</span> Kubernetes
                         </span>
-                        <span class="skills-tag">
-                            <span class="material-icons text-sm">hub</span> GitHub Actions
+<span class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2 hover:border-primary hover:text-primary transition-all cursor-default">
+<span class="material-icons text-sm">hub</span> GitHub Actions
                         </span>
-                        <span class="skills-tag">
-                            <span class="material-icons text-sm">psychology</span> AWS Lambda
+<span class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2 hover:border-primary hover:text-primary transition-all cursor-default">
+<span class="material-icons text-sm">psychology</span> AWS Lambda
                         </span>
-                        <span class="skills-tag">
-                            <span class="material-icons text-sm">query_stats</span> Terraform
+<span class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2 hover:border-primary hover:text-primary transition-all cursor-default">
+<span class="material-icons text-sm">query_stats</span> Terraform
                         </span>
-                        <span class="skills-tag">
-                            <span class="material-icons text-sm">speed</span> Redis
+<span class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2 hover:border-primary hover:text-primary transition-all cursor-default">
+<span class="material-icons text-sm">speed</span> Redis
                         </span>
-                        <span class="skills-tag">
-                            <span class="material-icons text-sm">analytics</span> GraphQL
+<span class="px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 font-medium text-slate-700 dark:text-slate-300 flex items-center gap-2 hover:border-primary hover:text-primary transition-all cursor-default">
+<span class="material-icons text-sm">analytics</span> GraphQL
                         </span>
-                    </div>
-                </div>
-                <div>
-                    <h2 class="skills-section-title">
-                        <span class="material-icons text-primary">groups</span>
+</div>
+</div>
+<div>
+<h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
+<span class="material-icons text-primary">groups</span>
                         Processes &amp; Soft Skills
                     </h2>
-                    <ul class="skills-list">
-                        <li class="skills-list-item">
-                            <span class="material-icons text-primary text-sm">check_circle</span>
+<ul class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+<li class="flex items-center gap-3 text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary text-sm">check_circle</span>
                             Agile / Scrum / Kanban
                         </li>
-                        <li class="skills-list-item">
-                            <span class="material-icons text-primary text-sm">check_circle</span>
+<li class="flex items-center gap-3 text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary text-sm">check_circle</span>
                             Test-Driven Development
                         </li>
-                        <li class="skills-list-item">
-                            <span class="material-icons text-primary text-sm">check_circle</span>
+<li class="flex items-center gap-3 text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary text-sm">check_circle</span>
                             CI/CD Pipelines
                         </li>
-                        <li class="skills-list-item">
-                            <span class="material-icons text-primary text-sm">check_circle</span>
+<li class="flex items-center gap-3 text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary text-sm">check_circle</span>
                             Clean Code (SOLID)
                         </li>
-                        <li class="skills-list-item">
-                            <span class="material-icons text-primary text-sm">check_circle</span>
+<li class="flex items-center gap-3 text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary text-sm">check_circle</span>
                             Team Leadership
                         </li>
-                        <li class="skills-list-item">
-                            <span class="material-icons text-primary text-sm">check_circle</span>
+<li class="flex items-center gap-3 text-slate-600 dark:text-slate-400">
+<span class="material-icons text-primary text-sm">check_circle</span>
                             Public Speaking
                         </li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-        <!-- Certifications -->
-        <section class="skills-section">
-            <h2 class="skills-section-title">
-                <span class="material-icons text-primary">verified</span>
+</ul>
+</div>
+</div>
+</section>
+<!-- Certifications -->
+<section class="mb-20">
+<h2 class="text-2xl font-bold mb-8 flex items-center gap-3">
+<span class="material-icons text-primary">verified</span>
                 Verified Certifications
             </h2>
-            <div class="skills-certs-grid">
-                <!-- Cert 1 -->
-                <div class="skills-cert-card">
-                    <img class="skills-cert-img" alt="AWS Certified Solutions Architect professional badge icon"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiVYp60VTVbKLtSw78_XFaocupvz7vo4PyvrQwA3xYrQJePuryKolMOaS-9KpsX92BZXjSD2NqAL0SDHS1Y4f_2a6-zjzm5jzxpmJgv96l7gUGWO84NuBL_XnK9DhmUmvv36V2kfEvXxMN5Pm-UbktjJyK5IMwmnlgZoC9elBaJe194m6jcxP7QRExv_VtD1RSI7gb7g0h85pr9bXRUDseAQ91iGH9EzQrUDVP5Pv9Zi1bXbXNzY1ghnmWjF2c0J-frdm7Eg3YsrY" />
-                    <h4 class="skills-cert-title">AWS Solutions Architect</h4>
-                    <p class="skills-cert-level">Professional Level</p>
-                    <a class="skills-cert-link" href="#">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+<!-- Cert 1 -->
+<div class="bg-white dark:bg-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col items-center text-center">
+<img class="w-20 h-20 mb-4 object-contain" data-alt="AWS Certified Solutions Architect professional badge icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiVYp60VTVbKLtSw78_XFaocupvz7vo4PyvrQwA3xYrQJePuryKolMOaS-9KpsX92BZXjSD2NqAL0SDHS1Y4f_2a6-zjzm5jzxpmJgv96l7gUGWO84NuBL_XnK9DhmUmvv36V2kfEvXxMN5Pm-UbktjJyK5IMwmnlgZoC9elBaJe194m6jcxP7QRExv_VtD1RSI7gb7g0h85pr9bXRUDseAQ91iGH9EzQrUDVP5Pv9Zi1bXbXNzY1ghnmWjF2c0J-frdm7Eg3YsrY"/>
+<h4 class="font-bold dark:text-white mb-1">AWS Solutions Architect</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Professional Level</p>
+<a class="text-primary text-sm font-semibold flex items-center gap-1 hover:underline" href="#">
                         View Certificate <span class="material-icons text-xs">open_in_new</span>
-                    </a>
-                </div>
-                <!-- Cert 2 -->
-                <div class="skills-cert-card">
-                    <img class="skills-cert-img" alt="Google Cloud Professional Engineer badge icon"
-                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYMprcXDHa3ujyCsRjcZ9I5qE-iKhtMUBRkLpxTOgVovg2JEqvGAOEZ_pIToV5yR3BCVXKppkwhpCYHHrpQDBVqhbG4zoRlssxJtOrRTQC1SfAI2HakgaIKPdwp7Aim9GpbDi_fDKFuaYJdZLT-Ql6t9JrSduQVt2wjWAaU3qnBUE2ZAQB7Ycl2gDPC4GJDNIfToG2iTGp7XhDC3LT4Y16J0r4m4kY5Pp5Pl6y_7D8RPFxnipjov4eYX69gGK-i9NM00t0AnskWtU" />
-                    <h4 class="skills-cert-title">Google Cloud Engineer</h4>
-                    <p class="skills-cert-level">Professional Associate</p>
-                    <a class="skills-cert-link" href="#">
+</a>
+</div>
+<!-- Cert 2 -->
+<div class="bg-white dark:bg-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col items-center text-center">
+<img class="w-20 h-20 mb-4 object-contain" data-alt="Google Cloud Professional Engineer badge icon" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBYMprcXDHa3ujyCsRjcZ9I5qE-iKhtMUBRkLpxTOgVovg2JEqvGAOEZ_pIToV5yR3BCVXKppkwhpCYHHrpQDBVqhbG4zoRlssxJtOrRTQC1SfAI2HakgaIKPdwp7Aim9GpbDi_fDKFuaYJdZLT-Ql6t9JrSduQVt2wjWAaU3qnBUE2ZAQB7Ycl2gDPC4GJDNIfToG2iTGp7XhDC3LT4Y16J0r4m4kY5Pp5Pl6y_7D8RPFxnipjov4eYX69gGK-i9NM00t0AnskWtU"/>
+<h4 class="font-bold dark:text-white mb-1">Google Cloud Engineer</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Professional Associate</p>
+<a class="text-primary text-sm font-semibold flex items-center gap-1 hover:underline" href="#">
                         View Certificate <span class="material-icons text-xs">open_in_new</span>
-                    </a>
-                </div>
-                <!-- Cert 3 -->
-                <div class="skills-cert-card">
-                    <div class="skills-cert-icon-placeholder">
-                        <span class="material-icons text-4xl">badge</span>
-                    </div>
-                    <h4 class="skills-cert-title">CKAD</h4>
-                    <p class="skills-cert-level">Kubernetes App Developer</p>
-                    <a class="skills-cert-link" href="#">
+</a>
+</div>
+<!-- Cert 3 -->
+<div class="bg-white dark:bg-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col items-center text-center">
+<div class="w-20 h-20 mb-4 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center">
+<span class="material-icons text-4xl text-slate-400">badge</span>
+</div>
+<h4 class="font-bold dark:text-white mb-1">CKAD</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Kubernetes App Developer</p>
+<a class="text-primary text-sm font-semibold flex items-center gap-1 hover:underline" href="#">
                         View Certificate <span class="material-icons text-xs">open_in_new</span>
-                    </a>
-                </div>
-                <!-- Cert 4 -->
-                <div class="skills-cert-card">
-                    <div class="skills-cert-icon-placeholder">
-                        <span class="material-icons text-4xl">security</span>
-                    </div>
-                    <h4 class="skills-cert-title">CompTIA Security+</h4>
-                    <p class="skills-cert-level">Issued: 2023</p>
-                    <a class="skills-cert-link" href="#">
+</a>
+</div>
+<!-- Cert 4 -->
+<div class="bg-white dark:bg-slate-900/50 p-6 rounded-xl border border-slate-200 dark:border-slate-800 flex flex-col items-center text-center">
+<div class="w-20 h-20 mb-4 bg-slate-100 dark:bg-slate-800 rounded-full flex items-center justify-center">
+<span class="material-icons text-4xl text-slate-400">security</span>
+</div>
+<h4 class="font-bold dark:text-white mb-1">CompTIA Security+</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 mb-4">Issued: 2023</p>
+<a class="text-primary text-sm font-semibold flex items-center gap-1 hover:underline" href="#">
                         View Certificate <span class="material-icons text-xs">open_in_new</span>
-                    </a>
-                </div>
-            </div>
-        </section>
-        <!-- CTA Section -->
-        <section class="skills-cta">
-            <!-- Decorative circle -->
-            <div class="skills-cta-decor skills-cta-decor-tl"></div>
-            <div class="skills-cta-decor skills-cta-decor-br"></div>
-            <h2 class="skills-cta-title">Interested in working together?</h2>
-            <p class="skills-cta-text">
-                I'm currently open for senior-level opportunities or complex freelance architectures. Let's build
-                something exceptional.
+</a>
+</div>
+</div>
+</section>
+<!-- CTA Section -->
+<section class="rounded-2xl bg-primary px-8 py-12 text-center text-white relative overflow-hidden">
+<!-- Decorative circle -->
+<div class="absolute -top-24 -right-24 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+<div class="absolute -bottom-24 -left-24 w-64 h-64 bg-white/10 rounded-full blur-3xl"></div>
+<h2 class="text-3xl font-bold mb-4 relative z-10">Interested in working together?</h2>
+<p class="text-blue-100 mb-8 max-w-xl mx-auto relative z-10">
+                I'm currently open for senior-level opportunities or complex freelance architectures. Let's build something exceptional.
             </p>
-            <div class="skills-cta-btns">
-                <button class="skills-cta-btn-primary">Hire Me Now</button>
-                <button class="skills-cta-btn-secondary">Download Resume</button>
-            </div>
-        </section>
-    </main>
-    <!-- Footer -->
-     {{template "footer" .}}
-</body>
-
-</html>
+<div class="flex flex-col sm:flex-row gap-4 justify-center relative z-10">
+<button class="bg-white text-primary px-8 py-3 rounded-xl font-bold hover:bg-blue-50 transition-colors">Hire Me Now</button>
+<button class="bg-transparent border-2 border-white/30 text-white px-8 py-3 rounded-xl font-bold hover:bg-white/10 transition-colors">Download Resume</button>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="border-t border-slate-200 dark:border-slate-800 py-12 mt-20">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="text-center md:text-left">
+<div class="flex items-center justify-center md:justify-start gap-2 mb-4">
+<div class="w-6 h-6 bg-primary rounded flex items-center justify-center text-white text-xs font-bold">JD</div>
+<span class="font-bold text-lg dark:text-white">DevPortfolio</span>
+</div>
+<p class="text-sm text-slate-500 dark:text-slate-400">© 2024 John Doe. Built with Next.js and Tailwind CSS.</p>
+</div>
+<div class="flex gap-6">
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-icons">facebook</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-icons">alternate_email</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-icons">terminal</span></a>
+<a class="text-slate-400 hover:text-primary transition-colors" href="#"><span class="material-icons">share</span></a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
