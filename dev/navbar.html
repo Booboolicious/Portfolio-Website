@@ -7,11 +7,13 @@
             <span class="text-xl font-bold tracking-tight">John<span class="text-primary">Dev</span></span>
         </div>
         <div class="hidden md:flex items-center space-x-8 text-sm font-medium">
-            <a class="hover:text-primary transition-colors" href="#">Experience</a>
+            <a class="hover:text-primary transition-colors navbar-link {{ if eq .Page `resume` }}active{{ end }}"
+            href="/dev/professional_resume">Experience</a>
             <a class="hover:text-primary transition-colors" href="#">Projects</a>
             <a class="hover:text-primary transition-colors" href="#">Skills</a>
             <a class="px-5 py-2.5 bg-primary text-white rounded hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
                 href="#">Let's Talk</a>
+            <a class="navbar-link {{ if eq .Page `about` }}active{{ end }}" href="/dev/about_me">About Me</a>
         </div>
         <button class="md:hidden text-slate-100">
             <span class="material-icons">menu</span>
