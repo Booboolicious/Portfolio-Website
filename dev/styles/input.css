@@ -544,3 +544,21 @@ html.dark ::-webkit-scrollbar-thumb {
     display: none !important;
   }
 }
+
+.nav-link {
+  text-decoration: none;
+  color: #333;
+  padding: 10px 15px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #007bff;
+  background-color: #f0f0f0;
+}
+
+.nav-link.active {
+  color: #007bff;
+  font-weight: bold;
+  border-bottom: 2px solid #007bff;
+}
