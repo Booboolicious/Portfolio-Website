@@ -362,6 +362,15 @@
   .left-\[-8px\] {
     left: -8px;
   }
+  .left-\[-18px\] {
+    left: -18px;
+  }
+  .left-\[18px\] {
+    left: 18px;
+  }
+  .left-\[108px\] {
+    left: 108px;
+  }
   .-z-10 {
     z-index: calc(10 * -1);
   }
