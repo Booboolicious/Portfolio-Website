@@ -6,12 +6,14 @@
             </div>
             <span class="text-xl font-bold tracking-tight">Ezekiel<span class="text-primary">Augustine</span></span>
         </div>
+        <div class="px-5 py-2.5 bg-primary text-white rounded hover:bg-primary/90 transition-all shadow-lg shadow-primary/20  {{ if eq .Page `resume` }}active{{ end }}"
+            href="/dev/home_page">Home</a>
         <div class="px-5 py-2.5 bg-primary text-white rounded hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 navbar-link {{ if eq .Page `resume` }}active{{ end }}"
             href="/dev/professional_resume">Experience</a>
-            <a class="hover:text-primary transition-colors" href="#">Projects</a>
-            <a class="hover:text-primary transition-colors" href="#">Skills</a>
+            <a class="hover:text-primary transition-colors" href="/dev/projects_gallery">Projects</a>
+            <a class="hover:text-primary transition-colors" href="/dev/skills_&_expertise">Skills</a>
             <a class="px-5 py-2.5 bg-primary text-white rounded hover:bg-primary/90 transition-all shadow-lg shadow-primary/20"
-                href="#">Let's Talk</a>
+                href="/dev/contact_information">Let's Talk</a>
             <a class="px-5 py-2.5 bg-primary text-white rounded {{ if eq .Page `about` }} hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 {{ end }}" href="/dev/about_me">About Me</a>
         </div>
         <button class="md:hidden text-slate-100">
@@ -19,7 +21,7 @@
         </button>
     </div>
 </nav>
-<nav class="site-navbar">
+<!-- <nav class="site-navbar">
     <div class="navbar-container">
         <div class="navbar-brand">
             <div class="navbar-logo"></div>
@@ -43,5 +45,5 @@
             </button>
         </div>
     </div>
-</nav>
+</nav> -->
 {{end}}
