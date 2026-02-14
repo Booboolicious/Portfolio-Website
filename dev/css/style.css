@@ -2850,7 +2850,7 @@ html.dark nav.glass {
   left: 0;
   right: 0;
   bottom: 0;
-  background-image: radial-gradient(circle at 1px 1px, rgba(19, 91, 236, 0.15) 1px, transparent 1px);
+  background-image: radial-gradient(circle at 1px 1px, rgba(19, 91, 236, 0.18) 1px, transparent 1px);
   background-size: 40px 40px;
   z-index: 0;
   pointer-events: none;
@@ -3191,6 +3191,15 @@ a {
 }
 a:hover {
   text-decoration: none;
+}
+.timeline-line {
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--primary) 10%, var(--primary) 90%, transparent );
+  opacity: 0.3;
+}
+.prose-custom p {
+  margin-bottom: 1.5rem;
+  line-height: 1.8;
 }
 @property --tw-translate-x {
   syntax: "*";
