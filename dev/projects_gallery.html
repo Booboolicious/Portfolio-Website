@@ -1,196 +1,283 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Projects Gallery | Software Engineer Portfolio</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="../js/main.js" defer></script>
-<link rel="stylesheet" href="../css/style.css">
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Projects Gallery | Software Engineer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="../js/main.js" defer></script>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
-<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
-<!-- Header / Navigation -->
-  {{template "navbar" .}}
 
-<main class="container mx-auto px-6 py-12">
-<!-- Hero Section -->
-<div class="max-w-3xl mb-16">
-<h1 class="text-4xl md:text-5xl font-bold mb-6">Featured Engineering <span class="text-primary">Projects</span></h1>
-<p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
-                A selection of software architectures, full-stack applications, and open-source contributions. I focus on building scalable, maintainable, and efficient solutions for complex problems.
+<body
+    class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
+    <!-- Header / Navigation -->
+    {{template "navbar" .}}
+
+    <main class="container mx-auto px-6 py-12">
+        <!-- Hero Section -->
+        <div class="max-w-3xl mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold mb-6">Featured Engineering <span
+                    class="text-primary">Projects</span></h1>
+            <p class="text-lg text-slate-600 dark:text-slate-400 leading-relaxed">
+                A selection of software architectures, full-stack applications, and open-source contributions. I focus
+                on building scalable, maintainable, and efficient solutions for complex problems.
             </p>
-</div>
-<!-- Filter / Search Section -->
-<div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
-<div class="flex flex-wrap gap-2">
-<button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium">All Projects</button>
-<button class="bg-primary/10 dark:bg-primary/20 text-primary px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-all">Full Stack</button>
-<button class="bg-primary/10 dark:bg-primary/20 text-primary px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-all">Distributed Systems</button>
-<button class="bg-primary/10 dark:bg-primary/20 text-primary px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-all">Mobile</button>
-<button class="bg-primary/10 dark:bg-primary/20 text-primary px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-all">AI/ML</button>
-</div>
-<div class="relative w-full md:w-80">
-<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
-<input class="w-full pl-10 pr-4 py-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50" placeholder="Search technologies..." type="text"/>
-</div>
-</div>
-<!-- Project Grid -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-<!-- Project Card 1 -->
-<div class="project-card group bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 transition-all cursor-pointer">
-<div class="relative h-48 overflow-hidden">
-<img alt="AI Dashboard" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Dark themed software dashboard with graphs" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBn_Ekpt3QtDgkT9vqBiVIors9XrV2SQ-eJhiQu5wKFrij9CU8PETxuhpqJBiiB2fiqjswPvJ1YOhHE-CdM5yMGN-vtH7M222Ojpx07zgRvE0wrwgZftCS8MeHtgj21-S5P5Ji_BH45gpVPRYEvVfPoCKaQht1TO1lStGq-E04QOhVlKLoBbCepqD_ipVat0geCrcw0qVuDOaRYGaUhcTGX-lbCtULgjjUQdGWsxrpyUa9EceatWgqIPQtDBWLJmvlXtaQ-bEpEr4"/>
-<div class="project-overlay absolute inset-0 bg-primary/20 opacity-0 transition-opacity flex items-center justify-center">
-<span class="bg-white text-primary px-4 py-2 rounded-full font-bold shadow-lg">View Case Study</span>
-</div>
-</div>
-<div class="p-6">
-<div class="flex justify-between items-start mb-4">
-<h3 class="text-xl font-bold group-hover:text-primary transition-colors">Nexus AI Engine</h3>
-<span class="material-icons text-slate-400 group-hover:text-primary">open_in_new</span>
-</div>
-<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">
-                        Real-time natural language processing engine built for enterprise task automation and semantic search across distributed datasets.
+        </div>
+        <!-- Filter / Search Section -->
+        <div class="flex flex-col md:flex-row md:items-center justify-between mb-12 gap-6">
+            <div class="flex flex-wrap gap-2">
+                <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm font-medium">All Projects</button>
+                <button
+                    class="bg-primary/10 dark:bg-primary/20 text-primary px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-all">Full
+                    Stack</button>
+                <button
+                    class="bg-primary/10 dark:bg-primary/20 text-primary px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-all">Distributed
+                    Systems</button>
+                <button
+                    class="bg-primary/10 dark:bg-primary/20 text-primary px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-all">Mobile</button>
+                <button
+                    class="bg-primary/10 dark:bg-primary/20 text-primary px-4 py-2 rounded-lg text-sm font-medium hover:bg-primary hover:text-white transition-all">AI/ML</button>
+            </div>
+            <div class="relative w-full md:w-80">
+                <span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400">search</span>
+                <input
+                    class="w-full pl-10 pr-4 py-2 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50"
+                    placeholder="Search technologies..." type="text" />
+            </div>
+        </div>
+        <!-- Project Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <!-- Project Card 1 -->
+            <div
+                class="project-card group bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 transition-all cursor-pointer">
+                <div class="relative h-48 overflow-hidden">
+                    <img alt="AI Dashboard"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Dark themed software dashboard with graphs"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBn_Ekpt3QtDgkT9vqBiVIors9XrV2SQ-eJhiQu5wKFrij9CU8PETxuhpqJBiiB2fiqjswPvJ1YOhHE-CdM5yMGN-vtH7M222Ojpx07zgRvE0wrwgZftCS8MeHtgj21-S5P5Ji_BH45gpVPRYEvVfPoCKaQht1TO1lStGq-E04QOhVlKLoBbCepqD_ipVat0geCrcw0qVuDOaRYGaUhcTGX-lbCtULgjjUQdGWsxrpyUa9EceatWgqIPQtDBWLJmvlXtaQ-bEpEr4" />
+                    <div
+                        class="project-overlay absolute inset-0 bg-primary/20 opacity-0 transition-opacity flex items-center justify-center">
+                        <span class="bg-white text-primary px-4 py-2 rounded-full font-bold shadow-lg">View Case
+                            Study</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold group-hover:text-primary transition-colors">Nexus AI Engine</h3>
+                        <span class="material-icons text-slate-400 group-hover:text-primary">open_in_new</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">
+                        Real-time natural language processing engine built for enterprise task automation and semantic
+                        search across distributed datasets.
                     </p>
-<div class="flex flex-wrap gap-2">
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">React</span>
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Python</span>
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">OpenAI</span>
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">FastAPI</span>
-</div>
-</div>
-</div>
-<!-- Project Card 2 -->
-<div class="project-card group bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 transition-all cursor-pointer">
-<div class="relative h-48 overflow-hidden">
-<img alt="Server Infrastructure" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Blue light server farm rack array" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeM-Y85SlV6y1YhjUBCOw0agtucGSI2KZ4ZMGjaaWK6qpsjry_685WNDKnxNAmsdkd9Bs_pTX80TiUXWNC30-y-LCbINMRAKIAU8W6JT6qCEfYk10oHg1auBqtqQw-aAYxy9w4aBl8ojKYLKf8eYiu6md7vNelOGPEF8slNdmj27rzWtAbkgg4V5yJCB8IWQ0L0Raw_O773bsd7rcjzB7fxJDoHCftrD1pFl5XUxK_z7A0QHN1nzZ1-99Q1fklhSK11kmHWojuDhU"/>
-<div class="project-overlay absolute inset-0 bg-primary/20 opacity-0 transition-opacity flex items-center justify-center">
-<span class="bg-white text-primary px-4 py-2 rounded-full font-bold shadow-lg">View Case Study</span>
-</div>
-</div>
-<div class="p-6">
-<div class="flex justify-between items-start mb-4">
-<h3 class="text-xl font-bold group-hover:text-primary transition-colors">Distributed Crawler</h3>
-<span class="material-icons text-slate-400 group-hover:text-primary">open_in_new</span>
-</div>
-<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">
-                        A high-throughput web crawler capable of processing 10k+ pages per minute using a master-worker architecture.
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">React</span>
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Python</span>
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">OpenAI</span>
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">FastAPI</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project Card 2 -->
+            <div
+                class="project-card group bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 transition-all cursor-pointer">
+                <div class="relative h-48 overflow-hidden">
+                    <img alt="Server Infrastructure"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Blue light server farm rack array"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDeM-Y85SlV6y1YhjUBCOw0agtucGSI2KZ4ZMGjaaWK6qpsjry_685WNDKnxNAmsdkd9Bs_pTX80TiUXWNC30-y-LCbINMRAKIAU8W6JT6qCEfYk10oHg1auBqtqQw-aAYxy9w4aBl8ojKYLKf8eYiu6md7vNelOGPEF8slNdmj27rzWtAbkgg4V5yJCB8IWQ0L0Raw_O773bsd7rcjzB7fxJDoHCftrD1pFl5XUxK_z7A0QHN1nzZ1-99Q1fklhSK11kmHWojuDhU" />
+                    <div
+                        class="project-overlay absolute inset-0 bg-primary/20 opacity-0 transition-opacity flex items-center justify-center">
+                        <span class="bg-white text-primary px-4 py-2 rounded-full font-bold shadow-lg">View Case
+                            Study</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold group-hover:text-primary transition-colors">Distributed Crawler
+                        </h3>
+                        <span class="material-icons text-slate-400 group-hover:text-primary">open_in_new</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">
+                        A high-throughput web crawler capable of processing 10k+ pages per minute using a master-worker
+                        architecture.
                     </p>
-<div class="flex flex-wrap gap-2">
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Go</span>
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Redis</span>
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Docker</span>
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">gRPC</span>
-</div>
-</div>
-</div>
-<!-- Project Card 3 -->
-<div class="project-card group bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 transition-all cursor-pointer">
-<div class="relative h-48 overflow-hidden">
-<img alt="E-commerce UI" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Abstract financial charts and data visualization" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXoERMTY4Ai64FvmCl69jq4MKaufpzCo6OHW-E2dGZagOP30qsYiLchZHDLvV8OiZQttZhU0ZCUtauVgxZD4hMttx1nRR3cy2iPnAnxOFabFly_cMKsFvNVB2b_w0dYsJHvClQA_aqVYZNSDGRTY5RBFAmP9G7hN2UrdnPV1-J8zDyZmpn_UqJgHAMB7XxWA8qwJid4SHpb_b2-BQXje-A2xF1sbVFw8PVDMc8OUbaEu5uu1hevsm1SQFyDHkYV9j1zbVa780zv1Q"/>
-<div class="project-overlay absolute inset-0 bg-primary/20 opacity-0 transition-opacity flex items-center justify-center">
-<span class="bg-white text-primary px-4 py-2 rounded-full font-bold shadow-lg">View Case Study</span>
-</div>
-</div>
-<div class="p-6">
-<div class="flex justify-between items-start mb-4">
-<h3 class="text-xl font-bold group-hover:text-primary transition-colors">Titan Commerce</h3>
-<span class="material-icons text-slate-400 group-hover:text-primary">open_in_new</span>
-</div>
-<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">
-                        A headless e-commerce backend with support for multiple payment gateways and dynamic inventory management.
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Go</span>
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Redis</span>
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Docker</span>
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">gRPC</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project Card 3 -->
+            <div
+                class="project-card group bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 transition-all cursor-pointer">
+                <div class="relative h-48 overflow-hidden">
+                    <img alt="E-commerce UI"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Abstract financial charts and data visualization"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuDXoERMTY4Ai64FvmCl69jq4MKaufpzCo6OHW-E2dGZagOP30qsYiLchZHDLvV8OiZQttZhU0ZCUtauVgxZD4hMttx1nRR3cy2iPnAnxOFabFly_cMKsFvNVB2b_w0dYsJHvClQA_aqVYZNSDGRTY5RBFAmP9G7hN2UrdnPV1-J8zDyZmpn_UqJgHAMB7XxWA8qwJid4SHpb_b2-BQXje-A2xF1sbVFw8PVDMc8OUbaEu5uu1hevsm1SQFyDHkYV9j1zbVa780zv1Q" />
+                    <div
+                        class="project-overlay absolute inset-0 bg-primary/20 opacity-0 transition-opacity flex items-center justify-center">
+                        <span class="bg-white text-primary px-4 py-2 rounded-full font-bold shadow-lg">View Case
+                            Study</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold group-hover:text-primary transition-colors">Titan Commerce</h3>
+                        <span class="material-icons text-slate-400 group-hover:text-primary">open_in_new</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">
+                        A headless e-commerce backend with support for multiple payment gateways and dynamic inventory
+                        management.
                     </p>
-<div class="flex flex-wrap gap-2">
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Node.js</span>
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">AWS</span>
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">PostgreSQL</span>
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Stripe</span>
-</div>
-</div>
-</div>
-<!-- Project Card 4 -->
-<div class="project-card group bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 transition-all cursor-pointer">
-<div class="relative h-48 overflow-hidden">
-<img alt="Data Analytics" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Interface with complex data visualization cards" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBAlhoSkbkGRSPrFo0hKwqkuwtFUU-3dbo53wJmnHloREUJLQEh4OHcFvIZ3n6M1uhhMf6bZ6K7nnSy3r6CaeoQRUzNOuRabagGdsGiNL2Dg2ZweFxL2dD_hyBpUnBqORXlRuMHzbWNJdPf21AwaQLZEXSmmd4Orne9SVPnaQ5gV5-Io5ejExujQaPq5du_-qv2cYCjlLls0ZGLTGHLwdPHTc5QXEEpBZUl1anYfYyJmEqCHS2UwvfdK-OyP3K27iEQEvEbCESq3c"/>
-<div class="project-overlay absolute inset-0 bg-primary/20 opacity-0 transition-opacity flex items-center justify-center">
-<span class="bg-white text-primary px-4 py-2 rounded-full font-bold shadow-lg">View Case Study</span>
-</div>
-</div>
-<div class="p-6">
-<div class="flex justify-between items-start mb-4">
-<h3 class="text-xl font-bold group-hover:text-primary transition-colors">Quantum Analytics</h3>
-<span class="material-icons text-slate-400 group-hover:text-primary">open_in_new</span>
-</div>
-<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">
-                        A real-time metrics dashboard for monitoring microservices performance and error tracking across cloud clusters.
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Node.js</span>
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">AWS</span>
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">PostgreSQL</span>
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Stripe</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project Card 4 -->
+            <div
+                class="project-card group bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 transition-all cursor-pointer">
+                <div class="relative h-48 overflow-hidden">
+                    <img alt="Data Analytics"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Interface with complex data visualization cards"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCBAlhoSkbkGRSPrFo0hKwqkuwtFUU-3dbo53wJmnHloREUJLQEh4OHcFvIZ3n6M1uhhMf6bZ6K7nnSy3r6CaeoQRUzNOuRabagGdsGiNL2Dg2ZweFxL2dD_hyBpUnBqORXlRuMHzbWNJdPf21AwaQLZEXSmmd4Orne9SVPnaQ5gV5-Io5ejExujQaPq5du_-qv2cYCjlLls0ZGLTGHLwdPHTc5QXEEpBZUl1anYfYyJmEqCHS2UwvfdK-OyP3K27iEQEvEbCESq3c" />
+                    <div
+                        class="project-overlay absolute inset-0 bg-primary/20 opacity-0 transition-opacity flex items-center justify-center">
+                        <span class="bg-white text-primary px-4 py-2 rounded-full font-bold shadow-lg">View Case
+                            Study</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold group-hover:text-primary transition-colors">Quantum Analytics</h3>
+                        <span class="material-icons text-slate-400 group-hover:text-primary">open_in_new</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">
+                        A real-time metrics dashboard for monitoring microservices performance and error tracking across
+                        cloud clusters.
                     </p>
-<div class="flex flex-wrap gap-2">
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">TypeScript</span>
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Next.js</span>
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">GraphQL</span>
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Terraform</span>
-</div>
-</div>
-</div>
-<!-- Project Card 5 -->
-<div class="project-card group bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 transition-all cursor-pointer">
-<div class="relative h-48 overflow-hidden">
-<img alt="Cybersecurity" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Matrix style code falling digital pattern" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7EXwlYrScK31NYIhFKMOVTgdFBXdbPFpCHJ-zve9ucYHfmH_woZsTKHFxMOKKFoACTEyeo3ricR28X4mlOY2NjIj35HG5Mp3gbUthl8k9k7W2IJx0-4bzAbY3CdhfkocpnKuDOc4OJzqniRNHA7K7FwgDMbK8My49mjofA5Xx5jV8hKkf3YpdkLt8JKjx9-o-pYSAB8DZwCJz1R-Ld2farxCp8f74zN0eTRqk0jI73SPyWKU5QlEe_L4J_IIJVgi_qOAmnuxd_UA"/>
-<div class="project-overlay absolute inset-0 bg-primary/20 opacity-0 transition-opacity flex items-center justify-center">
-<span class="bg-white text-primary px-4 py-2 rounded-full font-bold shadow-lg">View Case Study</span>
-</div>
-</div>
-<div class="p-6">
-<div class="flex justify-between items-start mb-4">
-<h3 class="text-xl font-bold group-hover:text-primary transition-colors">Sentry Protocol</h3>
-<span class="material-icons text-slate-400 group-hover:text-primary">open_in_new</span>
-</div>
-<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">
-                        Automated security scanning tool for CI/CD pipelines that detects leaked secrets and vulnerable dependencies.
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">TypeScript</span>
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Next.js</span>
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">GraphQL</span>
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Terraform</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project Card 5 -->
+            <div
+                class="project-card group bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 transition-all cursor-pointer">
+                <div class="relative h-48 overflow-hidden">
+                    <img alt="Cybersecurity"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Matrix style code falling digital pattern"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7EXwlYrScK31NYIhFKMOVTgdFBXdbPFpCHJ-zve9ucYHfmH_woZsTKHFxMOKKFoACTEyeo3ricR28X4mlOY2NjIj35HG5Mp3gbUthl8k9k7W2IJx0-4bzAbY3CdhfkocpnKuDOc4OJzqniRNHA7K7FwgDMbK8My49mjofA5Xx5jV8hKkf3YpdkLt8JKjx9-o-pYSAB8DZwCJz1R-Ld2farxCp8f74zN0eTRqk0jI73SPyWKU5QlEe_L4J_IIJVgi_qOAmnuxd_UA" />
+                    <div
+                        class="project-overlay absolute inset-0 bg-primary/20 opacity-0 transition-opacity flex items-center justify-center">
+                        <span class="bg-white text-primary px-4 py-2 rounded-full font-bold shadow-lg">View Case
+                            Study</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold group-hover:text-primary transition-colors">Sentry Protocol</h3>
+                        <span class="material-icons text-slate-400 group-hover:text-primary">open_in_new</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">
+                        Automated security scanning tool for CI/CD pipelines that detects leaked secrets and vulnerable
+                        dependencies.
                     </p>
-<div class="flex flex-wrap gap-2">
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Rust</span>
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">GitHub Actions</span>
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Postgres</span>
-</div>
-</div>
-</div>
-<!-- Project Card 6 -->
-<div class="project-card group bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 transition-all cursor-pointer">
-<div class="relative h-48 overflow-hidden">
-<img alt="Mobile App" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110" data-alt="Mobile phone showing modern app interface" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuQ99cqbytKg8qxpKLST5jJcbTY0Fe_LBceRxrkmP6hqtaXmsj-BhM5nwoEdm_rLDYGo83uOpZGzewgcuCfMCGskXuo1UZi8vX08l4ANcaRvzMNWZqaaqyrta3GA9vyboneiM2Jecy3mJTsmIjkauX5gXWPOvvbL_ZLWb_Uz11ZkF2cG9EuQwF88gYkVvCnzg_CYVxsmirV8E5asySLIKDXCjSLDe5ZqLrCbCOsVoB2FJtGAS-pScm_fuF-dadHviqmHG1mdI5oaE"/>
-<div class="project-overlay absolute inset-0 bg-primary/20 opacity-0 transition-opacity flex items-center justify-center">
-<span class="bg-white text-primary px-4 py-2 rounded-full font-bold shadow-lg">View Case Study</span>
-</div>
-</div>
-<div class="p-6">
-<div class="flex justify-between items-start mb-4">
-<h3 class="text-xl font-bold group-hover:text-primary transition-colors">SyncMobile App</h3>
-<span class="material-icons text-slate-400 group-hover:text-primary">open_in_new</span>
-</div>
-<p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">
-                        Cross-platform mobile application for offline-first data synchronization in remote field environments.
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Rust</span>
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">GitHub
+                            Actions</span>
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Postgres</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Project Card 6 -->
+            <div
+                class="project-card group bg-white dark:bg-slate-800/40 border border-slate-200 dark:border-slate-800 rounded-xl overflow-hidden shadow-sm hover:shadow-xl hover:border-primary/30 transition-all cursor-pointer">
+                <div class="relative h-48 overflow-hidden">
+                    <img alt="Mobile App"
+                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                        data-alt="Mobile phone showing modern app interface"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCuQ99cqbytKg8qxpKLST5jJcbTY0Fe_LBceRxrkmP6hqtaXmsj-BhM5nwoEdm_rLDYGo83uOpZGzewgcuCfMCGskXuo1UZi8vX08l4ANcaRvzMNWZqaaqyrta3GA9vyboneiM2Jecy3mJTsmIjkauX5gXWPOvvbL_ZLWb_Uz11ZkF2cG9EuQwF88gYkVvCnzg_CYVxsmirV8E5asySLIKDXCjSLDe5ZqLrCbCOsVoB2FJtGAS-pScm_fuF-dadHviqmHG1mdI5oaE" />
+                    <div
+                        class="project-overlay absolute inset-0 bg-primary/20 opacity-0 transition-opacity flex items-center justify-center">
+                        <span class="bg-white text-primary px-4 py-2 rounded-full font-bold shadow-lg">View Case
+                            Study</span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="text-xl font-bold group-hover:text-primary transition-colors">SyncMobile App</h3>
+                        <span class="material-icons text-slate-400 group-hover:text-primary">open_in_new</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm mb-6 line-clamp-2">
+                        Cross-platform mobile application for offline-first data synchronization in remote field
+                        environments.
                     </p>
-<div class="flex flex-wrap gap-2">
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">React Native</span>
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">SQLite</span>
-<span class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Firebase</span>
-</div>
-</div>
-</div>
-</div>
-<!-- Pagination / Load More -->
-<div class="mt-20 flex justify-center">
-<button class="flex items-center space-x-2 border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-lg font-bold transition-all">
-<span>Load More Projects</span>
-<span class="material-icons">expand_more</span>
-</button>
-</div>
-</main>
-<!-- Footer -->
-{{template "footer" .}}
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">React
+                            Native</span>
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">SQLite</span>
+                        <span
+                            class="bg-slate-100 dark:bg-slate-700/50 px-2 py-1 rounded text-xs font-semibold text-slate-600 dark:text-slate-300">Firebase</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Pagination / Load More -->
+        <div class="mt-20 flex justify-center">
+            <button
+                class="flex items-center space-x-2 border-2 border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 rounded-lg font-bold transition-all">
+                <span>Load More Projects</span>
+                <span class="material-icons">expand_more</span>
+            </button>
+        </div>
+    </main>
+    <!-- Footer -->
+    {{template "footer" .}}
 
-</body></html>
+</body>
+
+</html>

@@ -1,7 +1,8 @@
 {{define "footer"}}
-<footer class="{{ if ne .Page `about` }}border-t border-slate-800 bg-transparent border-slate-200  py-10 {{else}} py-10 my-10 bg-transparent {{end}}">
+<footer
+    class="{{ if ne .Page `about` }}border-t border-slate-800 bg-transparent border-slate-200  py-10 {{else}} py-10 my-10 bg-transparent {{end}}">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        {{if eq .Page "contact"}} 
+        {{if eq .Page "contact"}}
         <p class="text-slate-500 text-sm">© 2024 Built with passion and precision. All rights reserved.</p>
         {{else}}
         <div class="flex justify-center gap-6 mb-6">
