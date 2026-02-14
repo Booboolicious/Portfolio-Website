@@ -103,7 +103,7 @@ html.dark nav.glass {
   right: 0;
   bottom: 0;
   background-image: 
-    radial-gradient(circle at 1px 1px, rgba(19, 91, 236, 0.05) 1px, transparent 1px);
+    radial-gradient(circle at 1px 1px, rgba(19, 91, 236, 0.15) 1px, transparent 1px);
   background-size: 40px 40px;
   z-index: 0;
   pointer-events: none;
