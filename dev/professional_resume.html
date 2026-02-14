@@ -8,56 +8,8 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#135bec",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                    },
-                    fontFamily: {
-                        "display": ["Inter"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-<style>
-        @media print {
-            .no-print {
-                display: none !important;
-            }
-            body {
-                background-color: white !important;
-                color: black !important;
-            }
-            .resume-container {
-                box-shadow: none !important;
-                border: none !important;
-                margin: 0 !important;
-                padding: 0 !important;
-                width: 100% !important;
-            }
-            .text-primary {
-                color: #135bec !important;
-            }
-            .bg-background-dark {
-                background-color: white !important;
-            }
-            .dark {
-                color-scheme: light;
-            }
-        }
-    </style>
+<script src="/dev/js/main.js" defer></script>
+<link rel="stylesheet" href="/dev/css/style.css">
 </head>
 <body class="font-display bg-background-light dark:bg-background-dark text-slate-800 dark:text-slate-200 min-h-screen transition-colors duration-300">
 <!-- Sticky Action Bar -->
