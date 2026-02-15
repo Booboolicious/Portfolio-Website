@@ -13,28 +13,28 @@ type PageData struct {
 }
 
 func main() {
-	http.HandleFunc("/dev/", servePage)
-	http.HandleFunc("/dev/professional_resume", servePage)
-	http.HandleFunc("/dev/projects_gallery", servePage)
-	http.HandleFunc("/dev/skills_&_expertise", servePage)
-	http.HandleFunc("/dev/contact_information", servePage)
-	http.HandleFunc("/dev/about_me", servePage)
+	http.HandleFunc("/", servePage)
+	http.HandleFunc("/professional_resume", servePage)
+	http.HandleFunc("/projects_gallery", servePage)
+	http.HandleFunc("/skills_&_expertise", servePage)
+	http.HandleFunc("/contact_information", servePage)
+	http.HandleFunc("/about_me", servePage)
 
 	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("dev/css"))))
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("dev/js"))))
 
-	fmt.Println("server running")
+	fmt.Println("server running on http://127.0.0.1:8080/")
 	http.ListenAndServe(":8081", nil)
 }
 
 func servePage(w http.ResponseWriter, r *http.Request) {
 	pages := map[string]string{
-		"/dev/": "dev/home_page.html",
-		"/dev/professional_resume": "dev/professional_resume.html",
-		"/dev/projects_gallery": "dev/projects_gallery.html",
-		"/dev/skills_&_expertise": "dev/skills_&_expertise.html",
-		"/dev/contact_information": "dev/contact_information.html",
-		"/dev/about_me": "dev/about_me.html",
+		"/": "dev/home_page.html",
+		"/professional_resume": "dev/professional_resume.html",
+		"/projects_gallery": "dev/projects_gallery.html",
+		"/skills_&_expertise": "dev/skills_&_expertise.html",
+		"/contact_information": "dev/contact_information.html",
+		"/about_me": "dev/about_me.html",
 	}
 
 	filePath := pages[r.URL.Path]
