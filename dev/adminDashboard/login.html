@@ -1,129 +1,125 @@
 <!DOCTYPE html>
 
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Admin Login | Portfolio Dashboard</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#135bec",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                    },
-                    fontFamily: {
-                        "display": ["Inter"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-<style>
-        .tech-grid {
-            background-image: radial-gradient(circle at 1px 1px, rgba(19, 91, 236, 0.05) 1px, transparent 0);
-            background-size: 24px 24px;
-        }
-        .glass-card {
-            background: rgba(16, 22, 34, 0.8);
-            backdrop-filter: blur(12px);
-            border: 1px solid rgba(19, 91, 236, 0.1);
-        }
-    </style>
+<html class="dark" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Admin Login | Portfolio Dashboard</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="/static/admin.js" defer></script>
+    <link rel="stylesheet" href="/static/admin.style.css">
+
 </head>
-<body class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
-<!-- Background Texture -->
-<div class="absolute inset-0 tech-grid pointer-events-none"></div>
-<div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full"></div>
-<div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full"></div>
-<main class="w-full max-w-md relative z-10">
-<!-- Logo/Brand Header -->
-<div class="text-center mb-8">
-<div class="inline-flex items-center justify-center w-12 h-12 bg-primary/10 border border-primary/20 rounded-xl mb-4">
-<span class="material-icons text-primary text-2xl">terminal</span>
-</div>
-<h1 class="text-2xl font-bold tracking-tight dark:text-white">Admin Access</h1>
-<p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">Secure entry for portfolio management</p>
-</div>
-<!-- Login Card -->
-<div class="glass-card rounded-xl p-8 shadow-2xl">
-<form action="#" class="space-y-6" method="POST">
-<!-- Username/Email Field -->
-<div class="space-y-2">
-<label class="block text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400" for="identity">
+
+<body
+    class="font-display bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen flex items-center justify-center p-4 relative overflow-hidden">
+    <!-- Background Texture -->
+    <div class="absolute inset-0 tech-grid pointer-events-none"></div>
+    <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full"></div>
+    <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-primary/10 blur-[120px] rounded-full"></div>
+    <main class="w-full max-w-md relative z-10">
+        <!-- Logo/Brand Header -->
+        <div class="text-center mb-8">
+            <div
+                class="inline-flex items-center justify-center w-12 h-12 bg-primary/10 border border-primary/20 rounded-xl mb-4">
+                <span class="material-icons text-primary text-2xl">terminal</span>
+            </div>
+            <h1 class="text-2xl font-bold tracking-tight dark:text-white">Admin Access</h1>
+            <p class="text-slate-500 dark:text-slate-400 mt-2 text-sm">Secure entry for portfolio management</p>
+        </div>
+        <!-- Login Card -->
+        <div class="glass-card rounded-xl p-8 shadow-2xl">
+            <form action="#" class="space-y-6" method="POST">
+                <!-- Username/Email Field -->
+                <div class="space-y-2">
+                    <label class="block text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400"
+                        for="identity">
                         Username or Email
                     </label>
-<div class="relative">
-<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">alternate_email</span>
-<input class="w-full pl-10 pr-4 py-3 bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-sm" id="identity" name="identity" placeholder="engineer@domain.com" required="" type="text"/>
-</div>
-</div>
-<!-- Password Field -->
-<div class="space-y-2">
-<div class="flex justify-between items-center">
-<label class="block text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400" for="password">
+                    <div class="relative">
+                        <span
+                            class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">alternate_email</span>
+                        <input
+                            class="w-full pl-10 pr-4 py-3 bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-sm"
+                            id="identity" name="identity" placeholder="engineer@domain.com" required="" type="text" />
+                    </div>
+                </div>
+                <!-- Password Field -->
+                <div class="space-y-2">
+                    <div class="flex justify-between items-center">
+                        <label
+                            class="block text-xs font-medium uppercase tracking-wider text-slate-500 dark:text-slate-400"
+                            for="password">
                             Password
                         </label>
-<a class="text-xs font-semibold text-primary hover:text-primary/80 transition-colors" href="#">
+                        <a class="text-xs font-semibold text-primary hover:text-primary/80 transition-colors" href="#">
                             Forgot?
                         </a>
-</div>
-<div class="relative">
-<span class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">lock_outline</span>
-<input class="w-full pl-10 pr-4 py-3 bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-sm" id="password" name="password" placeholder="••••••••" required="" type="password"/>
-</div>
-</div>
-<!-- Controls -->
-<div class="flex items-center">
-<label class="relative inline-flex items-center cursor-pointer">
-<input class="sr-only peer" name="remember" type="checkbox"/>
-<div class="w-9 h-5 bg-slate-300 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
-<span class="ml-3 text-sm text-slate-600 dark:text-slate-400">Remember session</span>
-</label>
-</div>
-<!-- Action Button -->
-<button class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-all transform active:scale-[0.98] shadow-lg shadow-primary/20" type="submit">
-<span class="material-icons text-sm">login</span>
+                    </div>
+                    <div class="relative">
+                        <span
+                            class="material-icons absolute left-3 top-1/2 -translate-y-1/2 text-slate-400 text-lg">lock_outline</span>
+                        <input
+                            class="w-full pl-10 pr-4 py-3 bg-slate-100 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent transition-all outline-none text-sm"
+                            id="password" name="password" placeholder="••••••••" required="" type="password" />
+                    </div>
+                </div>
+                <!-- Controls -->
+                <div class="flex items-center">
+                    <label class="relative inline-flex items-center cursor-pointer">
+                        <input class="sr-only peer" name="remember" type="checkbox" />
+                        <div
+                            class="w-9 h-5 bg-slate-300 dark:bg-slate-700 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary">
+                        </div>
+                        <span class="ml-3 text-sm text-slate-600 dark:text-slate-400">Remember session</span>
+                    </label>
+                </div>
+                <!-- Action Button -->
+                <button
+                    class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 px-4 rounded-lg flex items-center justify-center gap-2 transition-all transform active:scale-[0.98] shadow-lg shadow-primary/20"
+                    type="submit">
+                    <span class="material-icons text-sm">login</span>
                     Authorize Access
                 </button>
-</form>
-<!-- Security Badge -->
-<div class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex items-center justify-center gap-2">
-<span class="material-icons text-emerald-500 text-sm">verified_user</span>
-<span class="text-[10px] uppercase tracking-widest text-slate-500 font-medium">Encrypted System Hub</span>
-</div>
-</div>
-<!-- Footer Navigation -->
-<div class="mt-8 text-center">
-<a class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors group" href="/dev/home_page.html">
-<span class="material-icons text-sm mr-2 group-hover:-translate-x-1 transition-transform">arrow_back</span>
+            </form>
+            <!-- Security Badge -->
+            <div
+                class="mt-8 pt-6 border-t border-slate-200 dark:border-slate-800 flex items-center justify-center gap-2">
+                <span class="material-icons text-emerald-500 text-sm">verified_user</span>
+                <span class="text-[10px] uppercase tracking-widest text-slate-500 font-medium">Encrypted System
+                    Hub</span>
+            </div>
+        </div>
+        <!-- Footer Navigation -->
+        <div class="mt-8 text-center">
+            <a class="inline-flex items-center text-sm font-medium text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary transition-colors group"
+                href="/dev/home_page.html">
+                <span
+                    class="material-icons text-sm mr-2 group-hover:-translate-x-1 transition-transform">arrow_back</span>
                 Return to Portfolio
             </a>
-</div>
-</main>
-<!-- Visual Accents -->
-<div class="fixed bottom-6 left-6 hidden lg:block">
-<div class="flex flex-col gap-1">
-<div class="h-1 w-8 bg-primary rounded-full"></div>
-<div class="h-1 w-12 bg-primary/40 rounded-full"></div>
-<div class="h-1 w-6 bg-primary/20 rounded-full"></div>
-</div>
-</div>
-<div class="fixed top-6 right-6 hidden lg:block">
-<div class="text-[10px] font-mono text-slate-500 dark:text-slate-600 select-none">
+        </div>
+    </main>
+    <!-- Visual Accents -->
+    <div class="fixed bottom-6 left-6 hidden lg:block">
+        <div class="flex flex-col gap-1">
+            <div class="h-1 w-8 bg-primary rounded-full"></div>
+            <div class="h-1 w-12 bg-primary/40 rounded-full"></div>
+            <div class="h-1 w-6 bg-primary/20 rounded-full"></div>
+        </div>
+    </div>
+    <div class="fixed top-6 right-6 hidden lg:block">
+        <div class="text-[10px] font-mono text-slate-500 dark:text-slate-600 select-none">
             &lt;sys_status: operational /&gt;
         </div>
-</div>
-</body></html>
+    </div>
+</body>
+
+</html>
