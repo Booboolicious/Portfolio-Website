@@ -1,308 +1,349 @@
 <!DOCTYPE html>
-<html class="dark" lang="en"><head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>Portfolio Master Control Panel | Software Engineer</title>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    colors: {
-                        "primary": "#135bec",
-                        "background-light": "#f6f6f8",
-                        "background-dark": "#101622",
-                    },
-                    fontFamily: {
-                        "display": ["Inter", "sans-serif"]
-                    },
-                    borderRadius: {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                },
-            },
-        }
-    </script>
-<style type="text/tailwindcss">
-        .material-symbols-outlined {
-            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
-        }
-    </style>
-</head>
-<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-hidden h-screen flex">
-<aside class="w-64 border-r border-slate-200 dark:border-slate-800 flex flex-col bg-white dark:bg-background-dark/50 shrink-0">
-<div class="p-6 flex items-center space-x-3">
-<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
-<span class="material-icons text-white text-lg">terminal</span>
-</div>
-<span class="font-bold text-lg tracking-tight">Portfolio OS</span>
-</div>
-<div class="px-6 mb-4">
-<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Core Pages</p>
-</div>
-<nav class="flex-1 px-4 space-y-1">
-<a class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-medium border border-primary/20" href="#">
-<span class="material-symbols-outlined text-[20px]">home</span>
-<span>Home Page</span>
-</a>
-<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-<span class="material-symbols-outlined text-[20px]">person</span>
-<span>About Me</span>
-</a>
-<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-<span class="material-symbols-outlined text-[20px]">psychology</span>
-<span>Skills &amp; Tech</span>
-</a>
-<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-<span class="material-symbols-outlined text-[20px]">work</span>
-<span>Projects Gallery</span>
-</a>
-<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
-<span class="material-symbols-outlined text-[20px]">mail</span>
-<span>Contact Section</span>
-</a>
-</nav>
-<div class="p-4 border-t border-slate-200 dark:border-slate-800">
-<div class="flex items-center space-x-3 p-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
-<div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden shrink-0">
-<img class="w-full h-full object-cover" data-alt="Professional portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNsR6z7vbHTE5fGJZaVjb2ktZvHzzzFsvpP0NHkU1ai0xMaBvf4MkH4ZeOYPq2qbAA9NBQufdRwSjyLbGK18yuapnbwAG_vH6Bw-wjYeYXdaoL5GYAdwqnD2z0RN_S_NUiW3m1M1-VAGbaP3jg9R6hcxq4DV_Ki72PbPlRSD2vCNt208G6hSp0SgRJHzC23kKPGxOhDM9jdczbiHOIBzBqHbIiB6dyG9pelk26jV0KCi6nKgSjIoZm8522NveskkWJGmbvDE8vYhg"/>
-</div>
-<div class="overflow-hidden">
-<p class="text-sm font-semibold truncate">Alex Rivera</p>
-<p class="text-[10px] text-slate-500 font-bold uppercase">Super Admin</p>
-</div>
-</div>
-</div>
-</aside>
-<main class="flex-1 overflow-y-auto">
-<header class="h-16 flex items-center justify-between px-8 border-b border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-background-dark/50 backdrop-blur-md sticky top-0 z-10">
-<div class="flex items-center space-x-3">
-<span class="material-symbols-outlined text-slate-400">tune</span>
-<h1 class="text-xl font-bold">Master Control Panel</h1>
-</div>
-<div class="flex items-center space-x-4">
-<div class="flex items-center space-x-2 text-xs font-medium text-emerald-500 bg-emerald-500/10 px-3 py-1.5 rounded-full">
-<span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-<span>Production Live</span>
-</div>
-<div class="h-8 w-px bg-slate-200 dark:bg-slate-800"></div>
-<button class="flex items-center space-x-2 bg-primary px-4 py-2 rounded-lg text-white text-sm font-medium hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
-<span class="material-icons text-[18px]">publish</span>
-<span>Deploy Changes</span>
-</button>
-</div>
-</header>
-<div class="p-8 space-y-8 max-w-7xl mx-auto">
-<section>
-<div class="flex items-end justify-between mb-6">
-<div>
-<h2 class="text-2xl font-bold">Data Integrity Check</h2>
-<p class="text-slate-500 text-sm">System status and synchronization report for all core modules</p>
-</div>
-<button class="text-xs font-bold text-primary hover:underline flex items-center space-x-1">
-<span class="material-symbols-outlined text-sm">refresh</span>
-<span>Re-validate all schemas</span>
-</button>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-<div class="bg-white dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
-<div class="flex justify-between items-start mb-4">
-<div class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
-<span class="material-symbols-outlined text-slate-500">home</span>
-</div>
-<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Synced</span>
-</div>
-<h3 class="font-bold text-sm">Home Page</h3>
-<p class="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-tight">Last edited 2h ago</p>
-</div>
-<div class="bg-white dark:bg-slate-900/40 p-4 rounded-xl border border-primary/30 ring-1 ring-primary/30">
-<div class="flex justify-between items-start mb-4">
-<div class="p-2 bg-primary/10 rounded-lg">
-<span class="material-symbols-outlined text-primary">person</span>
-</div>
-<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 uppercase">Pending</span>
-</div>
-<h3 class="font-bold text-sm">About Me</h3>
-<p class="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-tight">3 unsaved changes</p>
-</div>
-<div class="bg-white dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
-<div class="flex justify-between items-start mb-4">
-<div class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
-<span class="material-symbols-outlined text-slate-500">psychology</span>
-</div>
-<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Synced</span>
-</div>
-<h3 class="font-bold text-sm">Skills &amp; Tech</h3>
-<p class="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-tight">Updated Oct 24</p>
-</div>
-<div class="bg-white dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
-<div class="flex justify-between items-start mb-4">
-<div class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
-<span class="material-symbols-outlined text-slate-500">work</span>
-</div>
-<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Synced</span>
-</div>
-<h3 class="font-bold text-sm">Projects</h3>
-<p class="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-tight">12 active nodes</p>
-</div>
-<div class="bg-white dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
-<div class="flex justify-between items-start mb-4">
-<div class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
-<span class="material-symbols-outlined text-slate-500">mail</span>
-</div>
-<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Synced</span>
-</div>
-<h3 class="font-bold text-sm">Contact</h3>
-<p class="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-tight">Form active</p>
-</div>
-</div>
-</section>
-<div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
-<div class="xl:col-span-2 space-y-6">
-<div class="bg-white dark:bg-slate-900/40 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
-<div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-800/20">
-<div class="flex items-center space-x-2">
-<span class="material-symbols-outlined text-primary">edit_note</span>
-<h3 class="font-bold">Recent Content Updates</h3>
-</div>
-<button class="text-xs text-slate-500 hover:text-primary font-bold transition-colors">History</button>
-</div>
-<div class="divide-y divide-slate-100 dark:divide-slate-800">
-<div class="p-4 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group">
-<div class="flex items-center space-x-4">
-<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-slate-400">text_fields</span>
-</div>
-<div>
-<h4 class="text-sm font-semibold">Hero Title Text</h4>
-<p class="text-xs text-slate-500">Changed from "Full Stack Dev" to "Software Engineer"</p>
-</div>
-</div>
-<div class="flex items-center space-x-4">
-<span class="text-[10px] font-bold text-slate-400 uppercase">12m ago</span>
-<button class="opacity-0 group-hover:opacity-100 p-2 text-slate-400 hover:text-primary transition-all">
-<span class="material-symbols-outlined text-sm">edit</span>
-</button>
-</div>
-</div>
-<div class="p-4 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group">
-<div class="flex items-center space-x-4">
-<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0">
-<img class="w-full h-full object-cover rounded-lg" data-alt="Project preview" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-0ZsKtT3h9X9aCYf1ptYk4yjXy7qspc7s0EIH97GObUkg0tk0vzgTJUEdrHavcbdijKFmU_8xCchL40uPyyVZBrueU6hSJNLu-016a3w8h2B1eb9WCUL00hNIhchF417bjOb_TM1c02oykzMRNQWrBhuSLqcIjZKs7JZ9JegOFPSO0bAXZEoPsdtsdy0LDJA7yc7MeI75vcl2aalA3XsC31bsKtpxQEUXiejJI5aK9PJQRh6g5jKWOku7-QJQiNKLdW7XIT-UPKQ"/>
-</div>
-<div>
-<h4 class="text-sm font-semibold">Skyline Cloud API</h4>
-<p class="text-xs text-slate-500">Updated GitHub repository link</p>
-</div>
-</div>
-<div class="flex items-center space-x-4">
-<span class="text-[10px] font-bold text-slate-400 uppercase">1h ago</span>
-<button class="opacity-0 group-hover:opacity-100 p-2 text-slate-400 hover:text-primary transition-all">
-<span class="material-symbols-outlined text-sm">edit</span>
-</button>
-</div>
-</div>
-<div class="p-4 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group">
-<div class="flex items-center space-x-4">
-<div class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0">
-<span class="material-symbols-outlined text-slate-400">terminal</span>
-</div>
-<div>
-<h4 class="text-sm font-semibold">Skill Set: Backend</h4>
-<p class="text-xs text-slate-500">Added "Rust" and "gRPC" to technical stack</p>
-</div>
-</div>
-<div class="flex items-center space-x-4">
-<span class="text-[10px] font-bold text-slate-400 uppercase">4h ago</span>
-<button class="opacity-0 group-hover:opacity-100 p-2 text-slate-400 hover:text-primary transition-all">
-<span class="material-symbols-outlined text-sm">edit</span>
-</button>
-</div>
-</div>
-</div>
-<div class="px-6 py-4 bg-slate-50 dark:bg-slate-800/30 border-t border-slate-200 dark:border-slate-800 text-center">
-<button class="text-xs font-bold text-slate-500 hover:text-primary transition-colors">View All Changes</button>
-</div>
-</div>
-<div class="bg-white dark:bg-slate-900/40 rounded-xl border border-slate-200 dark:border-slate-800 p-6">
-<div class="flex items-center justify-between mb-6">
-<h3 class="font-bold flex items-center space-x-2">
-<span class="material-symbols-outlined text-primary">image</span>
-<span>Global Assets</span>
-</h3>
-<button class="text-xs font-bold px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-primary hover:text-white transition-all">Upload New</button>
-</div>
-<div class="grid grid-cols-4 gap-4">
-<div class="aspect-video rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden relative group">
-<img alt="Asset" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl77rVoLg-hWGkORTKSwNpdcylALLaquHcqKnGl_sDVRohjcToE2fd1-4A_FJm6t28Vm_qGewB3b5Ty_2ZRQaw8C8mxHm-blP883t_JPjzHcX_LxLqb14sOQDbeloruPTWep-NcNfnYFjOTkAEi-3DhHUDuBOpweUkE0qq3_bKzd-0MbZgJV7d_-jAFNUK34LRvaczAUnlaEqAWabzcXx9FXga7JmAB6-cBn9qQUasPgk9c4L72g-OIBy91VrIm1yKDXhcPCc3fY8"/>
-<div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all">
-<span class="material-symbols-outlined text-white">zoom_in</span>
-</div>
-</div>
-<div class="aspect-video rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden relative group">
-<img alt="Asset" class="w-full h-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjGRsFcsSj2CtUjXxnkJoy8fpnMvXw3mWxl787Y1S4VQ02WNs4WFofxqx4_U1F4AddrtfYFq2SgjX_Lu3F8w6oSf6_E0baapd-9eMRD-kDm8uqpfcfp-55qhDwNktszrifwNZYN-7uiyN6qU8RH3fXSIBwtISCVcIm_wdmxoBeRL6mZhizCwZvflpvYzvXsQsA8_TJSrkc2mg4VhHdcomsdEN9LoiQPORDpj-Zmky_U3iS18FLJjaWgX5EEGoy8CF3WxDnR0j66sc"/>
-<div class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all">
-<span class="material-symbols-outlined text-white">zoom_in</span>
-</div>
-</div>
-<div class="aspect-video rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden relative group border-2 border-dashed border-slate-300 dark:border-slate-700 flex items-center justify-center">
-<span class="material-symbols-outlined text-slate-300">add</span>
-</div>
-<div class="aspect-video rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden relative group border-2 border-dashed border-slate-300 dark:border-slate-700 flex items-center justify-center">
-<span class="material-symbols-outlined text-slate-300">add</span>
-</div>
-</div>
-</div>
-</div>
-<div class="space-y-6">
-<div class="bg-white dark:bg-slate-900/40 rounded-xl border border-slate-200 dark:border-slate-800 p-6">
-<h3 class="font-bold mb-4 flex items-center space-x-2">
-<span class="material-symbols-outlined text-primary">search</span>
-<span>SEO Health</span>
-</h3>
-<div class="space-y-4">
-<div class="flex items-center justify-between">
-<span class="text-xs text-slate-500 font-medium">Meta Descriptions</span>
-<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">100%</span>
-</div>
-<div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-<div class="bg-emerald-500 h-full w-full"></div>
-</div>
-<div class="flex items-center justify-between pt-2">
-<span class="text-xs text-slate-500 font-medium">Alt Text Coverage</span>
-<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 uppercase">82%</span>
-</div>
-<div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-<div class="bg-amber-500 h-full w-[82%]"></div>
-</div>
-<div class="flex items-center justify-between pt-2">
-<span class="text-xs text-slate-500 font-medium">Keyword Density</span>
-<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Optimal</span>
-</div>
-<div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-<div class="bg-emerald-500 h-full w-[95%]"></div>
-</div>
-</div>
-<button class="w-full mt-6 py-2 border border-slate-200 dark:border-slate-800 rounded-lg text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Run Full Audit</button>
-</div>
-<div class="bg-primary/5 rounded-xl border border-primary/20 p-6">
-<h3 class="font-bold text-primary mb-2 flex items-center space-x-2">
-<span class="material-symbols-outlined text-sm">auto_awesome</span>
-<span>System Tip</span>
-</h3>
-<p class="text-xs text-slate-500 leading-relaxed">Your "About Me" page has 3 pending changes. Sync them now to reflect the latest experience updates on your public profile.</p>
-<button class="mt-4 text-xs font-bold text-primary hover:underline">Go to About Me →</button>
-</div>
-</div>
-</div>
-</div>
-</main>
+<html class="dark" lang="en">
 
-</body></html>
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Portfolio Master Control Panel | Software Engineer</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="/static/admin.js" defer></script>
+    <link rel="stylesheet" href="/static/admin.style.css">
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-hidden h-screen flex">
+    <aside
+        class="w-64 border-r border-slate-200 dark:border-slate-800 flex flex-col bg-white dark:bg-background-dark/50 shrink-0">
+        <div class="p-6 flex items-center space-x-3">
+            <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+                <span class="material-icons text-white text-lg">terminal</span>
+            </div>
+            <span class="font-bold text-lg tracking-tight">Portfolio OS</span>
+        </div>
+        <div class="px-6 mb-4">
+            <p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Core Pages</p>
+        </div>
+        <nav class="flex-1 px-4 space-y-1">
+            <a class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-medium border border-primary/20"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">home</span>
+                <span>Home Page</span>
+            </a>
+            <a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">person</span>
+                <span>About Me</span>
+            </a>
+            <a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">psychology</span>
+                <span>Skills &amp; Tech</span>
+            </a>
+            <a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">work</span>
+                <span>Projects Gallery</span>
+            </a>
+            <a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+                href="#">
+                <span class="material-symbols-outlined text-[20px]">mail</span>
+                <span>Contact Section</span>
+            </a>
+        </nav>
+        <div class="p-4 border-t border-slate-200 dark:border-slate-800">
+            <div class="flex items-center space-x-3 p-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+                <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden shrink-0">
+                    <img class="w-full h-full object-cover" data-alt="Professional portrait"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNsR6z7vbHTE5fGJZaVjb2ktZvHzzzFsvpP0NHkU1ai0xMaBvf4MkH4ZeOYPq2qbAA9NBQufdRwSjyLbGK18yuapnbwAG_vH6Bw-wjYeYXdaoL5GYAdwqnD2z0RN_S_NUiW3m1M1-VAGbaP3jg9R6hcxq4DV_Ki72PbPlRSD2vCNt208G6hSp0SgRJHzC23kKPGxOhDM9jdczbiHOIBzBqHbIiB6dyG9pelk26jV0KCi6nKgSjIoZm8522NveskkWJGmbvDE8vYhg" />
+                </div>
+                <div class="overflow-hidden">
+                    <p class="text-sm font-semibold truncate">Alex Rivera</p>
+                    <p class="text-[10px] text-slate-500 font-bold uppercase">Super Admin</p>
+                </div>
+            </div>
+        </div>
+    </aside>
+    <main class="flex-1 overflow-y-auto">
+        <header
+            class="h-16 flex items-center justify-between px-8 border-b border-slate-200 dark:border-slate-800 bg-white/50 dark:bg-background-dark/50 backdrop-blur-md sticky top-0 z-10">
+            <div class="flex items-center space-x-3">
+                <span class="material-symbols-outlined text-slate-400">tune</span>
+                <h1 class="text-xl font-bold">Master Control Panel</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <div
+                    class="flex items-center space-x-2 text-xs font-medium text-emerald-500 bg-emerald-500/10 px-3 py-1.5 rounded-full">
+                    <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                    <span>Production Live</span>
+                </div>
+                <div class="h-8 w-px bg-slate-200 dark:bg-slate-800"></div>
+                <button
+                    class="flex items-center space-x-2 bg-primary px-4 py-2 rounded-lg text-white text-sm font-medium hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
+                    <span class="material-icons text-[18px]">publish</span>
+                    <span>Deploy Changes</span>
+                </button>
+            </div>
+        </header>
+        <div class="p-8 space-y-8 max-w-7xl mx-auto">
+            <section>
+                <div class="flex items-end justify-between mb-6">
+                    <div>
+                        <h2 class="text-2xl font-bold">Data Integrity Check</h2>
+                        <p class="text-slate-500 text-sm">System status and synchronization report for all core modules
+                        </p>
+                    </div>
+                    <button class="text-xs font-bold text-primary hover:underline flex items-center space-x-1">
+                        <span class="material-symbols-outlined text-sm">refresh</span>
+                        <span>Re-validate all schemas</span>
+                    </button>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+                    <div
+                        class="bg-white dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                                <span class="material-symbols-outlined text-slate-500">home</span>
+                            </div>
+                            <span
+                                class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Synced</span>
+                        </div>
+                        <h3 class="font-bold text-sm">Home Page</h3>
+                        <p class="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-tight">Last edited 2h ago
+                        </p>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-slate-900/40 p-4 rounded-xl border border-primary/30 ring-1 ring-primary/30">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-2 bg-primary/10 rounded-lg">
+                                <span class="material-symbols-outlined text-primary">person</span>
+                            </div>
+                            <span
+                                class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 uppercase">Pending</span>
+                        </div>
+                        <h3 class="font-bold text-sm">About Me</h3>
+                        <p class="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-tight">3 unsaved changes
+                        </p>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                                <span class="material-symbols-outlined text-slate-500">psychology</span>
+                            </div>
+                            <span
+                                class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Synced</span>
+                        </div>
+                        <h3 class="font-bold text-sm">Skills &amp; Tech</h3>
+                        <p class="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-tight">Updated Oct 24</p>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                                <span class="material-symbols-outlined text-slate-500">work</span>
+                            </div>
+                            <span
+                                class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Synced</span>
+                        </div>
+                        <h3 class="font-bold text-sm">Projects</h3>
+                        <p class="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-tight">12 active nodes
+                        </p>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+                        <div class="flex justify-between items-start mb-4">
+                            <div class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
+                                <span class="material-symbols-outlined text-slate-500">mail</span>
+                            </div>
+                            <span
+                                class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Synced</span>
+                        </div>
+                        <h3 class="font-bold text-sm">Contact</h3>
+                        <p class="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-tight">Form active</p>
+                    </div>
+                </div>
+            </section>
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
+                <div class="xl:col-span-2 space-y-6">
+                    <div
+                        class="bg-white dark:bg-slate-900/40 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+                        <div
+                            class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-800/20">
+                            <div class="flex items-center space-x-2">
+                                <span class="material-symbols-outlined text-primary">edit_note</span>
+                                <h3 class="font-bold">Recent Content Updates</h3>
+                            </div>
+                            <button
+                                class="text-xs text-slate-500 hover:text-primary font-bold transition-colors">History</button>
+                        </div>
+                        <div class="divide-y divide-slate-100 dark:divide-slate-800">
+                            <div
+                                class="p-4 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group">
+                                <div class="flex items-center space-x-4">
+                                    <div
+                                        class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0">
+                                        <span class="material-symbols-outlined text-slate-400">text_fields</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold">Hero Title Text</h4>
+                                        <p class="text-xs text-slate-500">Changed from "Full Stack Dev" to "Software
+                                            Engineer"</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-[10px] font-bold text-slate-400 uppercase">12m ago</span>
+                                    <button
+                                        class="opacity-0 group-hover:opacity-100 p-2 text-slate-400 hover:text-primary transition-all">
+                                        <span class="material-symbols-outlined text-sm">edit</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div
+                                class="p-4 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group">
+                                <div class="flex items-center space-x-4">
+                                    <div
+                                        class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0">
+                                        <img class="w-full h-full object-cover rounded-lg" data-alt="Project preview"
+                                            src="https://lh3.googleusercontent.com/aida-public/AB6AXuD-0ZsKtT3h9X9aCYf1ptYk4yjXy7qspc7s0EIH97GObUkg0tk0vzgTJUEdrHavcbdijKFmU_8xCchL40uPyyVZBrueU6hSJNLu-016a3w8h2B1eb9WCUL00hNIhchF417bjOb_TM1c02oykzMRNQWrBhuSLqcIjZKs7JZ9JegOFPSO0bAXZEoPsdtsdy0LDJA7yc7MeI75vcl2aalA3XsC31bsKtpxQEUXiejJI5aK9PJQRh6g5jKWOku7-QJQiNKLdW7XIT-UPKQ" />
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold">Skyline Cloud API</h4>
+                                        <p class="text-xs text-slate-500">Updated GitHub repository link</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-[10px] font-bold text-slate-400 uppercase">1h ago</span>
+                                    <button
+                                        class="opacity-0 group-hover:opacity-100 p-2 text-slate-400 hover:text-primary transition-all">
+                                        <span class="material-symbols-outlined text-sm">edit</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <div
+                                class="p-4 flex items-center justify-between hover:bg-slate-50 dark:hover:bg-slate-800/30 transition-colors group">
+                                <div class="flex items-center space-x-4">
+                                    <div
+                                        class="w-10 h-10 rounded-lg bg-slate-100 dark:bg-slate-800 flex items-center justify-center shrink-0">
+                                        <span class="material-symbols-outlined text-slate-400">terminal</span>
+                                    </div>
+                                    <div>
+                                        <h4 class="text-sm font-semibold">Skill Set: Backend</h4>
+                                        <p class="text-xs text-slate-500">Added "Rust" and "gRPC" to technical stack</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center space-x-4">
+                                    <span class="text-[10px] font-bold text-slate-400 uppercase">4h ago</span>
+                                    <button
+                                        class="opacity-0 group-hover:opacity-100 p-2 text-slate-400 hover:text-primary transition-all">
+                                        <span class="material-symbols-outlined text-sm">edit</span>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div
+                            class="px-6 py-4 bg-slate-50 dark:bg-slate-800/30 border-t border-slate-200 dark:border-slate-800 text-center">
+                            <button class="text-xs font-bold text-slate-500 hover:text-primary transition-colors">View
+                                All Changes</button>
+                        </div>
+                    </div>
+                    <div
+                        class="bg-white dark:bg-slate-900/40 rounded-xl border border-slate-200 dark:border-slate-800 p-6">
+                        <div class="flex items-center justify-between mb-6">
+                            <h3 class="font-bold flex items-center space-x-2">
+                                <span class="material-symbols-outlined text-primary">image</span>
+                                <span>Global Assets</span>
+                            </h3>
+                            <button
+                                class="text-xs font-bold px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-primary hover:text-white transition-all">Upload
+                                New</button>
+                        </div>
+                        <div class="grid grid-cols-4 gap-4">
+                            <div
+                                class="aspect-video rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden relative group">
+                                <img alt="Asset" class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuDl77rVoLg-hWGkORTKSwNpdcylALLaquHcqKnGl_sDVRohjcToE2fd1-4A_FJm6t28Vm_qGewB3b5Ty_2ZRQaw8C8mxHm-blP883t_JPjzHcX_LxLqb14sOQDbeloruPTWep-NcNfnYFjOTkAEi-3DhHUDuBOpweUkE0qq3_bKzd-0MbZgJV7d_-jAFNUK34LRvaczAUnlaEqAWabzcXx9FXga7JmAB6-cBn9qQUasPgk9c4L72g-OIBy91VrIm1yKDXhcPCc3fY8" />
+                                <div
+                                    class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all">
+                                    <span class="material-symbols-outlined text-white">zoom_in</span>
+                                </div>
+                            </div>
+                            <div
+                                class="aspect-video rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden relative group">
+                                <img alt="Asset" class="w-full h-full object-cover"
+                                    src="https://lh3.googleusercontent.com/aida-public/AB6AXuAjGRsFcsSj2CtUjXxnkJoy8fpnMvXw3mWxl787Y1S4VQ02WNs4WFofxqx4_U1F4AddrtfYFq2SgjX_Lu3F8w6oSf6_E0baapd-9eMRD-kDm8uqpfcfp-55qhDwNktszrifwNZYN-7uiyN6qU8RH3fXSIBwtISCVcIm_wdmxoBeRL6mZhizCwZvflpvYzvXsQsA8_TJSrkc2mg4VhHdcomsdEN9LoiQPORDpj-Zmky_U3iS18FLJjaWgX5EEGoy8CF3WxDnR0j66sc" />
+                                <div
+                                    class="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-all">
+                                    <span class="material-symbols-outlined text-white">zoom_in</span>
+                                </div>
+                            </div>
+                            <div
+                                class="aspect-video rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden relative group border-2 border-dashed border-slate-300 dark:border-slate-700 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-slate-300">add</span>
+                            </div>
+                            <div
+                                class="aspect-video rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden relative group border-2 border-dashed border-slate-300 dark:border-slate-700 flex items-center justify-center">
+                                <span class="material-symbols-outlined text-slate-300">add</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-6">
+                    <div
+                        class="bg-white dark:bg-slate-900/40 rounded-xl border border-slate-200 dark:border-slate-800 p-6">
+                        <h3 class="font-bold mb-4 flex items-center space-x-2">
+                            <span class="material-symbols-outlined text-primary">search</span>
+                            <span>SEO Health</span>
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="text-xs text-slate-500 font-medium">Meta Descriptions</span>
+                                <span
+                                    class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">100%</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="bg-emerald-500 h-full w-full"></div>
+                            </div>
+                            <div class="flex items-center justify-between pt-2">
+                                <span class="text-xs text-slate-500 font-medium">Alt Text Coverage</span>
+                                <span
+                                    class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 uppercase">82%</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="bg-amber-500 h-full w-[82%]"></div>
+                            </div>
+                            <div class="flex items-center justify-between pt-2">
+                                <span class="text-xs text-slate-500 font-medium">Keyword Density</span>
+                                <span
+                                    class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Optimal</span>
+                            </div>
+                            <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
+                                <div class="bg-emerald-500 h-full w-[95%]"></div>
+                            </div>
+                        </div>
+                        <button
+                            class="w-full mt-6 py-2 border border-slate-200 dark:border-slate-800 rounded-lg text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Run
+                            Full Audit</button>
+                    </div>
+                    <div class="bg-primary/5 rounded-xl border border-primary/20 p-6">
+                        <h3 class="font-bold text-primary mb-2 flex items-center space-x-2">
+                            <span class="material-symbols-outlined text-sm">auto_awesome</span>
+                            <span>System Tip</span>
+                        </h3>
+                        <p class="text-xs text-slate-500 leading-relaxed">Your "About Me" page has 3 pending changes.
+                            Sync them now to reflect the latest experience updates on your public profile.</p>
+                        <button class="mt-4 text-xs font-bold text-primary hover:underline">Go to About Me →</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+
+</html>

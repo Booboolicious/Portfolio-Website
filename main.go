@@ -20,15 +20,21 @@ func main() {
 	http.HandleFunc("/contact_information", userPage)
 	http.HandleFunc("/about_me", userPage)
 
-	http.HandleFunc("adminDashboard/", adminPage)
+	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("dev/css"))))
+	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("dev/js"))))
+
+	http.HandleFunc("/adminDashboard/", adminPage)
 	http.HandleFunc("/adminDashboard/login", adminPage)
 	http.HandleFunc("/adminDashboard/project_management_dashboard", adminPage)
 	http.HandleFunc("/adminDashboard/skills_&_proficiency_manager", adminPage)
 
-	http.Handle("/css/", http.StripPrefix("/css/", http.FileServer(http.Dir("dev/css"))))
-	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("dev/js"))))
+	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("dev/adminDashboard/static"))))
 
-	fmt.Println("server running on http://127.0.0.1:8080/")
+	
+
+
+
+	fmt.Println("server running on http://127.0.0.1:8081/")
 	http.ListenAndServe(":8081", nil)
 }
 
