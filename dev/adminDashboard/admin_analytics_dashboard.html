@@ -5,7 +5,6 @@
 
 <body
     class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-hidden h-screen flex">
-
     {{template "sidebar" .}}
 
     <main class="flex-1 overflow-y-auto custom-scrollbar">
@@ -21,97 +20,93 @@
                         <p class="text-sm text-slate-500">The first impression of your portfolio.</p>
                     </div>
                 </div>
-<div class="glass-card p-8 rounded-2xl space-y-8">
-    <!-- Status Toggle -->
-    <div class="flex items-center justify-between p-4 bg-primary/5 rounded-xl border border-primary/20">
-        <div class="flex items-center gap-3">
-            <span class="relative flex h-3 w-3">
-                <span
-                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
-            </span>
-            <div>
+
+                <div class="glass-card p-8 rounded-2xl space-y-8">
+                    <!-- Status Toggle -->
+                    <div class="flex items-center justify-between p-4 bg-primary/5 rounded-xl border border-primary/20">
+                        <div class="flex items-center gap-3">
+                            <span class="relative flex h-3 w-3">
+                                <span
+                                    class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                                <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+                            </span>
+                            <div>
                                 <p class="text-sm font-bold">Availability Status</p>
-                                <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Currently showing as "Available for New
-                                    Projects"</p>
-                                </div>
+                                <p class="text-[10px] text-slate-500 uppercase tracking-widest font-bold">Currently
+                                    showing as "{{.Data.Hero.Status}}"
+                                </p>
+                            </div>
                         </div>
                         <button
                             class="px-4 py-2 bg-emerald-500 text-white text-xs font-bold rounded-lg shadow-lg shadow-emerald-500/20">Active</button>
-                        </div>
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-    <div class="space-y-4">
-        <div class="space-y-1">
-            <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Main Title Segment 1</label>
-            <input class="admin-input" type="text" value="Building Scalable" />
-        </div>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
                             <div class="space-y-1">
-                                <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Highlight Text (Gradient)</label>
-                                <input class="admin-input" type="text" value="Solutions" />
+                                <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Main Title
+                                    Segment 1</label>
+                                <input class="admin-input" type="text" value="{{.Data.Hero.Title1}}" />
                             </div>
                             <div class="space-y-1">
-                                <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Main Title Segment 2</label>
-                                <input class="admin-input" type="text" value="through Mastery." />
+                                <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Highlight Text
+                                    (Gradient)</label>
+                                <input class="admin-input" type="text" value="{{.Data.Hero.Highlight}}" />
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Main Title
+                                    Segment 2</label>
+                                <input class="admin-input" type="text" value="{{.Data.Hero.Title2}}" />
                             </div>
                         </div>
                         <div class="space-y-4">
                             <div class="space-y-1">
-                                <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Sub-headline Description</label>
-                                <textarea class="admin-input"
-                                    rows="5">Full-stack Software Engineer specializing in high-performance web applications and distributed systems. Crafting digital experiences that matter.</textarea>
+                                <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Sub-headline
+                                    Description</label>
+                                <textarea class="admin-input" rows="5">{{.Data.Hero.Subtitle}}</textarea>
                             </div>
                         </div>
                     </div>
-<div class="border-t border-border-light dark:border-border-dark pt-6 flex justify-between items-center">
-    <div class="flex gap-4">
-        <button class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-bold">
-            <span class="material-icons text-sm">visibility</span>
-            Preview Changes
-        </button>
-    </div>
+
+                    <div
+                        class="border-t border-border-light dark:border-border-dark pt-6 flex justify-between items-center">
+                        <div class="flex gap-4">
+                            <button
+                                class="flex items-center gap-2 px-4 py-2 rounded-lg bg-slate-100 dark:bg-slate-800 text-xs font-bold">
+                                <span class="material-icons text-sm">visibility</span>
+                                Preview Changes
+                            </button>
+                        </div>
                         <button
                             class="flex items-center gap-2 px-6 py-2.5 rounded-xl bg-primary text-white font-bold transition-all shadow-xl shadow-primary/20 hover:scale-[1.02]">
                             <span class="material-icons text-sm">save</span>
                             Push to Live
                         </button>
-                        </div>
-                        </div>
+                    </div>
+                </div>
             </section>
-            
+
             <!-- Statistics Grid -->
             <section class="space-y-6">
-                <div class="flex items-center justify-between border-b border-border-light dark:border-border-dark pb-4">
+                <div
+                    class="flex items-center justify-between border-b border-border-light dark:border-border-dark pb-4">
                     <div>
                         <h2 class="text-2xl font-bold">Metrics & Stats</h2>
                         <p class="text-sm text-slate-500">Counter values shown in the stats section.</p>
-                        </div>
+                    </div>
                 </div>
-<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
-    <div class="glass-card p-6 rounded-2xl space-y-3">
-        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Experience</label>
-        <input class="text-2xl font-black bg-transparent border-none p-0 focus:ring-0 text-primary w-full" type="text"
-            value="5+" />
-        <p class="text-xs text-slate-500">Years of Experience</p>
-                    </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    {{range .Data.Stats}}
                     <div class="glass-card p-6 rounded-2xl space-y-3">
-                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Projects</label>
-                        <input class="text-2xl font-black bg-transparent border-none p-0 focus:ring-0 text-primary w-full" type="text"
-                            value="120+" />
-                        <p class="text-xs text-slate-500">Completed Projects</p>
+                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">{{.Label}}</label>
+                        <input
+                            class="text-2xl font-black bg-transparent border-none p-0 focus:ring-0 text-primary w-full"
+                            type="text" value="{{.Value}}" />
+                        <p class="text-xs text-slate-500">{{.Label}}</p>
                     </div>
-                    <div class="glass-card p-6 rounded-2xl space-y-3">
-                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Influence</label>
-                        <input class="text-2xl font-black bg-transparent border-none p-0 focus:ring-0 text-primary w-full" type="text"
-                            value="40+" />
-                        <p class="text-xs text-slate-500">Happy Clients</p>
-                    </div>
-                    <div class="glass-card p-6 rounded-2xl space-y-3">
-                        <label class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Activity</label>
-                        <input class="text-2xl font-black bg-transparent border-none p-0 focus:ring-0 text-primary w-full" type="text"
-                            value="15k" />
-                        <p class="text-xs text-slate-500">Lines of Code</p>
-                    </div>
-                    </div>
+                    {{end}}
+                </div>
             </section>
         </div>
     </main>
