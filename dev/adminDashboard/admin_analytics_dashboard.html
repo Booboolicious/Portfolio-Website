@@ -3,12 +3,34 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Portfolio Master Control Panel | Software Engineer</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
-    <script src="../js/main.js" defer></script>
-    <style>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#135bec",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#101622",
+                    },
+                    fontFamily: {
+                        "display": ["Inter", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style type="text/tailwindcss">
         .material-symbols-outlined {
             font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
         }
@@ -20,45 +42,42 @@
 <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
 <span class="material-icons text-white text-lg">terminal</span>
 </div>
-<span class="font-bold text-xl tracking-tight text-slate-900 dark:text-white">Portfolio OS</span>
+<span class="font-bold text-lg tracking-tight">Portfolio OS</span>
 </div>
 <div class="px-6 mb-4">
-<p class="text-xxs font-bold text-slate-400 uppercase tracking-widest">Core Pages</p>
+<p class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Core Pages</p>
 </div>
 <nav class="flex-1 px-4 space-y-1">
-<a class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-medium border border-primary/20 transition-colors"
-    href="admin_analytics_dashboard.html">
-    <span class="material-symbols-outlined text-xl">dashboard</span>
-    <span>Dashboard</span>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg bg-primary/10 text-primary font-medium border border-primary/20" href="#">
+<span class="material-symbols-outlined text-[20px]">home</span>
+<span>Home Page</span>
 </a>
-<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white transition-colors"
-    href="page_content_manager.html">
-    <span class="material-symbols-outlined text-xl">edit_note</span>
-    <span>Content Manager</span>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">person</span>
+<span>About Me</span>
 </a>
-<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white transition-colors"
-    href="skills_&_proficiency_manager.html">
-<span class="material-symbols-outlined text-xl">psychology</span>
-<span>Skills & Tech</span>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">psychology</span>
+<span>Skills &amp; Tech</span>
 </a>
-<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800/50 hover:text-slate-900 dark:hover:text-white transition-colors"
-    href="project_management_dashboard.html">
-<span class="material-symbols-outlined text-xl">work</span>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">work</span>
 <span>Projects Gallery</span>
+</a>
+<a class="flex items-center space-x-3 px-4 py-3 rounded-lg text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors" href="#">
+<span class="material-symbols-outlined text-[20px]">mail</span>
+<span>Contact Section</span>
 </a>
 </nav>
 <div class="p-4 border-t border-slate-200 dark:border-slate-800">
-<div
-    class="flex items-center space-x-3 p-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors cursor-pointer group">
-    <div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 overflow-hidden shrink-0">
+<div class="flex items-center space-x-3 p-2 bg-slate-50 dark:bg-slate-800/50 rounded-xl">
+<div class="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-800 overflow-hidden shrink-0">
 <img class="w-full h-full object-cover" data-alt="Professional portrait" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNsR6z7vbHTE5fGJZaVjb2ktZvHzzzFsvpP0NHkU1ai0xMaBvf4MkH4ZeOYPq2qbAA9NBQufdRwSjyLbGK18yuapnbwAG_vH6Bw-wjYeYXdaoL5GYAdwqnD2z0RN_S_NUiW3m1M1-VAGbaP3jg9R6hcxq4DV_Ki72PbPlRSD2vCNt208G6hSp0SgRJHzC23kKPGxOhDM9jdczbiHOIBzBqHbIiB6dyG9pelk26jV0KCi6nKgSjIoZm8522NveskkWJGmbvDE8vYhg"/>
 </div>
 <div class="overflow-hidden">
-<p class="text-sm font-semibold truncate text-slate-900 dark:text-white">Alex Rivera</p>
-<p class="text-xxs text-slate-500 dark:text-slate-400 font-bold uppercase">Super Admin</p>
+<p class="text-sm font-semibold truncate">Alex Rivera</p>
+<p class="text-[10px] text-slate-500 font-bold uppercase">Super Admin</p>
 </div>
-<span
-    class="material-icons text-slate-400 group-hover:text-slate-600 dark:group-hover:text-slate-200 ml-auto text-sm transition-colors">logout</span>
 </div>
 </div>
 </aside>
@@ -75,7 +94,7 @@
 </div>
 <div class="h-8 w-px bg-slate-200 dark:bg-slate-800"></div>
 <button class="flex items-center space-x-2 bg-primary px-4 py-2 rounded-lg text-white text-sm font-medium hover:bg-primary/90 transition-all shadow-lg shadow-primary/20">
-<span class="material-icons text-lg">publish</span>
+<span class="material-icons text-[18px]">publish</span>
 <span>Deploy Changes</span>
 </button>
 </div>
@@ -84,8 +103,8 @@
 <section>
 <div class="flex items-end justify-between mb-6">
 <div>
-<h2 class="text-2xl font-bold text-slate-900 dark:text-white">Data Integrity Check</h2>
-<p class="text-slate-500 dark:text-slate-400 text-sm">System status and synchronization report for all core modules</p>
+<h2 class="text-2xl font-bold">Data Integrity Check</h2>
+<p class="text-slate-500 text-sm">System status and synchronization report for all core modules</p>
 </div>
 <button class="text-xs font-bold text-primary hover:underline flex items-center space-x-1">
 <span class="material-symbols-outlined text-sm">refresh</span>
@@ -93,66 +112,65 @@
 </button>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
-<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="bg-white dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
 <div class="flex justify-between items-start mb-4">
 <div class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
-<span class="material-symbols-outlined text-slate-500 dark:text-slate-400">home</span>
+<span class="material-symbols-outlined text-slate-500">home</span>
 </div>
-<span class="text-xxs font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Synced</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Synced</span>
 </div>
-<h3 class="font-bold text-sm text-slate-900 dark:text-white">Home Page</h3>
-<p class="text-xxs text-slate-500 dark:text-slate-400 mt-1 uppercase font-bold tracking-tight">Last edited 2h ago</p>
+<h3 class="font-bold text-sm">Home Page</h3>
+<p class="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-tight">Last edited 2h ago</p>
 </div>
-<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-xl border border-primary/30 ring-1 ring-primary/30">
+<div class="bg-white dark:bg-slate-900/40 p-4 rounded-xl border border-primary/30 ring-1 ring-primary/30">
 <div class="flex justify-between items-start mb-4">
 <div class="p-2 bg-primary/10 rounded-lg">
 <span class="material-symbols-outlined text-primary">person</span>
 </div>
-<span class="text-xxs font-bold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 uppercase">Pending</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 uppercase">Pending</span>
 </div>
-<h3 class="font-bold text-sm text-slate-900 dark:text-white">About Me</h3>
-<p class="text-xxs text-slate-500 dark:text-slate-400 mt-1 uppercase font-bold tracking-tight">3 unsaved changes</p>
+<h3 class="font-bold text-sm">About Me</h3>
+<p class="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-tight">3 unsaved changes</p>
 </div>
-<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="bg-white dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
 <div class="flex justify-between items-start mb-4">
 <div class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
-<span class="material-symbols-outlined text-slate-500 dark:text-slate-400">psychology</span>
+<span class="material-symbols-outlined text-slate-500">psychology</span>
 </div>
-<span class="text-xxs font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Synced</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Synced</span>
 </div>
-<h3 class="font-bold text-sm text-slate-900 dark:text-white">Skills & Tech</h3>
-<p class="text-xxs text-slate-500 dark:text-slate-400 mt-1 uppercase font-bold tracking-tight">Updated Oct 24</p>
+<h3 class="font-bold text-sm">Skills &amp; Tech</h3>
+<p class="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-tight">Updated Oct 24</p>
 </div>
-<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="bg-white dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
 <div class="flex justify-between items-start mb-4">
 <div class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
-<span class="material-symbols-outlined text-slate-500 dark:text-slate-400">work</span>
+<span class="material-symbols-outlined text-slate-500">work</span>
 </div>
-<span class="text-xxs font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Synced</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Synced</span>
 </div>
-<h3 class="font-bold text-sm text-slate-900 dark:text-white">Projects</h3>
-<p class="text-xxs text-slate-500 dark:text-slate-400 mt-1 uppercase font-bold tracking-tight">12 active nodes</p>
+<h3 class="font-bold text-sm">Projects</h3>
+<p class="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-tight">12 active nodes</p>
 </div>
-<div class="bg-surface-light dark:bg-surface-dark p-4 rounded-xl border border-slate-200 dark:border-slate-800">
+<div class="bg-white dark:bg-slate-900/40 p-4 rounded-xl border border-slate-200 dark:border-slate-800">
 <div class="flex justify-between items-start mb-4">
 <div class="p-2 bg-slate-100 dark:bg-slate-800 rounded-lg">
-<span class="material-symbols-outlined text-slate-500 dark:text-slate-400">mail</span>
+<span class="material-symbols-outlined text-slate-500">mail</span>
 </div>
-<span class="text-xxs font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Synced</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Synced</span>
 </div>
-<h3 class="font-bold text-sm text-slate-900 dark:text-white">Contact</h3>
-<p class="text-xxs text-slate-500 dark:text-slate-400 mt-1 uppercase font-bold tracking-tight">Form active</p>
+<h3 class="font-bold text-sm">Contact</h3>
+<p class="text-[10px] text-slate-500 mt-1 uppercase font-bold tracking-tight">Form active</p>
 </div>
 </div>
 </section>
 <div class="grid grid-cols-1 xl:grid-cols-3 gap-8">
 <div class="xl:col-span-2 space-y-6">
-<div
-    class="bg-surface-light dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
+<div class="bg-white dark:bg-slate-900/40 rounded-xl border border-slate-200 dark:border-slate-800 overflow-hidden">
 <div class="px-6 py-4 border-b border-slate-200 dark:border-slate-800 flex items-center justify-between bg-slate-50/50 dark:bg-slate-800/20">
 <div class="flex items-center space-x-2">
 <span class="material-symbols-outlined text-primary">edit_note</span>
-<h3 class="font-bold text-slate-900 dark:text-white">Recent Content Updates</h3>
+<h3 class="font-bold">Recent Content Updates</h3>
 </div>
 <button class="text-xs text-slate-500 hover:text-primary font-bold transition-colors">History</button>
 </div>
@@ -168,7 +186,7 @@
 </div>
 </div>
 <div class="flex items-center space-x-4">
-<span class="text-xxs font-bold text-slate-400 uppercase">12m ago</span>
+<span class="text-[10px] font-bold text-slate-400 uppercase">12m ago</span>
 <button class="opacity-0 group-hover:opacity-100 p-2 text-slate-400 hover:text-primary transition-all">
 <span class="material-symbols-outlined text-sm">edit</span>
 </button>
@@ -185,7 +203,7 @@
 </div>
 </div>
 <div class="flex items-center space-x-4">
-<span class="text-xxs font-bold text-slate-400 uppercase">1h ago</span>
+<span class="text-[10px] font-bold text-slate-400 uppercase">1h ago</span>
 <button class="opacity-0 group-hover:opacity-100 p-2 text-slate-400 hover:text-primary transition-all">
 <span class="material-symbols-outlined text-sm">edit</span>
 </button>
@@ -202,7 +220,7 @@
 </div>
 </div>
 <div class="flex items-center space-x-4">
-<span class="text-xxs font-bold text-slate-400 uppercase">4h ago</span>
+<span class="text-[10px] font-bold text-slate-400 uppercase">4h ago</span>
 <button class="opacity-0 group-hover:opacity-100 p-2 text-slate-400 hover:text-primary transition-all">
 <span class="material-symbols-outlined text-sm">edit</span>
 </button>
@@ -213,15 +231,13 @@
 <button class="text-xs font-bold text-slate-500 hover:text-primary transition-colors">View All Changes</button>
 </div>
 </div>
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 p-6">
+<div class="bg-white dark:bg-slate-900/40 rounded-xl border border-slate-200 dark:border-slate-800 p-6">
 <div class="flex items-center justify-between mb-6">
-<h3 class="font-bold flex items-center space-x-2 text-slate-900 dark:text-white">
+<h3 class="font-bold flex items-center space-x-2">
 <span class="material-symbols-outlined text-primary">image</span>
 <span>Global Assets</span>
 </h3>
-<button
-    class="text-xs font-bold px-3 py-1 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 rounded-lg hover:bg-primary hover:text-white transition-all">Upload
-    New</button>
+<button class="text-xs font-bold px-3 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg hover:bg-primary hover:text-white transition-all">Upload New</button>
 </div>
 <div class="grid grid-cols-4 gap-4">
 <div class="aspect-video rounded-lg bg-slate-100 dark:bg-slate-800 overflow-hidden relative group">
@@ -246,32 +262,32 @@
 </div>
 </div>
 <div class="space-y-6">
-<div class="bg-surface-light dark:bg-surface-dark rounded-xl border border-slate-200 dark:border-slate-800 p-6">
-    <h3 class="font-bold mb-4 flex items-center space-x-2 text-slate-900 dark:text-white">
+<div class="bg-white dark:bg-slate-900/40 rounded-xl border border-slate-200 dark:border-slate-800 p-6">
+<h3 class="font-bold mb-4 flex items-center space-x-2">
 <span class="material-symbols-outlined text-primary">search</span>
 <span>SEO Health</span>
 </h3>
 <div class="space-y-4">
 <div class="flex items-center justify-between">
 <span class="text-xs text-slate-500 font-medium">Meta Descriptions</span>
-<span class="text-xxs font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">100%</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">100%</span>
 </div>
 <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
 <div class="bg-emerald-500 h-full w-full"></div>
 </div>
 <div class="flex items-center justify-between pt-2">
 <span class="text-xs text-slate-500 font-medium">Alt Text Coverage</span>
-<span class="text-xxs font-bold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 uppercase">82%</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-500/10 text-amber-500 uppercase">82%</span>
 </div>
 <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-<div class="bg-amber-500 h-full" style="width: 82%"></div>
+<div class="bg-amber-500 h-full w-[82%]"></div>
 </div>
 <div class="flex items-center justify-between pt-2">
 <span class="text-xs text-slate-500 font-medium">Keyword Density</span>
-<span class="text-xxs font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Optimal</span>
+<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Optimal</span>
 </div>
 <div class="w-full h-2 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
-<div class="bg-emerald-500 h-full" style="width: 95%"></div>
+<div class="bg-emerald-500 h-full w-[95%]"></div>
 </div>
 </div>
 <button class="w-full mt-6 py-2 border border-slate-200 dark:border-slate-800 rounded-lg text-xs font-bold hover:bg-slate-50 dark:hover:bg-slate-800 transition-colors">Run Full Audit</button>
