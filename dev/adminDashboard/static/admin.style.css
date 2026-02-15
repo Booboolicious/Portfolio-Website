@@ -1,24 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --primary: #135bec;
+}
 body {
     font-family: 'Inter', sans-serif;
 }
 
+/* Material Symbols Standardization */
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    vertical-align: middle;
 }
 
+/* Texture & Effects */
 .tech-grid {
-    background-image: radial-gradient(circle at 1px 1px, rgba(19, 91, 236, 0.15) 1px, transparent 0);
+    background-image: radial-gradient(circle at 1px 1px, rgba(19, 91, 236, 0.1) 1px, transparent 0);
     background-size: 24px 24px;
 }
 
+/* Standard CSS for Glass Card since we can't use @apply */
 .glass-card {
-    background: rgba(16, 22, 34, 0.8);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(19, 91, 236, 0.17);
+    background-color: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+    }
+    
+    .dark .glass-card {
+        background-color: rgba(15, 23, 42, 0.8);
+    }
+    
+    /* Admin Input Styling */
+    .admin-input {
+        width: 100%;
+        background-color: #f8fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 0.75rem;
+        padding: 0.625rem 1rem;
+        transition: all 0.2s;
+        outline: none;
+        font-size: 0.875rem;
+    }
+    
+    .dark .admin-input {
+        background-color: rgba(30, 41, 59, 0.5);
+        border-color: #334155;
+        color: #f1f5f9;
+    }
+    
+    .admin-input:focus {
+        border-color: var(--primary);
+        box-shadow: 0 0 0 2px rgba(19, 91, 236, 0.2);
 }
 
+/* Custom Scrollbar */
 .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
+    height: 6px;
 }
 
 .custom-scrollbar::-webkit-scrollbar-track {
@@ -26,14 +64,18 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar-thumb {
-    background: #2d3748;
-    border-radius: 10px;
+    background: #cbd5e1;
+        border-radius: 9999px;
 }
 
-
-
-.custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
+.dark .custom-scrollbar::-webkit-scrollbar-thumb {
+    background: #334155;
 }
 
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
 
+.dark .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    background: #475569;
+}

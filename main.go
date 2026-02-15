@@ -9,7 +9,8 @@ import (
 )
 
 type PageData struct {
-	Page string
+	Page  string
+	Title string
 }
 
 func main() {
@@ -27,6 +28,8 @@ func main() {
 	http.HandleFunc("/adminDashboard/login", adminPage)
 	http.HandleFunc("/adminDashboard/project_management_dashboard", adminPage)
 	http.HandleFunc("/adminDashboard/skills_&_proficiency_manager", adminPage)
+	http.HandleFunc("/adminDashboard/contact_manager", adminPage)
+	http.HandleFunc("/adminDashboard/experience_manager", adminPage)
 
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("dev/adminDashboard/static"))))
 
@@ -91,6 +94,8 @@ func adminPage(w http.ResponseWriter, r *http.Request) {
 		"/adminDashboard/page_content_manager":         "dev/adminDashboard/page_content_manager.html",
 		"/adminDashboard/project_management_dashboard": "dev/adminDashboard/project_management_dashboard.html",
 		"/adminDashboard/skills_&_proficiency_manager": "dev/adminDashboard/skills_&_proficiency_manager.html",
+		"/adminDashboard/contact_manager":             "dev/adminDashboard/contact_manager.html",
+		"/adminDashboard/experience_manager":          "dev/adminDashboard/experience_manager.html",
 	}
 
 	filePath := admin[r.URL.Path]
@@ -99,14 +104,25 @@ func adminPage(w http.ResponseWriter, r *http.Request) {
 	}
 
 	page := "admin_analytics_dashboard"
+	title := "Master Control Panel"
 	if strings.Contains(r.URL.Path, "login") {
 		page = "login"
+		title = "Admin Login"
 	} else if strings.Contains(r.URL.Path, "page_content_manager") {
 		page = "content"
+		title = "Content Manager"
 	} else if strings.Contains(r.URL.Path, "project_management_dashboard") {
 		page = "management"
+		title = "Project Manager"
 	} else if strings.Contains(r.URL.Path, "skills_&_proficiency_manager") {
 		page = "skills_&_proficiency"
+		title = "Skills & Proficiency"
+	} else if strings.Contains(r.URL.Path, "contact_manager") {
+		page = "contact"
+		title = "Contact Manager"
+	} else if strings.Contains(r.URL.Path, "experience_manager") {
+		page = "experience"
+		title = "Experience Manager"
 	}
 
 	t, err := template.ParseGlob("dev/adminDashboard/*.html")
@@ -115,11 +131,10 @@ func adminPage(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// data := map[string]string{
-	// 	"pageData": page,
-	// }
-
-	data := PageData{Page: page}
+	data := PageData{
+		Page:  page,
+		Title: title,
+	}
 
 	templateName := filepath.Base(filePath)
 

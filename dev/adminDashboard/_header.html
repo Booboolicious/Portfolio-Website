@@ -1,0 +1,19 @@
+{{define "header"}}
+<header class="h-16 flex items-center justify-between px-8 border-b border-border-light dark:border-border-dark bg-white/50 dark:bg-slate-900/50 backdrop-blur-md sticky top-0 z-10">
+    <div class="flex items-center space-x-3">
+        <span class="material-symbols-outlined text-slate-400">tune</span>
+        <h1 class="text-xl font-bold">{{.Title}}</h1>
+    </div>
+    <div class="flex items-center space-x-4">
+        <div class="flex items-center space-x-2 text-xs font-medium text-emerald-500 bg-emerald-500/10 px-3 py-1.5 rounded-full">
+            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+            <span>Production Live</span>
+        </div>
+        <div class="h-8 w-px bg-border-light dark:bg-border-dark"></div>
+        <button class="flex items-center space-x-2 bg-primary px-4 py-2 rounded-lg text-white text-sm font-medium hover:bg-primary-dark transition-all shadow-lg shadow-primary/20">
+            <span class="material-icons text-[18px]">publish</span>
+            <span>Deploy</span>
+        </button>
+    </div>
+</header>
+{{end}}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+
+{{template "head" .}}
+
+<body class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-slate-100 antialiased overflow-hidden h-screen flex">
+    
+    {{template "sidebar" .}}
+
+    <main class="flex-1 overflow-y-auto custom-scrollbar">
+        {{template "header" .}}
+
+        <div class="p-8 space-y-8 max-w-5xl mx-auto pb-20">
+            <!-- Header Section -->
+            <section class="space-y-6">
+                <div class="flex items-center justify-between border-b border-border-light dark:border-border-dark pb-4">
+                    <div>
+                        <h2 class="text-2xl font-bold">Contact Hub Configuration</h2>
+                        <p class="text-sm text-slate-500">Manage communication channels and inbound lead settings.</p>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <!-- General Details -->
+                    <div class="glass-card p-8 rounded-2xl space-y-6">
+                        <h3 class="font-bold flex items-center gap-2">
+                            <span class="material-icons text-primary">contact_mail</span>
+                            General Info
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Public Email Address</label>
+                                <input class="admin-input" type="email" value="alex.rivera@dev.io" />
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Office / Primary Location</label>
+                                <input class="admin-input" type="text" value="San Francisco, CA" />
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Lead Status Message</label>
+                                <textarea class="admin-input" rows="3">Currently accepting high-priority consulting roles for Q3.</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Presence -->
+                    <div class="glass-card p-8 rounded-2xl space-y-6">
+                        <h3 class="font-bold flex items-center gap-2">
+                            <span class="material-icons text-primary">share</span>
+                            Social Presence Hub
+                        </h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-slate-400">code</span>
+                                </div>
+                                <div class="flex-1">
+                                    <label class="text-[10px] font-bold text-slate-400 uppercase">GitHub Profile</label>
+                                    <input class="w-full bg-transparent border-none p-0 focus:ring-0 text-sm font-semibold" value="github.com/arivera-dev" />
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-slate-400">public</span>
+                                </div>
+                                <div class="flex-1">
+                                    <label class="text-[10px] font-bold text-slate-400 uppercase">LinkedIn Profile</label>
+                                    <input class="w-full bg-transparent border-none p-0 focus:ring-0 text-sm font-semibold" value="linkedin.com/in/alex-rivera" />
+                                </div>
+                            </div>
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 bg-slate-100 dark:bg-slate-800 rounded-lg flex items-center justify-center">
+                                    <span class="material-symbols-outlined text-slate-400">terminal</span>
+                                </div>
+                                <div class="flex-1">
+                                    <label class="text-[10px] font-bold text-slate-400 uppercase">Twitter / X</label>
+                                    <input class="w-full bg-transparent border-none p-0 focus:ring-0 text-sm font-semibold" value="twitter.com/dev_rivera" />
+                                </div>
+                            </div>
+                            <button class="w-full py-2 border border-dashed border-slate-300 dark:border-slate-700 rounded-xl text-[10px] font-bold uppercase tracking-widest text-slate-500">
+                                + Add Link
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Form Feedback -->
+                <div class="glass-card p-8 rounded-2xl space-y-6">
+                    <div class="flex items-center justify-between">
+                        <h3 class="font-bold flex items-center gap-2">
+                            <span class="material-symbols-outlined text-primary">mark_email_read</span>
+                            Inbound Workflow & Feedback
+                        </h3>
+                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-500 uppercase">Form Active</span>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <div class="space-y-4">
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Form Submission Heading</label>
+                                <input class="admin-input" type="text" value="Message Sent Successfully!" />
+                            </div>
+                            <div class="space-y-1">
+                                <label class="text-xs font-bold uppercase tracking-wider text-slate-500">Confirmation Subtext</label>
+                                <textarea class="admin-input" rows="2">Thanks for reaching out! I typically respond within 12 business hours.</textarea>
+                            </div>
+                        </div>
+                        <div class="bg-primary/5 rounded-2xl border border-primary/10 p-6 flex flex-col justify-center">
+                            <p class="text-[10px] font-bold text-slate-400 uppercase mb-2 tracking-widest">Automation</p>
+                            <p class="text-xs text-slate-500 leading-relaxed mb-4">Emails sent via your contact form are currently routed through the built-in system relay. 12 messages received this week.</p>
+                            <button class="text-xs font-bold text-primary hover:underline w-max">Configure Relay Settings →</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+</body>
+
+</html>
