@@ -43,20 +43,20 @@
             transform: translateY(0);
             opacity: 1;
         }
-        .nav-link {
-            transition: all 0.2s ease;
-        }
+        .nav-link { transition: all 0.2s ease; }
         .nav-link.active {
             background: rgba(99, 102, 241, 0.1);
             color: #6366f1;
         }
-        .section-card {
-            animation: fadeIn 0.3s ease;
-        }
+        .section-card { animation: fadeIn 0.3s ease; }
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(8px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f0f13; }
+        ::-webkit-scrollbar-thumb { background: #1e1e2a; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2a2a3a; }
     </style>
 </head>
 
@@ -64,325 +64,507 @@
 
     <div class="flex min-h-screen">
         <!-- Sidebar -->
-        <aside class="w-64 bg-surface border-r border-white/5 flex flex-col shrink-0 hidden md:flex">
+        <aside class="w-64 bg-surface border-r border-white/5 flex flex-col shrink-0 sticky top-0 h-screen">
             <div class="p-6 border-b border-white/5">
                 <span class="font-bold text-lg text-white">
                     <span class="gradient-text">Dev</span>Admin
                 </span>
-                <div class="mt-1 text-xs text-gray-600">Content Management</div>
+                <div class="mt-1 text-xs text-gray-600">Full Access Portfolio Control</div>
             </div>
-            <nav class="p-4 flex-1 space-y-1">
+            <nav class="p-4 flex-1 space-y-1 overflow-y-auto">
                 <a href="#hero-section" class="nav-link active flex items-center gap-3 px-3 py-2.5 rounded-lg text-sm font-medium">
                     <span>⚡</span> Hero Section
                 </a>
+                <a href="#stats-section"
+                    class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-500 text-sm hover:text-gray-300 hover:bg-white/5">
+                    <span>📊</span> Statistics
+                </a>
                 <a href="#about-section" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-500 text-sm hover:text-gray-300 hover:bg-white/5">
-                    <span>👤</span> About
+                    <span>👤</span> About Page
                 </a>
-                <a href="#contact-section" class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-500 text-sm hover:text-gray-300 hover:bg-white/5">
-                    <span>📬</span> Contact
+                <a href="#skills-section"
+                    class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-500 text-sm hover:text-gray-300 hover:bg-white/5">
+                    <span>🛠</span> Tech Stack
                 </a>
-                <div class="pt-3 mt-3 border-t border-white/5">
-                    <div class="px-3 py-1 text-xs text-gray-600 uppercase tracking-wider">Read-Only (via JSON)</div>
-                </div>
-                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 text-sm cursor-not-allowed" title="Edit directly in myData.json">
-                    <span>📊</span> Stats
+                <a href="#projects-section"
+                    class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-500 text-sm hover:text-gray-300 hover:bg-white/5">
+                    <span>📁</span> Projects Portfolio
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 text-sm cursor-not-allowed" title="Edit directly in myData.json">
-                    <span>🛠</span> Skills
+                <a href="#experience-section"
+                    class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-500 text-sm hover:text-gray-300 hover:bg-white/5">
+                    <span>💼</span> Career History
                 </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 text-sm cursor-not-allowed" title="Edit directly in myData.json">
-                    <span>📁</span> Projects
-                </a>
-                <a href="#" class="flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-600 text-sm cursor-not-allowed" title="Edit directly in myData.json">
-                    <span>💼</span> Experience
+                <a href="#contact-section"
+                    class="nav-link flex items-center gap-3 px-3 py-2.5 rounded-lg text-gray-500 text-sm hover:text-gray-300 hover:bg-white/5">
+                    <span>📬</span> Contact & Socials
                 </a>
             </nav>
-            <div class="p-4 border-t border-white/5">
+            <div class="p-4 border-t border-white/5 bg-surface/50">
                 <a href="/" target="_blank"
                     class="flex items-center gap-2 px-3 py-2.5 rounded-lg text-gray-500 text-sm hover:text-gray-300 hover:bg-white/5 transition-all">
-                    <span>↗</span> View Live Site
+                    <span>↗</span> Live Preview
                 </a>
             </div>
         </aside>
 
         <!-- Main Content -->
         <main class="flex-1 overflow-y-auto">
-
-            <!-- Top Bar -->
-            <header class="border-b border-white/5 bg-dark/80 backdrop-blur-md sticky top-0 z-10 px-6 py-4 flex items-center justify-between">
+            <header
+                class="border-b border-white/5 bg-dark/80 backdrop-blur-md sticky top-0 z-50 px-6 py-4 flex items-center justify-between">
                 <div>
-                    <h1 class="text-white font-semibold">Site Editor</h1>
-                    <p class="text-gray-500 text-xs mt-0.5">Edit your portfolio content — saves to myData.json</p>
+                    <h1 class="text-white font-semibold">Total Portfolio Manager</h1>
+                    <p class="text-gray-500 text-xs mt-0.5" id="last-saved">Saves directly to your data source</p>
                 </div>
                 <div class="flex items-center gap-3">
-                    <a href="/" target="_blank"
-                        class="px-4 py-2 rounded-lg border border-white/10 text-gray-400 text-xs hover:text-white transition-colors">
-                        View Site ↗
-                    </a>
                     <button id="save-btn"
-                        class="px-5 py-2 bg-brand rounded-lg text-white font-semibold hover:bg-indigo-500 transition-all hover:scale-105 text-xs shadow-lg shadow-brand/20">
-                        Save All Changes
+                        class="px-6 py-2.5 bg-brand rounded-xl text-white font-bold hover:bg-indigo-500 transition-all hover:scale-[1.02] text-sm shadow-xl shadow-brand/20 active:scale-95">
+                        Publish Changes
                     </button>
                 </div>
             </header>
 
-            <!-- Editor Body -->
-            <div class="p-6 max-w-3xl space-y-8">
-
-                <!-- ═══════════════════════════════════════ -->
+            <div class="p-8 max-w-4xl mx-auto space-y-12">
                 <!-- HERO SECTION -->
-                <!-- ═══════════════════════════════════════ -->
-                <div id="hero-section" class="section-card">
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-lg">⚡</span>
-                        <h2 class="text-white font-bold text-lg">Hero Section</h2>
-                    </div>
-
-                    <!-- Live Preview -->
-                    <div class="mb-5 p-5 rounded-2xl bg-gradient-to-br from-brand/10 to-purple-600/5 border border-brand/20">
-                        <div class="text-xs text-brand font-semibold uppercase tracking-widest mb-3">Live Preview</div>
-                        <h3 class="text-xl font-black text-white" id="preview-title">{{.Data.Hero.Title1}}</h3>
-                        <span class="gradient-text font-bold" id="preview-highlight">{{.Data.Hero.Highlight}}</span>
-                        <span class="text-gray-500 font-bold ml-1" id="preview-title2">{{.Data.Hero.Title2}}</span>
-                        <p class="text-gray-400 text-sm mt-2" id="preview-subtitle">{{.Data.Hero.Subtitle}}</p>
-                        <div class="mt-2 inline-flex items-center gap-1.5 text-xs text-emerald-400">
-                            <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                            <span id="preview-status">{{.Data.Hero.Status}}</span>
+                <section id="hero-section" class="section-card scroll-mt-24">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-brand/10 flex items-center justify-center text-brand text-lg">⚡</div>
+                            <h2 class="text-xl font-bold text-white tracking-tight">Main Hero & Branding</h2>
                         </div>
                     </div>
-
-                    <div class="space-y-4">
-                        <div class="p-4 rounded-xl bg-card border border-white/5">
-                            <label for="title1" class="block text-sm font-medium text-gray-300 mb-1">Title Line 1</label>
-                            <input id="title1" type="text" value="{{.Data.Hero.Title1}}" placeholder="e.g. Building Scalable"
-                                class="w-full px-4 py-3 rounded-xl bg-dark border border-white/10 text-white placeholder-gray-600 focus:border-brand/60 focus:ring-1 focus:ring-brand/40 transition-all text-sm">
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="p-4 rounded-xl bg-card border border-white/5">
-                                <label for="highlight" class="block text-sm font-medium text-gray-300 mb-1">Highlight Word</label>
-                                <input id="highlight" type="text" value="{{.Data.Hero.Highlight}}" placeholder="e.g. Solutions"
-                                    class="w-full px-4 py-3 rounded-xl bg-dark border border-white/10 text-white placeholder-gray-600 focus:border-brand/60 focus:ring-1 focus:ring-brand/40 transition-all text-sm">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="space-y-4">
+                            <div class="p-5 rounded-2xl bg-card border border-white/5">
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Headline Part 1</label>
+                                <input id="title1" type="text" value="{{.Data.Hero.Title1}}"
+                                    class="w-full bg-dark border border-white/10 rounded-xl px-4 py-3 text-white focus:border-brand/50 transition-all">
                             </div>
-                            <div class="p-4 rounded-xl bg-card border border-white/5">
-                                <label for="title2" class="block text-sm font-medium text-gray-300 mb-1">Title Line 2</label>
-                                <input id="title2" type="text" value="{{.Data.Hero.Title2}}" placeholder="e.g. through Mastery."
-                                    class="w-full px-4 py-3 rounded-xl bg-dark border border-white/10 text-white placeholder-gray-600 focus:border-brand/60 focus:ring-1 focus:ring-brand/40 transition-all text-sm">
+                            <div class="p-5 rounded-2xl bg-card border border-white/5">
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Highlight Term</label>
+                                <input id="highlight" type="text" value="{{.Data.Hero.Highlight}}"
+                                    class="w-full bg-dark border border-white/10 rounded-xl px-4 py-3 text-brand font-bold focus:border-brand/50 transition-all">
+                            </div>
+                            <div class="p-5 rounded-2xl bg-card border border-white/5">
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Headline Part 2</label>
+                                <input id="title2" type="text" value="{{.Data.Hero.Title2}}"
+                                    class="w-full bg-dark border border-white/10 rounded-xl px-4 py-3 text-white focus:border-brand/50 transition-all">
                             </div>
                         </div>
+                        <div class="space-y-4">
+                            <div class="p-5 rounded-2xl bg-card border border-white/5">
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Status Message</label>
+                                <input id="status" type="text" value="{{.Data.Hero.Status}}"
+                                    class="w-full bg-dark border border-white/10 rounded-xl px-4 py-3 text-emerald-400 focus:border-brand/50 transition-all">
+                            </div>
+                            <div class="p-5 rounded-2xl bg-card border border-white/5">
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Brief Intro (Subtitle)</label>
+                                <textarea id="subtitle" rows="5"
+                                    class="w-full bg-dark border border-white/10 rounded-xl px-4 py-3 text-gray-300 focus:border-brand/50 transition-all">{{.Data.Hero.Subtitle}}</textarea>
+                            </div>
+                            </div>
+                            </div>
+                </section>
 
-                        <div class="p-4 rounded-xl bg-card border border-white/5">
-                            <label for="subtitle" class="block text-sm font-medium text-gray-300 mb-1">Subtitle</label>
-                            <textarea id="subtitle" rows="3" placeholder="Your short bio for the hero section..."
-                                class="w-full px-4 py-3 rounded-xl bg-dark border border-white/10 text-white placeholder-gray-600 focus:border-brand/60 focus:ring-1 focus:ring-brand/40 transition-all text-sm">{{.Data.Hero.Subtitle}}</textarea>
+                <!-- STATS SECTION -->
+                <section id="stats-section" class="section-card scroll-mt-24">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-purple-500/10 flex items-center justify-center text-purple-400 text-lg">
+                                📊</div>
+                            <h2 class="text-xl font-bold text-white tracking-tight">Key Statistics</h2>
                         </div>
-
-                        <div class="p-4 rounded-xl bg-card border border-white/5">
-                            <label for="status" class="block text-sm font-medium text-gray-300 mb-1">Status Badge</label>
-                            <input id="status" type="text" value="{{.Data.Hero.Status}}" placeholder="e.g. Available for New Projects"
-                                class="w-full px-4 py-3 rounded-xl bg-dark border border-white/10 text-white placeholder-gray-600 focus:border-brand/60 focus:ring-1 focus:ring-brand/40 transition-all text-sm">
+                        <button onclick="addItem('stats')"
+                            class="text-xs bg-white/5 hover:bg-white/10 text-white px-3 py-1.5 rounded-lg border border-white/10 transition-all">Add
+                            Metric +</button>
                         </div>
+                    <div id="stats-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                        <!-- Rendered by JS -->
                     </div>
-                </div>
+                </section>
 
-                <!-- ═══════════════════════════════════════ -->
                 <!-- ABOUT SECTION -->
-                <!-- ═══════════════════════════════════════ -->
-                <div id="about-section" class="section-card">
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-lg">👤</span>
-                        <h2 class="text-white font-bold text-lg">About</h2>
+                <section id="about-section" class="section-card scroll-mt-24">
+                    <div class="flex items-center gap-3 mb-6">
+                        <div class="w-10 h-10 rounded-xl bg-blue-500/10 flex items-center justify-center text-blue-400 text-lg">👤</div>
+                        <h2 class="text-xl font-bold text-white tracking-tight">Personal Narrative</h2>
                     </div>
-
-                    <div class="space-y-4">
-                        <div class="p-4 rounded-xl bg-card border border-white/5">
-                            <label for="headline" class="block text-sm font-medium text-gray-300 mb-1">Headline</label>
-                            <input id="headline" type="text" value="{{.Data.About.Headline}}" placeholder="Your about headline"
-                                class="w-full px-4 py-3 rounded-xl bg-dark border border-white/10 text-white placeholder-gray-600 focus:border-brand/60 focus:ring-1 focus:ring-brand/40 transition-all text-sm">
-                        </div>
-
-                        <div class="p-4 rounded-xl bg-card border border-white/5">
-                            <label for="bio" class="block text-sm font-medium text-gray-300 mb-1">Bio</label>
-                            <textarea id="bio" rows="4" placeholder="Tell your story..."
-                                class="w-full px-4 py-3 rounded-xl bg-dark border border-white/10 text-white placeholder-gray-600 focus:border-brand/60 focus:ring-1 focus:ring-brand/40 transition-all text-sm">{{.Data.About.Bio}}</textarea>
-                        </div>
-
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="p-4 rounded-xl bg-card border border-white/5">
-                                <label for="current_role" class="block text-sm font-medium text-gray-300 mb-1">Current Role</label>
-                                <input id="current_role" type="text" value="{{.Data.About.CurrentRole}}" placeholder="e.g. Senior Software Engineer"
-                                    class="w-full px-4 py-3 rounded-xl bg-dark border border-white/10 text-white placeholder-gray-600 focus:border-brand/60 focus:ring-1 focus:ring-brand/40 transition-all text-sm">
-                            </div>
-                            <div class="p-4 rounded-xl bg-card border border-white/5">
-                                <label for="company" class="block text-sm font-medium text-gray-300 mb-1">Company</label>
-                                <input id="company" type="text" value="{{.Data.About.Company}}" placeholder="e.g. TechCorp"
-                                    class="w-full px-4 py-3 rounded-xl bg-dark border border-white/10 text-white placeholder-gray-600 focus:border-brand/60 focus:ring-1 focus:ring-brand/40 transition-all text-sm">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- ═══════════════════════════════════════ -->
-                <!-- CONTACT SECTION -->
-                <!-- ═══════════════════════════════════════ -->
-                <div id="contact-section" class="section-card">
-                    <div class="flex items-center gap-2 mb-4">
-                        <span class="text-lg">📬</span>
-                        <h2 class="text-white font-bold text-lg">Contact</h2>
-                    </div>
-
-                    <div class="space-y-4">
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="p-4 rounded-xl bg-card border border-white/5">
-                                <label for="email" class="block text-sm font-medium text-gray-300 mb-1">Email</label>
-                                <input id="email" type="email" value="{{.Data.Contact.Email}}" placeholder="you@example.com"
-                                    class="w-full px-4 py-3 rounded-xl bg-dark border border-white/10 text-white placeholder-gray-600 focus:border-brand/60 focus:ring-1 focus:ring-brand/40 transition-all text-sm">
-                            </div>
-                            <div class="p-4 rounded-xl bg-card border border-white/5">
-                                <label for="contact_location" class="block text-sm font-medium text-gray-300 mb-1">Location</label>
-                                <input id="contact_location" type="text" value="{{.Data.Contact.Location}}" placeholder="e.g. San Francisco, CA"
-                                    class="w-full px-4 py-3 rounded-xl bg-dark border border-white/10 text-white placeholder-gray-600 focus:border-brand/60 focus:ring-1 focus:ring-brand/40 transition-all text-sm">
-                            </div>
-                        </div>
-
-                        <div class="p-4 rounded-xl bg-card border border-white/5">
-                            <label for="status_msg" class="block text-sm font-medium text-gray-300 mb-1">Status Message</label>
-                            <input id="status_msg" type="text" value="{{.Data.Contact.StatusMsg}}" placeholder="e.g. Currently accepting consulting roles..."
-                                class="w-full px-4 py-3 rounded-xl bg-dark border border-white/10 text-white placeholder-gray-600 focus:border-brand/60 focus:ring-1 focus:ring-brand/40 transition-all text-sm">
-                        </div>
-
-                        <!-- Socials -->
-                        <div class="p-4 rounded-xl bg-card border border-white/5">
-                            <label class="block text-sm font-medium text-gray-300 mb-3">Social Links</label>
-                            <div class="space-y-3" id="socials-container">
-                                {{range $name, $url := .Data.Contact.Socials}}
-                                <div class="flex items-center gap-3">
-                                    <span class="text-xs text-gray-500 w-20 shrink-0 font-medium">{{$name}}</span>
-                                    <input type="text" value="{{$url}}" data-social="{{$name}}"
-                                        class="social-input flex-1 px-4 py-2.5 rounded-lg bg-dark border border-white/10 text-white placeholder-gray-600 focus:border-brand/60 focus:ring-1 focus:ring-brand/40 transition-all text-sm">
+                    <div class="grid grid-cols-1 gap-6">
+                        <div class="p-6 rounded-2xl bg-card border border-white/5 space-y-4">
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Main
+                                        Headline</label>
+                                    <input id="headline" type="text" value="{{.Data.About.Headline}}"
+                                        class="w-full bg-dark border border-white/10 rounded-xl px-4 py-3 text-white focus:border-brand/50 transition-all">
                                 </div>
-                                {{end}}
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Current Role</label>
+                                        <input id="current_role" type="text" value="{{.Data.About.CurrentRole}}"
+                                            class="w-full bg-dark border border-white/10 rounded-xl px-4 py-3 text-white focus:border-brand/50 transition-all">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Company</label>
+                                        <input id="company" type="text" value="{{.Data.About.Company}}"
+                                            class="w-full bg-dark border border-white/10 rounded-xl px-4 py-3 text-white focus:border-brand/50 transition-all">
+                                    </div>
+                                    </div>
+                                    </div>
+                            <div>
+                                <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Complete Biography</label>
+                                <textarea id="bio" rows="6"
+                                    class="w-full bg-dark border border-white/10 rounded-xl px-4 py-3 text-gray-300 focus:border-brand/50 transition-all">{{.Data.About.Bio}}</textarea>
                             </div>
                         </div>
                     </div>
-                </div>
+                    </section>
 
-                <!-- Info -->
-                <div class="p-4 rounded-xl border border-white/5 bg-white/[0.02]">
-                    <div class="text-xs text-gray-500 font-medium mb-1">💡 Tip</div>
-                    <p class="text-xs text-gray-600">Stats, Skills, Projects and Experience are preserved automatically when saving. To edit those, update <code class="text-gray-400">myData.json</code> directly.</p>
-                </div>
+                <!-- SKILLS SECTION -->
+                <section id="skills-section" class="section-card scroll-mt-24">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-400 text-lg">🛠
+                            </div>
+                            <h2 class="text-xl font-bold text-white tracking-tight">Technical Mastery</h2>
+                            </div>
+                        <button onclick="addItem('skills')"
+                            class="text-xs bg-white/5 hover:bg-white/10 text-white px-3 py-1.5 rounded-lg border border-white/10 transition-all">Add
+                            New Skill +</button>
+                        </div>
+                    <div id="skills-container" class="space-y-4">
+                        <!-- Rendered by JS -->
+                    </div>
+                    </section>
 
-                <!-- Bottom spacer -->
-                <div class="h-8"></div>
+                <!-- PROJECTS SECTION -->
+                <section id="projects-section" class="section-card scroll-mt-24">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-3">
+                            <div
+                                class="w-10 h-10 rounded-xl bg-emerald-500/10 flex items-center justify-center text-emerald-400 text-lg">
+                                📁</div>
+                            <h2 class="text-xl font-bold text-white tracking-tight">Featured Projects</h2>
+                        </div>
+                        <button onclick="addItem('project')"
+                            class="text-xs bg-white/5 hover:bg-white/10 text-white px-3 py-1.5 rounded-lg border border-white/10 transition-all">Add
+                            Showcase Project +</button>
+                        </div>
+                        <div id="projects-container" class="space-y-6">
+                            <!-- Rendered by JS -->
+                        </div>
+                        </section>
+
+                <!-- EXPERIENCE SECTION -->
+                <section id="experience-section" class="section-card scroll-mt-24">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="flex items-center gap-3">
+                            <div class="w-10 h-10 rounded-xl bg-rose-500/10 flex items-center justify-center text-rose-400 text-lg">💼</div>
+                            <h2 class="text-xl font-bold text-white tracking-tight">Career Journey</h2>
+                            </div>
+                        <button onclick="addItem('experience')"
+                            class="text-xs bg-white/5 hover:bg-white/10 text-white px-3 py-1.5 rounded-lg border border-white/10 transition-all">Add
+                            Experience +</button>
+                        </div>
+                        <div id="experience-container" class="space-y-6">
+                            <!-- Rendered by JS -->
+                        </div>
+                        </section>
+                        
+                        <!-- CONTACT SECTION -->
+                        <section id="contact-section" class="section-card scroll-mt-24">
+                            <div class="flex items-center gap-3 mb-6">
+                                <div class="w-10 h-10 rounded-xl bg-sky-500/10 flex items-center justify-center text-sky-400 text-lg">📬</div>
+                                <h2 class="text-xl font-bold text-white tracking-tight">Contact & Network</h2>
+                            </div>
+                            <div class="p-6 rounded-2xl bg-card border border-white/5 space-y-6">
+                                <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Public Email</label>
+                                        <input id="email" type="text" value="{{.Data.Contact.Email}}"
+                                            class="w-full bg-dark border border-white/10 rounded-xl px-4 py-2.5 text-white text-sm">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Home Base</label>
+                                        <input id="contact_location" type="text" value="{{.Data.Contact.Location}}"
+                                            class="w-full bg-dark border border-white/10 rounded-xl px-4 py-2.5 text-white text-sm">
+                                    </div>
+                                    <div>
+                                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-widest mb-2">Availability
+                                            Msg</label>
+                                        <input id="status_msg" type="text" value="{{.Data.Contact.StatusMsg}}"
+                                            class="w-full bg-dark border border-white/10 rounded-xl px-4 py-2.5 text-white text-sm">
+                            </div>
+                            </div>
+                            <div class="border-t border-white/5 pt-6">
+                                <label class="block text-xs font-bold text-gray-400 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-brand"></span>
+                                    Social Connections
+                                </label>
+                                <div id="socials-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                                    <!-- Rendered by JS -->
+                                </div>
+                                </div>
+                            </div>
+                </section>
+
+                <div class="h-12"></div>
             </div>
         </main>
     </div>
 
-    <!-- Toast -->
+    <!-- Toast Notification -->
     <div id="toast"
-        class="toast fixed bottom-6 right-6 z-50 flex items-center gap-3 px-5 py-3 rounded-xl bg-emerald-500/20 border border-emerald-500/40 text-emerald-400 text-sm font-medium shadow-xl">
-        <span>✓</span>
-        <span>Saved successfully!</span>
+        class="toast fixed bottom-8 right-8 z-[100] flex items-center gap-4 px-6 py-4 rounded-2xl bg-surface border border-brand/30 text-white shadow-2xl">
+        <div class="w-8 h-8 rounded-lg bg-brand/20 flex items-center justify-center text-brand">✓</div>
+        <div class="font-bold">Portfolio Updated Successfully</div>
     </div>
 
     <script>
-        window.currentData = {{.Data | jsonify}};
+                // Initial Data Injection from Go
+                window.currentData = {{.Data | jsonify }};
 
-        const saveBtn = document.getElementById("save-btn");
-        const toast = document.getElementById("toast");
+                // UI Element Selectors
+                const elements = {
+                    saveBtn: document.querySelector('#save-btn'),
+                    toast: document.querySelector('#toast'),
+                    containers: {
+                        stats: document.querySelector('#stats-container'),
+                        skills: document.querySelector('#skills-container'),
+                        project: document.querySelector('#projects-container'),
+                        experience: document.querySelector('#experience-container'),
+                        socials: document.querySelector('#socials-container')
+                    }
+                };
 
-        // ── Live Preview (Hero) ──────────────────────────
-        const previewMap = {
-            "title1":    "preview-title",
-            "highlight": "preview-highlight",
-            "title2":    "preview-title2",
-            "subtitle":  "preview-subtitle",
-            "status":    "preview-status",
+                // Dynamic Item Templates & Managers
+                const managers = {
+                    stats: (item, idx) => `
+                <div class="p-4 rounded-xl bg-dark/50 border border-white/5 relative group">
+                    <button onclick="removeItem('stats', ${idx})" class="absolute -top-2 -right-2 w-6 h-6 rounded-full bg-rose-500 text-white flex items-center justify-center text-[10px] opacity-0 group-hover:opacity-100 transition-all">✕</button>
+                    <input type="text" value="${item.label}" data-field="label" class="bg-transparent text-gray-500 text-[10px] uppercase font-bold w-full mb-1">
+                    <input type="text" value="${item.value}" data-field="value" class="bg-transparent text-white font-bold text-lg w-full">
+                </div>
+            `,
+                    skills: (item, idx) => `
+                <div class="p-5 rounded-2xl bg-card border border-white/5 relative group grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+                    <button onclick="removeItem('skills', ${idx})" class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-rose-500 text-white flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-all shadow-xl">✕</button>
+                    <div class="col-span-1">
+                        <label class="text-[10px] text-gray-500 font-bold uppercase mb-1 block">Name & Level</label>
+                        <input type="text" value="${item.name}" data-field="name" placeholder="Skill Name" class="bg-dark rounded-lg px-3 py-2 text-sm text-white w-full border border-white/5 mb-2">
+                        <input type="text" value="${item.level}" data-field="level" placeholder="Proficiency" class="bg-dark rounded-lg px-3 py-2 text-xs text-amber-400 w-full border border-white/5">
+                    </div>
+                    <div class="col-span-1">
+                        <label class="text-[10px] text-gray-500 font-bold uppercase mb-1 block">Visual Progress (%)</label>
+                        <input type="number" value="${item.percentage}" data-field="percentage" class="bg-dark rounded-lg px-3 py-2 text-sm text-white w-full border border-white/5">
+                    </div>
+                    <div class="col-span-1">
+                        <label class="text-[10px] text-gray-500 font-bold uppercase mb-1 block">Icon Mapping URL</label>
+                        <input type="text" value="${item.icon}" data-field="icon" class="bg-dark rounded-lg px-3 py-2 text-[10px] text-gray-400 w-full border border-white/5 truncate">
+                    </div>
+                    <div class="col-span-1">
+                        <label class="text-[10px] text-gray-500 font-bold uppercase mb-1 block">Categorization Tags</label>
+                        <input type="text" value="${item.tags.join(', ')}" data-field="tags" placeholder="Tag 1, Tag 2" class="bg-dark rounded-lg px-3 py-2 text-xs text-brand w-full border border-white/5">
+                    </div>
+                </div>
+            `,
+                    project: (item, idx) => `
+                <div class="p-6 rounded-2xl bg-card border border-white/5 relative group grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <button onclick="removeItem('project', ${idx})" class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-rose-500 text-white flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-all shadow-xl">✕</button>
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-3">
+                            <div>
+                                <label class="text-[10px] text-gray-500 font-bold uppercase block mb-1">Title</label>
+                                <input type="text" value="${item.title}" data-field="title" class="bg-dark rounded-lg px-3 py-2 text-sm text-white w-full border border-white/5">
+                            </div>
+                            <div>
+                                <label class="text-[10px] text-gray-500 font-bold uppercase block mb-1">Live Status</label>
+                                <input type="text" value="${item.status}" data-field="status" class="bg-dark rounded-lg px-3 py-2 text-sm text-emerald-400 w-full border border-white/5">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="text-[10px] text-gray-500 font-bold uppercase block mb-1">Technical Stack (CSV)</label>
+                            <input type="text" value="${item.stack.join(', ')}" data-field="stack" placeholder="Go, Redis, AWS" class="bg-dark rounded-lg px-3 py-2 text-xs text-brand w-full border border-white/5 font-mono">
+                        </div>
+                        <div>
+                            <label class="text-[10px] text-gray-500 font-bold uppercase block mb-1">Source Code / Repo Link</label>
+                            <input type="text" value="${item.repo_link}" data-field="repo_link" class="bg-dark rounded-lg px-3 py-2 text-[10px] text-blue-400 w-full border border-white/5">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-[10px] text-gray-500 font-bold uppercase block mb-1">Hero Image Exposure</label>
+                        <input type="text" value="${item.image}" data-field="image" class="bg-dark rounded-lg px-3 py-2 text-[10px] text-gray-400 w-full border border-white/5 mb-3">
+                        <div class="aspect-video w-full rounded-xl bg-dark overflow-hidden group/img relative">
+                            <img src="${item.image}" alt="Preview" class="w-full h-full object-cover opacity-30">
+                            <div class="absolute inset-0 flex items-center justify-center text-gray-600 text-[10px] font-bold">Image Preview</div>
+                        </div>
+                    </div>
+                </div>
+            `,
+                    experience: (item, idx) => `
+                <div class="p-6 rounded-2xl bg-card border border-white/5 relative group space-y-4">
+                    <button onclick="removeItem('experience', ${idx})" class="absolute -top-2 -right-2 w-8 h-8 rounded-full bg-rose-500 text-white flex items-center justify-center text-xs opacity-0 group-hover:opacity-100 transition-all shadow-xl">✕</button>
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                        <div class="col-span-1">
+                            <label class="text-[10px] text-gray-500 font-bold uppercase block mb-1">Role Title</label>
+                            <input type="text" value="${item.role}" data-field="role" class="bg-dark rounded-lg px-3 py-2 text-sm text-white w-full border border-white/5">
+                        </div>
+                        <div class="col-span-1">
+                            <label class="text-[10px] text-gray-500 font-bold uppercase block mb-1">Corporation</label>
+                            <input type="text" value="${item.company}" data-field="company" class="bg-dark rounded-lg px-3 py-2 text-sm text-white w-full border border-white/5">
+                        </div>
+                        <div class="col-span-1">
+                            <label class="text-[10px] text-gray-500 font-bold uppercase block mb-1">Timespan</label>
+                            <input type="text" value="${item.duration}" data-field="duration" class="bg-dark rounded-lg px-3 py-2 text-sm text-brand w-full border border-white/5">
+                        </div>
+                        <div class="col-span-1">
+                            <label class="text-[10px] text-gray-500 font-bold uppercase block mb-1">Work Location</label>
+                            <input type="text" value="${item.location}" data-field="location" class="bg-dark rounded-lg px-3 py-2 text-sm text-gray-400 w-full border border-white/5">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="text-[10px] text-gray-500 font-bold uppercase block mb-1">Impact Summary</label>
+                        <input type="text" value="${item.description}" data-field="description" class="bg-dark rounded-lg px-4 py-3 text-sm text-gray-300 w-full border border-white/5">
+                    </div>
+                    <div>
+                        <label class="text-[10px] text-gray-500 font-bold uppercase block mb-1">Key Achievements (Newline Delimited)</label>
+                        <textarea data-field="acheivment" rows="3" class="w-full bg-dark border border-white/10 rounded-xl px-4 py-3 text-xs text-emerald-400 font-medium">${item.acheivment.join('\n')}</textarea>
+                    </div>
+                </div>
+            `,
+                    socials: (url, name) => `
+                <div class="flex items-center gap-2 p-3 rounded-xl bg-dark border border-white/5 shadow-inner">
+                    <span class="text-[10px] text-gray-500 w-16 truncate font-bold uppercase">${name}</span>
+                    <input type="text" value="${url}" data-social="${name}" class="social-input bg-transparent text-xs text-white flex-1 focus:ring-0">
+                </div>
+            `
         };
-        Object.entries(previewMap).forEach(([inputId, previewId]) => {
-            const input = document.getElementById(inputId);
-            const preview = document.getElementById(previewId);
-            if (input && preview) {
-                input.addEventListener("input", () => {
-                    preview.textContent = input.value || "...";
-                });
+
+    // Render Loop
+    function renderAll() {
+        Object.keys(elements.containers).forEach(key => {
+            if (key === 'socials') {
+                elements.containers.socials.innerHTML = Object.entries(window.currentData.contact.socials)
+                    .map(([name, url]) => managers.socials(url, name)).join('');
+            } else {
+                elements.containers[key].innerHTML = window.currentData[key]
+                    .map((item, idx) => managers[key](item, idx)).join('');
             }
         });
+    }
 
-        // ── Sidebar Active State ─────────────────────────
-        document.querySelectorAll(".nav-link").forEach(link => {
-            link.addEventListener("click", () => {
-                document.querySelectorAll(".nav-link").forEach(l => l.classList.remove("active"));
-                link.classList.add("active");
+    // List Interaction
+    window.addItem = (key) => {
+        const defaults = {
+            stats: { label: "NEW METRIC", value: "0" },
+            skills: { name: "NEW SKILL", level: "Beginner", percentage: 50, icon: "", tags: [] },
+            project: { title: "NEW PROJECT", stack: [], status: "Dev", image: "", repo_link: "" },
+            experience: { role: "ROLE", company: "CO", duration: "PERIOD", location: "LOC", description: "DESC", acheivment: [] }
+        };
+        window.currentData[key].push({ ...defaults[key] });
+        renderAll();
+    };
+
+    window.removeItem = (key, idx) => {
+        window.currentData[key].splice(idx, 1);
+        renderAll();
+    };
+
+                // Navigation Sync
+                document.querySelectorAll('.nav-link').forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        document.querySelectorAll('.nav-link').forEach(l => l.classList.remove('active'));
+                        link.classList.add('active');
             });
         });
 
-        // ── Build Socials from inputs ────────────────────
-        function getSocials() {
-            const socials = {};
-            document.querySelectorAll(".social-input").forEach(input => {
-                const name = input.getAttribute("data-social");
-                socials[name] = input.value;
-            });
-            return socials;
-        }
+                // ═══════════════════════════════════════
+                // SAVE HANDLER (FINAL PAYLOAD SYNC)
+                // ═══════════════════════════════════════
+                elements.saveBtn.addEventListener('click', async () => {
 
-        // ── Save All ─────────────────────────────────────
-        saveBtn.addEventListener("click", async () => {
-            const payload = {
-                hero: {
-                    title:     document.getElementById("title1").value,
-                    highlight: document.getElementById("highlight").value,
-                    title2:    document.getElementById("title2").value,
-                    subtitle:  document.getElementById("subtitle").value,
-                    status:    document.getElementById("status").value,
-                },
-                about: {
-                    headline:     document.getElementById("headline").value,
-                    bio:          document.getElementById("bio").value,
-                    current_role: document.getElementById("current_role").value,
-                    company:      document.getElementById("company").value,
-                },
-                contact: {
-                    email:      document.getElementById("email").value,
-                    location:   document.getElementById("contact_location").value,
-                    status_msg: document.getElementById("status_msg").value,
-                    socials:    getSocials(),
-                },
-                stats:      window.currentData.stats,
-                skills:     window.currentData.skills,
-                project:    window.currentData.project,
-                experience: window.currentData.experience,
+                // Sync Socials
+            const socials = {};
+                document.querySelectorAll('.social-input').forEach(i => socials[i.dataset.social] = i.value);
+
+                // Sync Dynamic Sections
+                const getValues = (containerId) => {
+                    const items = [];
+                    const container = document.querySelector(containerId);
+                    if (!container) return items;
+
+                    Array.from(container.children).forEach(el => {
+                        const obj = {};
+                        el.querySelectorAll('[data-field]').forEach(inp => {
+                            let val = inp.value;
+                            const field = inp.dataset.field;
+                            if (field === 'tags' || field === 'stack') {
+                                val = val.split(',').map(s => s.trim()).filter(s => s);
+                            } else if (field === 'acheivment') {
+                                val = val.split('\n').map(s => s.trim()).filter(s => s);
+                            } else if (field === 'percentage') {
+                                val = parseInt(val) || 0;
+                            }
+                            obj[field] = val;
+                        });
+                        if (Object.keys(obj).length > 0) items.push(obj);
+                    });
+                return items;
             };
 
-            saveBtn.textContent = "Saving...";
-            saveBtn.disabled = true;
+            const payload = {
+                hero: {
+                    title: document.getElementById('title1').value,
+                    highlight: document.getElementById('highlight').value,
+                    title2: document.getElementById('title2').value,
+                    subtitle: document.getElementById('subtitle').value,
+                    status: document.getElementById('status').value
+                },
+                about: {
+                    headline: document.getElementById('headline').value,
+                    bio: document.getElementById('bio').value,
+                    current_role: document.getElementById('current_role').value,
+                    company: document.getElementById('company').value
+                },
+                contact: {
+                    email: document.getElementById('email').value,
+                    location: document.getElementById('contact_location').value,
+                    status_msg: document.getElementById('status_msg').value,
+                    socials: socials
+                },
+                stats: getValues('#stats-container'),
+                skills: getValues('#skills-container'),
+                project: getValues('#projects-container'),
+                experience: getValues('#experience-container')
+            };
+
+                elements.saveBtn.innerText = "Processing...";
+                elements.saveBtn.disabled = true;
 
             try {
-                const response = await fetch("/admintest", {
-                    method: "POST",
-                    headers: { "Content-Type": "application/json" },
-                    body: JSON.stringify(payload),
+                const res = await fetch('/api/data', {
+                    method: 'PATCH',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
                 });
 
-                if (response.ok) {
-                    // Update currentData so next save doesn't lose changes
+                if (res.ok) {
                     window.currentData = payload;
-                    toast.classList.add("show");
-                    setTimeout(() => toast.classList.remove("show"), 3000);
+                    elements.toast.classList.add('show');
+                    setTimeout(() => elements.toast.classList.remove('show'), 4000);
+                    document.getElementById('last-saved').innerText = "Last update: " + new Date().toLocaleTimeString();
                 } else {
-                    alert("Error saving. Check your server.");
+                    alert("Sync Error: " + res.statusText);
                 }
             } catch (err) {
-                alert(`Network error: ${err.message}`);
+                alert("Network Fault: " + err.message);
             } finally {
-                saveBtn.textContent = "Save All Changes";
-                saveBtn.disabled = false;
+                elements.saveBtn.innerText = "Publish Changes";
+                elements.saveBtn.disabled = false;
             }
         });
-    </script>
 
+    // Initialize UI
+    renderAll();
+</script>
 </body>
-
 </html>

@@ -83,6 +83,7 @@ func main() {
 
 	http.HandleFunc("/", test)
 	http.HandleFunc("/admintest", adminTest)
+	http.HandleFunc("/api/data", dual)
 
 	var err error
 
@@ -96,15 +97,40 @@ func main() {
 		fmt.Println("can't locate file:", err)
 	}
 
-	// fmt.Println(result2.Experience[0].Achievements[1])
-	// fmt.Println(jsonSet().Contact.Socials["GitHub"])
-
-	// fmt.Println(userDisplay().)
-
 	fmt.Println("running on http://127.0.0.1:3081 ")
 
 	log.Fatal(http.ListenAndServe(":3081", nil))
 
+}
+
+func dual(w http.ResponseWriter, r *http.Request) {
+    if r.Method == "PATCH" {
+        apiPatchData(w, r)
+    } else {
+        apiGetData(w, r)
+    }
+}
+
+
+func apiGetData(w http.ResponseWriter, r *http.Request)  {
+	w.Header().Set("Content-type", "application/json")
+	data := jsonSet()
+	json.NewEncoder(w).Encode(data)
+}
+
+func apiPatchData(w http.ResponseWriter, r *http.Request){
+	w.Header().Set("Content-type", "application/json")
+	// var data SiteData
+	data := jsonSet()
+	if err := json.NewDecoder(r.Body).Decode(&data); err != nil {
+		w.WriteHeader(http.StatusBadRequest)
+		json.NewEncoder(w).Encode(map[string]string{"error": err.Error()})
+		return
+	}
+	jsonGet(&data)
+
+	json.NewEncoder(w).Encode(data)
+	// json.NewEncoder(w).Encode(map[string]string{"status": "saved"})
 }
 
 func jsonGet(m *SiteData) {
