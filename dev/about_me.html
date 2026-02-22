@@ -26,18 +26,16 @@
     <header class="relative pt-20 pb-12 overflow-hidden">
         <div class="max-w-4xl mx-auto px-6 flex flex-col items-center text-center">
             <div class="relative mb-8">
-                <div class="absolute -inset-1 bg-gradient-to-r from-primary to-blue-400 rounded-xl blur opacity-25">
+                <div class="absolute -inset-1 bg-linear-to-r from-primary to-blue-400 rounded-xl blur opacity-25">
                 </div>
-                <img alt="Professional portrait of a software engineer"
+                <img alt="{{.Data.Personal.Name}}"
                     class="relative w-40 h-40 rounded-xl object-cover border-2 border-slate-200 dark:border-slate-700 shadow-2xl"
-                    data-alt="Professional portrait of a software engineer"
                     src="https://lh3.googleusercontent.com/aida-public/AB6AXuCrTcq20noUE8K8wi_fuCRe4QVfuYiTR8vHDx95pZ0Xs65wg9Vg95j9sh25yRa4TEXZR2gmGa3vSEdOgPb1CfK6wbu2eIO_mySZaECEEBWvHrY0aspsF6s5NlVER0jWbRuZIIO9xxZdCVyoe1kMNoYsUq5RQc18Xr0teAGL3m-Er75nz3aJWf_sBaHcb8gEmEIGfmCLrTfQAMj_Jt2DX4PYs_81QoFsgsky7EKaNIIPEnoObpgxqPdujGIJbRb7rqoh6JtUuTIDmEg" />
             </div>
-            <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight">Alex Sterling</h1>
-            <p class="text-xl text-primary font-medium mb-6">Senior Software Architect &amp; Full-Stack Engineer</p>
+            <h1 class="text-4xl md:text-5xl font-bold mb-4 tracking-tight">{{.Data.Personal.Name}}</h1>
+            <p class="text-xl text-primary font-medium mb-6">{{.Data.Personal.Title}}</p>
             <p class="text-slate-500 dark:text-slate-400 max-w-2xl text-lg leading-relaxed">
-                Building scalable systems and elegant digital experiences through clean code and thoughtful
-                architecture.
+                {{.Data.Personal.Tagline}}
             </p>
         </div>
     </header>
@@ -45,13 +43,9 @@
     <section class="border-y border-slate-200 dark:border-slate-800 py-8 bg-slate-50/50 dark:bg-white/5">
         <div
             class="max-w-6xl mx-auto px-6 flex flex-wrap justify-center gap-8 md:gap-16 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
-            <div class="flex items-center gap-2"><span class="text-sm font-bold">TypeScript</span></div>
-            <div class="flex items-center gap-2"><span class="text-sm font-bold">React</span></div>
-            <div class="flex items-center gap-2"><span class="text-sm font-bold">Node.js</span></div>
-            <div class="flex items-center gap-2"><span class="text-sm font-bold">Python</span></div>
-            <div class="flex items-center gap-2"><span class="text-sm font-bold">AWS</span></div>
-            <div class="flex items-center gap-2"><span class="text-sm font-bold">Kubernetes</span></div>
-            <div class="flex items-center gap-2"><span class="text-sm font-bold">PostgreSQL</span></div>
+            {{range .Data.TechStack}}
+            <div class="flex items-center gap-2"><span class="text-sm font-bold">{{.}}</span></div>
+            {{end}}
         </div>
     </section>
     <!-- Narrative Section -->
@@ -60,148 +54,57 @@
             <div class="prose-custom space-y-8">
                 <h2 class="text-3xl font-bold border-l-4 border-primary pl-6">The Journey</h2>
                 <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                    My fascination with computing began when I was twelve, tinkering with ancient hardware and writing
-                    my first basic scripts to automate repetitive tasks. What started as a hobby quickly evolved into a
-                    lifelong passion for problem-solving and digital craftsmanship. Over the last decade, I've
-                    transitioned from building simple landing pages to architecting distributed systems that handle
-                    millions of requests.
-                </p>
-                <p class="text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-                    Throughout my career, I've worked across various industries, from fintech startups to major
-                    e-commerce platforms. This diverse background has taught me that technology is merely a tool; the
-                    true value lies in how we use it to solve real-world problems and improve people's lives. I thrive
-                    in environments where performance and reliability are paramount, and I take pride in mentoring
-                    junior developers to foster a culture of excellence.
+                    {{.Data.About.Journey}}
                 </p>
             </div>
             <!-- Philosophy Section -->
             <div class="mt-24">
                 <h2 class="text-3xl font-bold mb-12 text-center">Engineering Philosophy</h2>
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    {{range .Data.About.Philosophy}}
                     <div
                         class="p-8 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-colors group">
                         <div
                             class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
-                            <span class="material-icons text-primary group-hover:text-white">code</span>
+                            <span class="material-icons text-primary group-hover:text-white">
+                                {{if eq .Principle "Clean & Maintainable"}}code
+                                {{else if eq .Principle "Performance-First"}}speed
+                                {{else}}groups{{end}}
+                            </span>
                         </div>
-                        <h3 class="text-xl font-bold mb-3">Clean &amp; Maintainable</h3>
+                        <h3 class="text-xl font-bold mb-3">{{.Principle}}</h3>
                         <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
-                            Code is read far more often than it is written. I prioritize clarity, consistency, and
-                            documentation to ensure longevity.
+                            {{.Description}}
                         </p>
                     </div>
-                    <div
-                        class="p-8 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-colors group">
-                        <div
-                            class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
-                            <span class="material-icons text-primary group-hover:text-white">speed</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">Performance-First</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
-                            A fast UI is a respectful UI. I focus on optimizing the critical path and minimizing
-                            overhead for the end user.
-                        </p>
-                    </div>
-                    <div
-                        class="p-8 rounded-xl bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 hover:border-primary/50 transition-colors group">
-                        <div
-                            class="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center mb-6 group-hover:bg-primary transition-colors">
-                            <span class="material-icons text-primary group-hover:text-white">groups</span>
-                        </div>
-                        <h3 class="text-xl font-bold mb-3">User-Centric Design</h3>
-                        <p class="text-slate-500 dark:text-slate-400 text-sm leading-relaxed">
-                            I believe engineers should be advocates for the user. Technical decisions should always
-                            serve the final experience.
-                        </p>
-                    </div>
+                    {{end}}
                 </div>
             </div>
             <!-- Timeline Section -->
             <div class="mt-32">
                 <h2 class="text-3xl font-bold mb-16 text-center">Career Milestones</h2>
                 <div class="relative max-w-2xl mx-auto pl-8 md:pl-0">
-                    <!-- Central Line -->
-                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full timeline-line">
-                    </div>
+                    <div class="hidden md:block absolute left-1/2 transform -translate-x-1/2 h-full timeline-line"></div>
                     <div class="md:hidden absolute left-0 h-full timeline-line"></div>
-                    <!-- Milestone 1 -->
+                    {{range .Data.Experience}}
                     <div class="relative mb-16">
                         <div class="md:flex items-center justify-between">
                             <div class="md:w-5/12 text-left md:text-right pr-0 md:pr-12 mb-4 md:mb-0">
-                                <span class="text-primary font-bold text-sm uppercase tracking-widest">2021 —
-                                    Present</span>
-                                <h4 class="text-xl font-bold mt-1">Lead Engineer</h4>
-                                <p class="text-slate-500 dark:text-slate-400 text-sm">TechNova Solutions</p>
+                                <span class="text-primary font-bold text-sm uppercase tracking-widest">{{.Period}}</span>
+                                <h4 class="text-xl font-bold mt-1">{{.Title}}</h4>
+                                <p class="text-slate-500 dark:text-slate-400 text-sm">{{.Company}}</p>
                             </div>
                             <div
                                 class="absolute left-[-8px] md:left-[calc(45%+24px)] md:transform md:-translate-x-1/2 w-4 h-4 rounded-full bg-primary ring-4 ring-primary/20 z-10 mr-6">
                             </div>
                             <div class="md:w-5/12 pl-0 md:pl-12">
                                 <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                                    Leading a team of 12 engineers in building a cloud-native financial platform.
-                                    Reduced infrastructure costs by 35% using serverless patterns.
+                                    {{index .Highlights 0}}
                                 </p>
                             </div>
                         </div>
                     </div>
-                    <!-- Milestone 2 -->
-                    <div class="relative mb-16">
-                        <div class="md:flex items-center justify-between">
-                            <div class="md:w-5/12 order-1 md:order-2 pl-0 md:pl-12 mb-4 md:mb-0">
-                                <span class="text-primary font-bold text-sm uppercase tracking-widest">2018 —
-                                    2021</span>
-                                <h4 class="text-xl font-bold mt-1">Full-Stack Developer</h4>
-                                <p class="text-slate-500 dark:text-slate-400 text-sm">InnovateLabs</p>
-                            </div>
-                            <div
-                                class="absolute left-[-8px] md:left-[calc(50%+24px)] md:transform md:-translate-x-1/2 w-4 h-4 rounded-full bg-primary ring-4 ring-primary/20 z-10 ">
-                            </div>
-                            <div class="md:w-5/12 order-2 md:order-1 text-left md:text-right pr-0 md:pr-12">
-                                <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                                    Architected a real-time analytics dashboard using React and WebSockets. Spearheaded
-                                    the transition from monolith to microservices.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Milestone 3 -->
-                    <div class="relative mb-16">
-                        <div class="md:flex items-center justify-between">
-                            <div class="md:w-5/12 text-left md:text-right pr-0 md:pr-12 mb-4 md:mb-0">
-                                <span class="text-primary font-bold text-sm uppercase tracking-widest">2015 —
-                                    2018</span>
-                                <h4 class="text-xl font-bold mt-1">Software Engineer</h4>
-                                <p class="text-slate-500 dark:text-slate-400 text-sm">CloudStream Media</p>
-                            </div>
-                            <div
-                                class="absolute left-[-8px] md:left-[calc(45%+24px)] md:transform md:-translate-x-1/2 w-4 h-4 rounded-full bg-primary ring-4 ring-primary/20 z-10 ">
-                            </div>
-                            <div class="md:w-5/12 pl-0 md:pl-12">
-                                <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                                    Developed scalable video processing pipelines. Optimized API latency by 50% through
-                                    aggressive caching strategies.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- Milestone 4 -->
-                    <div class="relative">
-                        <div class="md:flex items-center justify-between">
-                            <div class="md:w-5/12 order-1 md:order-2 pl-0 md:pl-12 mb-4 md:mb-0">
-                                <span class="text-primary font-bold text-sm uppercase tracking-widest">2014</span>
-                                <h4 class="text-xl font-bold mt-1">B.S. Computer Science</h4>
-                                <p class="text-slate-500 dark:text-slate-400 text-sm">University of Technology</p>
-                            </div>
-                            <div
-                                class="absolute left-[-8px] md:left-[calc(50%+24px)] md:transform md:-translate-x-1/2 w-4 h-4 rounded-full bg-primary ring-4 ring-primary/20 z-10 ">
-                            </div>
-                            <div class="md:w-5/12 order-2 md:order-1 text-left md:text-right pr-0 md:pr-12">
-                                <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                                    Graduated with Honors. Specialized in Distributed Systems and Algorithms.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    {{end}}
                 </div>
             </div>
             <!-- Personal Touch -->
@@ -209,9 +112,13 @@
                 <div class="max-w-3xl mx-auto text-center">
                     <h2 class="text-2xl font-bold mb-6">Beyond the Screen</h2>
                     <p class="text-slate-600 dark:text-slate-400 leading-relaxed mb-8">
-                        When I'm not architecting systems, you can find me hiking the trails of the Pacific Northwest,
-                        building custom mechanical keyboards, or exploring the world of specialty coffee. I believe a
-                        well-rounded life fuels better creativity in problem-solving.
+                        When I'm not architecting systems, you can find me
+                        {{range $i, $hobby := .Data.Personal.Hobbies}}
+                        {{if $i}}, {{end}}
+                        {{if and (gt (len $.Data.Personal.Hobbies) 1) (eq $i (sub (len $.Data.Personal.Hobbies) 1))}}and {{end}}
+                        {{$hobby}}
+                        {{end}}.
+                        I believe a well-rounded life fuels better creativity in problem-solving.
                     </p>
                     <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
                         <div class="relative aspect-square rounded-lg overflow-hidden group">
@@ -265,11 +172,11 @@
             </p>
             <div class="flex flex-col sm:flex-row items-center justify-center gap-4 mb-5">
                 <a class="bg-primary hover:bg-primary/90 text-white px-8 py-4 rounded-xl font-bold transition-all w-full sm:w-auto shadow-lg shadow-primary/20"
-                    href="#">
+                    href="/contact">
                     Get in Touch
                 </a>
                 <a class="bg-white/10 hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold transition-all w-full sm:w-auto backdrop-blur-sm"
-                    href="#">
+                    href="/resume">
                     View Full Resume
                 </a>
             </div>

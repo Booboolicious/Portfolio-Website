@@ -22,14 +22,14 @@
   <!-- Navigation -->
   {{template "navbar" .}}
 
-  <main class="flex-grow flex items-center py-12 px-4 sm:px-6 lg:px-8">
+  <main class="grow flex items-center py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-6xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
       <!-- Left Column: Content & Socials -->
       <div class="space-y-8">
         <div class="space-y-4">
           <span
             class="inline-block px-3 py-1 text-xs font-semibold tracking-wider text-primary uppercase bg-primary/10 rounded-full border border-primary/20">
-            Available for hire
+            {{.Data.Personal.Availability}}
           </span>
           <h1 class="text-4xl sm:text-5xl font-extrabold leading-tight">
             Let’s build something <span class="text-primary">extraordinary</span> together.
@@ -42,36 +42,36 @@
         <!-- Contact Detail Cards -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <a class="group p-4 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary transition-all flex items-center gap-4"
-            href="#">
+            href="mailto:{{.Data.Contact.Email}}">
             <div
               class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors text-primary">
               <span class="material-icons">email</span>
             </div>
             <div>
               <p class="text-xs text-slate-500 dark:text-slate-500 font-semibold uppercase">Email Me</p>
-              <p class="text-sm font-medium">hello@devportfolio.com</p>
+              <p class="text-sm font-medium">{{.Data.Contact.Email}}</p>
             </div>
           </a>
           <a class="group p-4 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary transition-all flex items-center gap-4"
-            href="#">
+            href="{{.Data.Contact.Linkedin}}">
             <div
               class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors text-primary">
               <span class="material-icons">description</span>
             </div>
             <div>
               <p class="text-xs text-slate-500 dark:text-slate-500 font-semibold uppercase">LinkedIn</p>
-              <p class="text-sm font-medium">/in/devprofile</p>
+              <p class="text-sm font-medium">{{.Data.Contact.Linkedin}}</p>
             </div>
           </a>
           <a class="group p-4 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary transition-all flex items-center gap-4"
-            href="#">
+            href="{{.Data.Contact.Github}}">
             <div
               class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors text-primary">
               <span class="material-icons">code</span>
             </div>
             <div>
               <p class="text-xs text-slate-500 dark:text-slate-500 font-semibold uppercase">GitHub</p>
-              <p class="text-sm font-medium">@devgithub</p>
+              <p class="text-sm font-medium">{{.Data.Contact.Github}}</p>
             </div>
           </a>
           <a class="group p-4 bg-white dark:bg-slate-800/50 border border-slate-200 dark:border-slate-800 rounded-xl hover:border-primary transition-all flex items-center gap-4"
@@ -82,7 +82,7 @@
             </div>
             <div>
               <p class="text-xs text-slate-500 dark:text-slate-500 font-semibold uppercase">Location</p>
-              <p class="text-sm font-medium text-slate-700 dark:text-slate-300">San Francisco, CA</p>
+              <p class="text-sm font-medium text-slate-700 dark:text-slate-300">{{.Data.Contact.Location}}</p>
             </div>
           </a>
         </div>
@@ -90,7 +90,7 @@
         <div class="relative h-48 rounded-xl overflow-hidden border border-slate-200 dark:border-slate-800">
           <div class="absolute inset-0 bg-slate-200 dark:bg-slate-800 flex items-center justify-center opacity-30">
             <img class="w-full h-full object-cover" data-alt="Abstract dark stylized map of a city"
-              data-location="San Francisco"
+              data-location="{{.Data.Contact.Location}}"
               src="https://lh3.googleusercontent.com/aida-public/AB6AXuB1JefE3u0AkDA2PtOt09lrCiW-dkrPFKxY81WKCTHCUza4gbUEWKaAPc_WzmhYyAtjepZ4gxIy8GXA6BuuF9WiiRq3zXL5GvlRV2uN_OwCWs4IdF716EMcwf-EjlLbSZHpUzu_C0Kfx50qYqCr4ZEqoWnFRFr8Y1tV-0RMgc66jdoA5s9PtVHDu3ITmhvxqtZfU-XB-u588W9DnjMwak3lUJx7iKNUP1WyCAFlQTDqGfGW0Vkt4VM1NWyxN8CGFpkoXv_WtfdFnfM" />
           </div>
           <div class="absolute inset-0 flex items-center justify-center">
@@ -123,10 +123,9 @@
             <select
               class="w-full bg-slate-50 dark:bg-slate-800 border-slate-200 dark:border-slate-700 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all appearance-none"
               id="subject" name="subject">
-              <option value="project">New Project Inquiry</option>
-              <option value="freelance">Freelance Collaboration</option>
-              <option value="job">Employment Opportunity</option>
-              <option value="other">General Question</option>
+              {{range .Data.Contact.FormSubjects}}
+              <option value="{{.}}">{{.}}</option>
+              {{end}}
             </select>
           </div>
           <div class="space-y-2">

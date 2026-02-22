@@ -2,9 +2,10 @@
 <nav class="sticky top-0 w-full z-50 glass">
     <div class="max-w-7xl mx-auto px-3 h-10 md:px-6 md:h-20 flex items-center justify-between">
         <div class="flex items-center space-x-2">
-            <div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white font-bold text-lg">EA
+            <div class="w-8 h-8 bg-primary rounded flex items-center justify-center text-white font-bold text-lg">
+                {{ slice .Data.Personal.Name 0 1 }}
             </div>
-            <span class="text-xl font-bold tracking-tight">Ezekiel<span class="text-primary">Augustine</span></span>
+            <span class="text-xl font-bold tracking-tight">{{.Data.Personal.Name}}</span>
         </div>
         <div id="desktop-menu" class="hidden md:flex items-center space-x-1 text-sm font-medium">
             <a class="px-5 py-2.5 transition-all duration-300 rounded-lg {{ if eq .Page `home` }} bg-primary text-white shadow-lg shadow-primary/25 hover:bg-primary/90 {{ else }} text-slate-300 {{ end }}"
