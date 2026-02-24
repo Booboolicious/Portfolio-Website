@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"fmt"
 	"html/template"
 	"log"
 	"net/http"
@@ -94,10 +93,10 @@ func main() {
 
 	tmpl, err = template.New("").Funcs(funcMap).ParseGlob("template/*.html")
 	if err != nil {
-		fmt.Println("can't locate file:", err)
+		log.Println("can't locate file:", err)
 	}
 
-	fmt.Println("running on http://127.0.0.1:3081 ")
+	log.Println("running on http://127.0.0.1:3081 ")
 
 	log.Fatal(http.ListenAndServe(":3081", nil))
 
@@ -137,14 +136,14 @@ func jsonGet(m *SiteData) {
 
 	data, err := os.Create("myData.json")
 	if err != nil {
-		fmt.Println("error creating file:", err)
+		log.Println("error creating file:", err)
 		return
 	}
 	defer data.Close()
 
 	err = json.NewEncoder(data).Encode(m)
 	if err != nil {
-		fmt.Println("Error encoding:", err)
+		log.Println("Error encoding:", err)
 	}
 
 }
@@ -153,14 +152,14 @@ func jsonSet() SiteData {
 
 	fileData, err := os.Open("myData.json")
 	if err != nil {
-		fmt.Println("error reading file:", err)
+		log.Println("error reading file:", err)
 		return SiteData{}
 	}
 
 	var m SiteData
 	err = json.NewDecoder(fileData).Decode(&m)
 	if err != nil {
-		fmt.Println("Error decoding:", err)
+		log.Println("Error decoding:", err)
 	}
 
 	return m

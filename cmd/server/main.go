@@ -1,7 +1,6 @@
 package main
 
 import (
-	"fmt"
 	"log"
 	"net/http"
 	"portfolio-website/internal/api"
@@ -37,6 +36,6 @@ func main() {
 	http.Handle("/js/", http.StripPrefix("/js/", http.FileServer(http.Dir("web/js"))))
 	http.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir("web/adminDashboard/static"))))
 
-	fmt.Println("Server running on http://127.0.0.1:8081/")
+	log.Println("Server running on http://127.0.0.1:8081/")
 	log.Fatal(http.ListenAndServe(":8081", nil))
 }

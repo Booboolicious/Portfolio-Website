@@ -2,7 +2,7 @@ package api
 
 import (
 	"encoding/json"
-	"fmt"
+	"errors"
 	"log"
 	"net/http"
 )
@@ -23,7 +23,7 @@ func WriteJSON(w http.ResponseWriter, status int, payload any, message string) {
 
 func DecodeJSON(r *http.Request, payload any) error {
 	if err := json.NewDecoder(r.Body).Decode(payload); err != nil {
-		return fmt.Errorf("decodeJSON: %w", err)
+		return errors.New("decodeJSON: " + err.Error())
 	}
 	return nil
 }

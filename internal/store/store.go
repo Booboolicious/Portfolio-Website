@@ -2,7 +2,7 @@ package store
 
 import (
 	"encoding/json"
-	"fmt"
+	"errors"
 	"os"
 	"portfolio-website/internal/models"
 )
@@ -12,13 +12,13 @@ const dbPath = "internal/Database.json"
 func SaveData(s *models.Database) error {
 	save, err := os.Create(dbPath)
 	if err != nil {
-		return fmt.Errorf("could not create database file: %w", err)
+		return errors.New("could not create database file: " + err.Error())
 	}
 	defer save.Close()
 
 	err = json.NewEncoder(save).Encode(s)
 	if err != nil {
-		return fmt.Errorf("failed to encode database json: %w", err)
+		return errors.New("failed to encode database json: " + err.Error())
 	}
 	return nil
 }
@@ -26,14 +26,14 @@ func SaveData(s *models.Database) error {
 func ViewData() (models.Database, error) {
 	view, err := os.Open(dbPath)
 	if err != nil {
-		return models.Database{}, fmt.Errorf("could not open database: %w", err)
+		return models.Database{}, errors.New("could not open database: " + err.Error())
 	}
 	defer view.Close()
 
 	var v models.Database
 	err = json.NewDecoder(view).Decode(&v)
 	if err != nil {
-		return models.Database{}, fmt.Errorf("failed to decode database: %w", err)
+		return models.Database{}, errors.New("failed to decode database: " + err.Error())
 	}
 	return v, nil
 }

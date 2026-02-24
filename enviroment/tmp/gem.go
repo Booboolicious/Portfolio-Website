@@ -2,7 +2,7 @@ package gem
 
 import (
 	"encoding/json"
-	"fmt"
+	"log"
 	"strings"
 )
 
@@ -21,9 +21,9 @@ func main() {
 	// var s map[string]any
 	err := json.NewDecoder(strings.NewReader(jsonData)).Decode(&s)
 	if err !=nil {
-		fmt.Println("failed:", err)
+		log.Println("failed:", err)
 	}
     
     // 4. Print the CPU usage.
-	fmt.Println(s)
+	log.Println(s)
 }
