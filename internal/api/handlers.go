@@ -95,7 +95,14 @@ func PutRoute(w http.ResponseWriter, r *http.Request) {
 }
 
 func PostRoute(w http.ResponseWriter, r *http.Request) {
-	// Implementation for adding new items
+	data, err := store.ViewData()
+	if err != nil {
+		log.Printf("PostRoute: SaveData failed: %v", err)
+		http.Error(w, "Internal server error", http.StatusInternalServerError)
+		return
+	}
+
+	if err:= DecodeJSON()
 	WriteError(w, http.StatusNotImplemented, "POST not yet implemented")
 }
 
@@ -104,15 +111,3 @@ func DeleteRoute(w http.ResponseWriter, r *http.Request) {
 	WriteError(w, http.StatusNotImplemented, "DELETE not yet implemented")
 }
 
-// BiRequest manages the split between GET and PATCH for legacy routes
-func BiRequest(w http.ResponseWriter, r *http.Request) {
-	switch r.Method {
-	case http.MethodGet:
-		GetRoute(w, r)
-	case http.MethodPatch:
-		PatchRoute(w, r)
-	default:
-		w.Header().Set("Allow", "GET, PATCH")
-		http.Error(w, "Method Not Allowed", http.StatusMethodNotAllowed)
-	}
-}
