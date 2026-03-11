@@ -4,24 +4,14 @@ import (
 	"log"
 	"net/http"
 	"portfolio-website/internal/api"
+	"portfolio-website/internal/models"
 )
 
 func main() {
 	// API Routes
-	http.HandleFunc("GET /api/data", api.GetRoute)
-	http.HandleFunc("/api/data/Personal", api.PatchRoute)
-	http.HandleFunc("/api/data/Stats", api.PatchRoute)
-	http.HandleFunc("/api/data/about", api.PatchRoute)
-	http.HandleFunc("/api/data/about/timeline", api.PatchRoute)
-	http.HandleFunc("/api/data/about/experience", api.PatchRoute)
-	http.HandleFunc("/api/data/about/education", api.PatchRoute)
-	http.HandleFunc("/api/data/about/skills", api.PatchRoute)
-	http.HandleFunc("/api/data/about/certifications", api.PatchRoute)
-	http.HandleFunc("/api/data/about/honors", api.PatchRoute)
-	http.HandleFunc("/api/data/about/spokenLanguages", api.PatchRoute)
-	http.HandleFunc("/api/data/about/projects", api.PatchRoute)
-	http.HandleFunc("/api/data/about/techStack", api.PatchRoute)
-	http.HandleFunc("/api/data/contact", api.PatchRoute)
+	http.HandleFunc("GET /api/data",api.GetRoute(func(d *models.Database) *models.Portfolio {return &d.Portfolio}))
+	http.HandleFunc("GET /api/data/personal", api.GetRoute(func(d *models.Database) *models.Personal {return &d.Portfolio.Personal}))
+	http.HandleFunc("PATCH /api/data/personal", api.PatchRoute(func(d *models.Database) *models.Personal {return &d.Portfolio.Personal}))
 	
 	// Example Resource Routes using the new Go 1.22+ patterns
 	// http.HandleFunc("PUT /api/data/skills/frontend/{id}", api.PutRoute)

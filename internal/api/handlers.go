@@ -1,113 +1,105 @@
 package api
 
 import (
+	"encoding/json"
 	"log"
 	"net/http"
 	"portfolio-website/internal/models"
 	"portfolio-website/internal/store"
-	"strconv"
 	"strings"
 )
 
-func GetRoute(w http.ResponseWriter, r *http.Request) {
-	data, err := store.ViewData()
-	if err != nil {
-		log.Printf("GetRoute: ViewData failed: %v", err)
-		http.Error(w, "Internal server error", http.StatusInternalServerError)
-		return
+func GetRoute[T any](crud func(*models.Database) *T) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		data, err := store.ViewData()
+		if err != nil {
+			log.Printf("GetRoute: ViewData failed: %v", err)
+			http.Error(w, "Internal server error", http.StatusInternalServerError)
+			return
+		}
+
+		category := strings.ToLower(r.URL.Query().Get("category"))
+
+		var portfolioMap map[string]any
+
+		jsonData, err := json.Marshal(data.Portfolio)
+		if err != nil {
+			WriteError(w, http.StatusNotFound, "No Database")
+			return
+		}
+		
+		json.Unmarshal(jsonData, &portfolioMap)
+
+		if category !="" {
+			sectionData, exist := FindCategory( portfolioMap,category)
+			if !exist {
+				WriteError(w,http.StatusNotFound, "Category not found")
+				return
+			}
+			WriteJSON(w, http.StatusOK, sectionData, "Data retrieved")
+        return
+		}
+
+		collection := crud(&data)
+
+		WriteJSON(w, http.StatusOK, *collection, "Data retrieved successfully")
 	}
-	WriteJSON(w, http.StatusOK, data, "Data retrieved successfully")
 }
 
-func PatchRoute(w http.ResponseWriter, r *http.Request) {
+func PatchRoute [T any] (crud func(*models.Database) *T) http.HandlerFunc{ return func (w http.ResponseWriter, r *http.Request) {
 	data, err := store.ViewData()
 	if err != nil {
 		log.Printf("PatchRoute: ViewData failed: %v", err)
 		http.Error(w, "Internal server error", http.StatusInternalServerError)
 		return
 	}
+	sectionToUpdate := crud(&data)
 
-	if err := DecodeJSON(r, &data); err != nil {
+	if err := DecodeJSON(r, sectionToUpdate); err != nil {
 		WriteError(w, http.StatusBadRequest, "Invalid JSON")
 		return
 	}
 
 	if err := store.SaveData(&data); err != nil {
 		log.Printf("PatchRoute: SaveData failed: %v", err)
-		http.Error(w, "Internal server error", http.StatusInternalServerError)
+		WriteError(w,  http.StatusInternalServerError, "Internal server error")
 		return
 	}
 
-	WriteJSON(w, http.StatusOK, data, "Data updated successfully")
+	WriteJSON(w, http.StatusOK, *sectionToUpdate, "Patched successfully")}
 }
 
-// PutRoute handles specific item updates using path values
-func PutRoute(w http.ResponseWriter, r *http.Request) {
-	data, err := store.ViewData()
-	if err != nil {
-		log.Printf("PutRoute: ViewData failed: %v", err)
-		http.Error(w, "Internal server error", http.StatusInternalServerError)
-		return
-	}
 
-	idStr := r.PathValue("id")
-	index, err := strconv.Atoi(idStr)
-	if err != nil {
-		WriteError(w, http.StatusBadRequest, "Invalid ID format")
-		return
-	}
-
-	path := r.URL.Path
-	switch {
-	case strings.Contains(path, "skills/frontend"):
-		var skill models.SkillItem
-		if err := DecodeJSON(r, &skill); err == nil {
-			if index >= 0 && index < len(data.Portfolio.Skills.Frontend) {
-				data.Portfolio.Skills.Frontend[index] = skill
-			} else {
-				WriteError(w, http.StatusNotFound, "Index out of bounds")
-				return
-			}
+func PostRoute[T any](crud func(*models.Database) *[]T) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		data, err := store.ViewData()
+		if err != nil {
+			log.Printf("PostRoute: ViewData failed: %v", err)
+			http.Error(w, "Internal server error", http.StatusInternalServerError)
+			return
 		}
-	case strings.Contains(path, "projects"):
-		var project models.Project
-		if err := DecodeJSON(r, &project); err == nil {
-			if index >= 0 && index < len(data.Portfolio.Projects) {
-				data.Portfolio.Projects[index] = project
-			} else {
-				WriteError(w, http.StatusNotFound, "Index out of bounds")
-				return
-			}
+
+		var item T
+
+		if err := DecodeJSON(r, &item); err != nil {
+			WriteError(w, http.StatusBadRequest, "Invalid JSON data")
+			return
 		}
-	// Add other cases as needed
-	default:
-		WriteError(w, http.StatusNotFound, "Route not supported for PUT")
-		return
+
+		collection := crud(&data)
+		*collection = append(*collection, item)
+
+		err = store.SaveData(&data)
+		if err != nil {
+			log.Printf("PostRoute: SaveData failed: %v", err)
+			http.Error(w, "Internal server error", http.StatusInternalServerError)
+			return
+		}
+		WriteJSON(w, http.StatusOK, *collection, "success")
 	}
-
-	if err := store.SaveData(&data); err != nil {
-		log.Printf("PutRoute: SaveData failed: %v", err)
-		http.Error(w, "Internal server error", http.StatusInternalServerError)
-		return
-	}
-
-	WriteJSON(w, http.StatusOK, data, "Item updated successfully")
-}
-
-func PostRoute(w http.ResponseWriter, r *http.Request) {
-	data, err := store.ViewData()
-	if err != nil {
-		log.Printf("PostRoute: SaveData failed: %v", err)
-		http.Error(w, "Internal server error", http.StatusInternalServerError)
-		return
-	}
-
-	if err:= DecodeJSON()
-	WriteError(w, http.StatusNotImplemented, "POST not yet implemented")
 }
 
 func DeleteRoute(w http.ResponseWriter, r *http.Request) {
 	// Implementation for deleting items
 	WriteError(w, http.StatusNotImplemented, "DELETE not yet implemented")
 }
-

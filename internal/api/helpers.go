@@ -9,15 +9,15 @@ import (
 
 func WriteJSON(w http.ResponseWriter, status int, payload any, message string) {
 	msg := map[string]any{
-		"status": message,
 		"data":   payload,
+		"msg": message,
 	}
 
 	w.Header().Set("Content-Type", "application/json")
 	w.WriteHeader(status)
 
-	if err := json.NewEncoder(w).Encode(msg); err != nil {
-		log.Printf("Status: %s, Error: %v", msg["status"], err)
+	if err := json.NewEncoder(w).Encode(msg["data"]); err != nil {
+		log.Printf("Status: %s, Error: %v", msg["msg"], err)
 	}
 }
 
@@ -40,4 +40,22 @@ func WriteError(w http.ResponseWriter, status int, message string) {
 	if err := json.NewEncoder(w).Encode(resp); err != nil {
 		log.Printf("WriteError encode failed: %v", err)
 	}
+}
+
+
+func FindCategory(m map[string]any, target string) (any, bool) {
+	if val, ok := m[target]; ok {
+		return val, true
+	}
+
+
+	for _, v := range m {
+		if nestedMap, ok := v.(map[string]any); ok {
+			if result, found := FindCategory(nestedMap, target); found {
+				return result, true
+			}
+		}
+	}
+
+	return nil, false 
 }
