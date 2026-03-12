@@ -91,9 +91,6 @@ func DeleteRoute[T any](crud func(*models.Database) *[]T) http.HandlerFunc {
 			return
 		}
 
-		// if QueryP(w, r, "category", data.Portfolio) {
-		// 	return
-		// }
 
 		idStr := r.PathValue("id")
 		i, err := strconv.Atoi(idStr)
