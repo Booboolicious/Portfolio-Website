@@ -12,6 +12,9 @@ func main() {
 	http.HandleFunc("GET /api/data",api.GetRoute(func(d *models.Database) *models.Portfolio {return &d.Portfolio}))
 	http.HandleFunc("GET /api/data/personal", api.GetRoute(func(d *models.Database) *models.Personal {return &d.Portfolio.Personal}))
 	http.HandleFunc("PATCH /api/data/personal", api.PatchRoute(func(d *models.Database) *models.Personal {return &d.Portfolio.Personal}))
+	http.HandleFunc("DELETE /api/data/projects/{id}", api.DeleteRoute(func(d *models.Database) *[]models.Project {return &d.Portfolio.Projects}))
+	http.HandleFunc("POST /api/data/projects", api.PostRoute(func(d *models.Database) *[]models.Project {return &d.Portfolio.Projects}))
+
 	
 	// Example Resource Routes using the new Go 1.22+ patterns
 	// http.HandleFunc("PUT /api/data/skills/frontend/{id}", api.PutRoute)

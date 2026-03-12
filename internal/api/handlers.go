@@ -1,12 +1,11 @@
 package api
 
 import (
-	"encoding/json"
 	"log"
 	"net/http"
 	"portfolio-website/internal/models"
 	"portfolio-website/internal/store"
-	"strings"
+	"strconv"
 )
 
 func GetRoute[T any](crud func(*models.Database) *T) http.HandlerFunc {
@@ -18,26 +17,8 @@ func GetRoute[T any](crud func(*models.Database) *T) http.HandlerFunc {
 			return
 		}
 
-		category := strings.ToLower(r.URL.Query().Get("category"))
-
-		var portfolioMap map[string]any
-
-		jsonData, err := json.Marshal(data.Portfolio)
-		if err != nil {
-			WriteError(w, http.StatusNotFound, "No Database")
+		if QueryP(w, r, "category", data.Portfolio) {
 			return
-		}
-		
-		json.Unmarshal(jsonData, &portfolioMap)
-
-		if category !="" {
-			sectionData, exist := FindCategory( portfolioMap,category)
-			if !exist {
-				WriteError(w,http.StatusNotFound, "Category not found")
-				return
-			}
-			WriteJSON(w, http.StatusOK, sectionData, "Data retrieved")
-        return
 		}
 
 		collection := crud(&data)
@@ -45,30 +26,6 @@ func GetRoute[T any](crud func(*models.Database) *T) http.HandlerFunc {
 		WriteJSON(w, http.StatusOK, *collection, "Data retrieved successfully")
 	}
 }
-
-func PatchRoute [T any] (crud func(*models.Database) *T) http.HandlerFunc{ return func (w http.ResponseWriter, r *http.Request) {
-	data, err := store.ViewData()
-	if err != nil {
-		log.Printf("PatchRoute: ViewData failed: %v", err)
-		http.Error(w, "Internal server error", http.StatusInternalServerError)
-		return
-	}
-	sectionToUpdate := crud(&data)
-
-	if err := DecodeJSON(r, sectionToUpdate); err != nil {
-		WriteError(w, http.StatusBadRequest, "Invalid JSON")
-		return
-	}
-
-	if err := store.SaveData(&data); err != nil {
-		log.Printf("PatchRoute: SaveData failed: %v", err)
-		WriteError(w,  http.StatusInternalServerError, "Internal server error")
-		return
-	}
-
-	WriteJSON(w, http.StatusOK, *sectionToUpdate, "Patched successfully")}
-}
-
 
 func PostRoute[T any](crud func(*models.Database) *[]T) http.HandlerFunc {
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -99,7 +56,69 @@ func PostRoute[T any](crud func(*models.Database) *[]T) http.HandlerFunc {
 	}
 }
 
-func DeleteRoute(w http.ResponseWriter, r *http.Request) {
-	// Implementation for deleting items
-	WriteError(w, http.StatusNotImplemented, "DELETE not yet implemented")
+func PatchRoute[T any](crud func(*models.Database) *T) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+		data, err := store.ViewData()
+		if err != nil {
+			log.Printf("PatchRoute: ViewData failed: %v", err)
+			http.Error(w, "Internal server error", http.StatusInternalServerError)
+			return
+		}
+		sectionToUpdate := crud(&data)
+
+		if err := DecodeJSON(r, sectionToUpdate); err != nil {
+			WriteError(w, http.StatusBadRequest, "Invalid JSON")
+			return
+		}
+
+		if err := store.SaveData(&data); err != nil {
+			log.Printf("PatchRoute: SaveData failed: %v", err)
+			WriteError(w, http.StatusInternalServerError, "Internal server error")
+			return
+		}
+
+		WriteJSON(w, http.StatusOK, *sectionToUpdate, "Patched successfully")
+	}
+}
+
+func DeleteRoute[T any](crud func(*models.Database) *[]T) http.HandlerFunc {
+	return func(w http.ResponseWriter, r *http.Request) {
+
+		data, err := store.ViewData()
+		if err != nil {
+			log.Printf("DeleteRoute: ViewData failed: %v", err)
+			WriteError(w, http.StatusInternalServerError, "Internal server error")
+			return
+		}
+
+		// if QueryP(w, r, "category", data.Portfolio) {
+		// 	return
+		// }
+
+		idStr := r.PathValue("id")
+		i, err := strconv.Atoi(idStr)
+		if err != nil {
+			WriteError(w, http.StatusBadRequest, "Invalid ID format")
+			return
+		}
+
+		collection := crud(&data)
+
+		if i < 0 || i >= len(*collection) {
+			WriteError(w, http.StatusNotFound, "Index out of bounds")
+			return
+		}
+
+		*collection = append((*collection)[:i], (*collection)[i+1:]...)
+
+		if err := store.SaveData(&data); err != nil {
+			log.Printf("DeleteRoute: SaveData failed: %v", err)
+
+			WriteError(w, http.StatusInternalServerError, "Internal server error")
+			return
+		}
+
+		WriteJSON(w, http.StatusOK, *collection, "DELETE implemented")
+
+	}
 }
