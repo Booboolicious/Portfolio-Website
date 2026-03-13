@@ -108,6 +108,10 @@
   gap: 80px;
 }
 
+@media (max-width: 1024px) {
+  .skills-main-grid { grid-template-columns: 1fr; gap: 48px; }
+}
+
 .progress-group {
   margin-bottom: 32px;
 }
@@ -236,18 +240,6 @@
   text-decoration: none;
 }
 
-/* ─── Responsive ────────────────────────────────────────────────────────── */
-@media (max-width: 1024px) {
-  .skills-main-grid {
-    grid-template-columns: 1fr;
-    gap: 60px;
-  }
-}
-
-@media (max-width: 768px) {
-  .soft-skills-grid { grid-template-columns: 1fr; }
-}
-
 /* ─── CTA Box ───────────────────────────────────────────────────────────── */
 .skills-cta {
   background: var(--accent);
@@ -259,7 +251,7 @@
 }
 
 .skills-cta h2 {
-  font-size: 2.5rem;
+  font-size: clamp(1.75rem, 5vw, 2.5rem);
   font-weight: 800;
   margin-bottom: 16px;
 }
@@ -277,6 +269,7 @@
   display: flex;
   justify-content: center;
   gap: 16px;
+  flex-wrap: wrap;
 }
 
 .skills-cta .btn-white {
@@ -287,4 +280,26 @@
 .skills-cta .btn-outline-white {
   border: 1px solid white;
   color: white;
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .skills-page { padding-top: 100px; }
+}
+
+@media (max-width: 768px) {
+  .skills-page { padding-top: 100px; padding-bottom: 60px; }
+  .skills-header { margin-bottom: 48px; }
+  .skills-section { margin-bottom: 60px; }
+  .skills-section__header { font-size: 1.25rem; }
+  .competency-card { padding: 28px; }
+  .skills-cta { padding: 48px 24px; border-radius: 20px; margin-top: 60px; }
+  .skills-cta__buttons { flex-direction: column; align-items: center; }
+  .soft-skills-grid { grid-template-columns: 1fr; }
+  .competency-grid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .skills-title { font-size: 2rem; }
+  .competency-card { padding: 20px; }
 }

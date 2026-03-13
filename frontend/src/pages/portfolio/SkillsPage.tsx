@@ -113,25 +113,6 @@ export default function Skills() {
         </section>
       </div>
       
-      {/* ─── Programming Languages ─── */}
-      <section className="skills-section" style={{ marginTop: '40px' }}>
-        <h2 className="skills-section__header">
-          <Terminal size={24} /> Programming Languages
-        </h2>
-        <div className="tool-grid">
-          {skills.languages.map((lang, i) => (
-            <motion.div 
-              key={lang} 
-              className="tool-tag"
-              {...fadeUp(0.1 + (i * 0.05))}
-              style={{ background: 'var(--bg-card-2)', border: '1px solid var(--accent-20)' }}
-            >
-              <Code2 size={16} className="text-gradient" />
-              {lang}
-            </motion.div>
-          ))}
-        </div>
-      </section>
 
       <div className="skills-main-grid">
         {/* DevOps & Tooling */}

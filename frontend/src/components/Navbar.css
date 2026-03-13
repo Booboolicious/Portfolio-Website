@@ -148,12 +148,23 @@
 }
 
 @media (max-width: 768px) {
-  .navbar { padding: 16px 0; }
+  .navbar { padding: 12px 0; }
   .navbar__links { display: none; }
   .navbar__burger { display: flex; }
   
   .navbar--scrolled .navbar__inner {
-    padding: 8px 10px 8px 18px;
+    padding: 6px 10px 6px 18px;
     border-radius: 20px;
+    max-width: 92%;
   }
+
+  .navbar__inner {
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__logo span { display: none; }
+  .mobile-overlay { padding: 80px 24px; }
+  .mobile-overlay__link { font-size: 1.75rem; }
 }

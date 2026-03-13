@@ -240,10 +240,17 @@
     grid-template-columns: 1fr;
     gap: 60px;
   }
+  .contact-page { padding-top: 100px; padding-bottom: 60px; }
 }
 
 @media (max-width: 640px) {
   .form-row { grid-template-columns: 1fr; }
   .contact-info-grid { grid-template-columns: 1fr; }
   .contact-form-container { padding: 32px; }
+}
+
+@media (max-width: 480px) {
+  .contact-form-container { padding: 20px; }
+  .contact-title { font-size: 2rem; }
+  .contact-desc { font-size: 1rem; }
 }

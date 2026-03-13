@@ -131,6 +131,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .admin-header {
@@ -146,6 +147,40 @@
   z-index: 40;
 }
 
+.admin-header__left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.admin-header__burger {
+  display: none;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  align-items: center;
+  justify-content: center;
+}
+
+.admin-sidebar__close {
+  display: none;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  margin-left: auto;
+}
+
+.admin-sidebar-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  z-index: 45;
+}
+
 .admin-header__user {
   display: flex;
   align-items: center;
@@ -153,7 +188,7 @@
   font-size: 0.8rem;
   font-weight: 600;
   color: var(--text-secondary);
-  padding: 6px 12px;
+  padding: 6px 16px;
   background: var(--bg-2);
   border: 1px solid var(--border);
   border-radius: 99px;
@@ -170,16 +205,33 @@
 .admin-content {
   padding: 40px;
   flex: 1;
+  min-width: 0;
 }
 
 @media (max-width: 1024px) {
-  .admin-sidebar { width: 220px; }
+  .admin-sidebar { width: 260px; }
+  .admin-header { padding: 0 24px; }
+  .admin-content { padding: 32px; }
 }
 
 @media (max-width: 768px) {
-  .admin-layout { flex-direction: column; }
-  .admin-sidebar { width: 100%; height: auto; position: relative; }
-  .admin-sidebar__nav { display: block; border-bottom: 1px solid var(--border); }
+  .admin-sidebar { 
+    position: fixed;
+    left: -280px;
+    transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 20px 0 50px rgba(0, 0, 0, 0.5);
+  }
+  
+  .admin-sidebar--mobile-open {
+    left: 0;
+  }
+  
+  .admin-header__burger { display: flex; }
+  .admin-sidebar__close { display: flex; }
+  .admin-header__breadcrumb { display: none; }
+  .admin-header__status-text { display: none; }
+  .admin-header__user { padding: 6px; }
+  .admin-content { padding: 24px 20px; }
 }
 
 /* UI Utilities */

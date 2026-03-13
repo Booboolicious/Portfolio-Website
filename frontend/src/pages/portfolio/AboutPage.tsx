@@ -1,3 +1,4 @@
+import { useRef, useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import { usePortfolio } from '../../context/PortfolioContext'
 import { Code2, Cpu, Users, ArrowRight, FileText } from 'lucide-react'
@@ -7,8 +8,49 @@ const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 20 },
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true, margin: "-50px" },
-  transition: { duration: 0.6, delay, ease: "easeOut" }
+  transition: { duration: 0.6, delay, ease: "easeOut" } as any
 })
+
+function BeyondGallery({ hobbyImages }: { hobbyImages: Array<{ title: string, src: string }> }) {
+  const outerRef = useRef<HTMLDivElement>(null)
+  const innerRef = useRef<HTMLDivElement>(null)
+  const [isOverflowing, setIsOverflowing] = useState(false)
+
+  useEffect(() => {
+    const checkOverflow = () => {
+      if (!outerRef.current || !innerRef.current) return
+      setIsOverflowing(innerRef.current.scrollWidth > outerRef.current.clientWidth)
+    }
+    checkOverflow()
+    window.addEventListener('resize', checkOverflow)
+    return () => window.removeEventListener('resize', checkOverflow)
+  }, [hobbyImages])
+
+  const items = isOverflowing 
+    ? [...hobbyImages, ...hobbyImages, ...hobbyImages] 
+    : hobbyImages
+
+  return (
+    <div 
+      ref={outerRef}
+      className={`beyond-marquee-wrapper ${isOverflowing ? 'is-overflowing' : ''}`}
+    >
+      <div 
+        ref={innerRef}
+        className={`beyond-track ${isOverflowing ? 'beyond-track--animating' : 'beyond-track--static'}`}
+      >
+        {items.map((hobby, i) => (
+          <div key={`${hobby.title}-${i}`} className="beyond-card">
+            <img src={hobby.src} alt={hobby.title} className="beyond-card__img" />
+            <div className="beyond-card__overlay">
+              <span className="beyond-card__title">{hobby.title}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  )
+}
 
 export default function About() {
   const { data } = usePortfolio()
@@ -138,23 +180,11 @@ export default function About() {
         <motion.h2 className="about-section__title about-section__title--centered" {...fadeUp(0.1)}>
           Beyond the Screen
         </motion.h2>
-        <p className="about-beyond__desc">
+        <motion.p className="about-beyond__desc" {...fadeUp(0.2)}>
           When I'm not architecting systems, you can find me exploring the outdoors or diving into my creative hobbies.
-        </p>
-        <div className="beyond-gallery">
-          {hobbyImages.map((hobby, i) => (
-            <motion.div 
-              key={i} 
-              className="beyond-card"
-              {...fadeUp(0.1 + (i * 0.1))}
-            >
-              <img src={hobby.src} alt={hobby.title} className="beyond-card__img" />
-              <div className="beyond-card__overlay">
-                <span className="beyond-card__title">{hobby.title}</span>
-              </div>
-            </motion.div>
-          ))}
-        </div>
+        </motion.p>
+
+        <BeyondGallery hobbyImages={hobbyImages} />
       </section>
 
       {/* ─── CTA ─── */}

@@ -1,8 +1,9 @@
-import { Outlet, NavLink, Link } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+import { Outlet, NavLink, Link, useLocation } from 'react-router-dom'
 import { 
   BarChart3, User, BookOpen, Briefcase, 
   Layers, FolderKanban, Mail, ChevronRight,
-  LogOut, Home, Settings, Clock, GraduationCap, Award, Star, Languages, Hash
+  LogOut, Home, Settings, Clock, GraduationCap, Award, Star, Languages, Hash, Menu, X
 } from 'lucide-react'
 import './AdminLayout.css'
 
@@ -40,10 +41,25 @@ const MENU_GROUPS = [
 ]
 
 export default function AdminLayout() {
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const location = useLocation()
+
+  useEffect(() => {
+    setSidebarOpen(false)
+  }, [location.pathname])
+
   return (
-    <div className="admin-layout">
+    <div className={`admin-layout ${sidebarOpen ? 'admin-layout--sidebar-open' : ''}`}>
+      {/* Sidebar Overlay for Mobile */}
+      {sidebarOpen && (
+        <div 
+          className="admin-sidebar-overlay" 
+          onClick={() => setSidebarOpen(false)}
+        />
+      )}
+
       {/* Sidebar */}
-      <aside className="admin-sidebar" style={{ overflowY: 'auto' }}>
+      <aside className={`admin-sidebar ${sidebarOpen ? 'admin-sidebar--mobile-open' : ''}`}>
         <div className="admin-sidebar__brand">
           <div className="admin-sidebar__logo">
             <Settings size={20} />
@@ -52,6 +68,9 @@ export default function AdminLayout() {
             <h1 className="admin-sidebar__title">Admin Panel</h1>
             <p className="admin-sidebar__subtitle">Portfolio Engine</p>
           </div>
+          <button className="admin-sidebar__close" onClick={() => setSidebarOpen(false)}>
+            <X size={20} />
+          </button>
         </div>
 
         <nav className="admin-sidebar__nav">
@@ -89,15 +108,24 @@ export default function AdminLayout() {
       {/* Main Content */}
       <main className="admin-main">
         <header className="admin-header">
-          <div className="admin-header__search">
-            <span className="mono" style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
-              Management Console / {window.location.pathname.split('/').pop() || 'Dashboard'}
-            </span>
+          <div className="admin-header__left">
+            <button 
+              className="admin-header__burger" 
+              onClick={() => setSidebarOpen(true)}
+            >
+              <Menu size={20} />
+            </button>
+            <div className="admin-header__breadcrumb">
+              <span className="mono" style={{ color: 'var(--text-muted)', fontSize: '0.8rem' }}>
+                Management Console / {window.location.pathname.split('/').pop() || 'Dashboard'}
+              </span>
+            </div>
           </div>
+          
           <div className="admin-header__actions">
             <div className="admin-header__user">
               <span className="admin-header__dot" />
-              <span>Connected to API</span>
+              <span className="admin-header__status-text">Connected to API</span>
             </div>
           </div>
         </header>

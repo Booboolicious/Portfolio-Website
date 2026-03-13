@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion'
+import React, { useRef, useState, useEffect } from 'react'
 import { 
   Hexagon, Layers, Code2, Terminal, 
   Settings, Box, Cloud, Database, 
@@ -21,26 +21,49 @@ const ICON_MAP: Record<string, React.ReactNode> = {
 
 export default function TechBar({ tech = [] }: { tech: string[] }) {
   const displayTech = tech.length > 0 ? tech : ['React', 'Go', 'TypeScript', 'Node.js', 'Docker', 'AWS', 'PostgreSQL']
+  
+  const outerRef = useRef<HTMLDivElement>(null)
+  const innerRef = useRef<HTMLDivElement>(null)
+  const [isOverflowing, setIsOverflowing] = useState(false)
+
+  // Check if content is wider than container to enable marquee
+  useEffect(() => {
+    const checkOverflow = () => {
+      if (!outerRef.current || !innerRef.current) return
+      // We check if the natural width of items exceeds the wrapper
+      setIsOverflowing(innerRef.current.scrollWidth > outerRef.current.clientWidth)
+    }
+
+    checkOverflow()
+    window.addEventListener('resize', checkOverflow)
+    return () => window.removeEventListener('resize', checkOverflow)
+  }, [displayTech])
+
+  // If overflowing, duplicate items to create the infinite loop
+  const items = isOverflowing 
+    ? [...displayTech, ...displayTech, ...displayTech] 
+    : displayTech
 
   return (
-    <section className="tech-bar container">
+    <section className="tech-bar">
       <p className="tech-bar__title">Trusted Technology Stack</p>
-      <div className="tech-bar__row">
-        {displayTech.map((name, i) => (
-          <motion.div 
-            key={name}
-            className="tech-bar__item"
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: i * 0.1 }}
-          >
-            <div className="tech-bar__icon">
-              {ICON_MAP[name] || <Hash size={24} />}
+      <div 
+        ref={outerRef}
+        className={`tech-bar__wrapper ${isOverflowing ? 'tech-bar__marquee-wrapper' : ''}`}
+      >
+        <div 
+          ref={innerRef}
+          className={`tech-bar__track ${isOverflowing ? 'tech-bar__track--animating' : 'tech-bar__track--static'}`}
+        >
+          {items.map((name, i) => (
+            <div key={`${name}-${i}`} className="tech-bar__item">
+              <div className="tech-bar__icon">
+                {ICON_MAP[name] || <Hash size={24} />}
+              </div>
+              <span className="tech-bar__name">{name}</span>
             </div>
-            <span className="tech-bar__name">{name}</span>
-          </motion.div>
-        ))}
+          ))}
+        </div>
       </div>
     </section>
   )
