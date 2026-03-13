@@ -7,7 +7,9 @@
 /* Sidebar */
 .admin-sidebar {
   width: 280px;
-  background: var(--bg-1);
+  background: rgba(11, 15, 30, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border-right: 1px solid var(--border);
   display: flex;
   flex-direction: column;
@@ -28,9 +30,9 @@
 .admin-sidebar__logo {
   width: 36px;
   height: 36px;
-  background: var(--accent);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #fff;
-  border-radius: var(--radius-sm);
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -39,13 +41,17 @@
 
 .admin-sidebar__title {
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 800;
   color: var(--text-primary);
+  letter-spacing: -0.02em;
 }
 
 .admin-sidebar__subtitle {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 600;
   color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .admin-sidebar__nav {
@@ -55,26 +61,27 @@
 }
 
 .admin-sidebar__label {
-  font-size: 0.7rem;
-  font-weight: 700;
+  font-size: 0.65rem;
+  font-weight: 800;
   color: var(--text-muted);
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 16px;
+  letter-spacing: 0.15em;
+  margin-bottom: 12px;
   padding-left: 12px;
+  opacity: 0.5;
 }
 
 .admin-sidebar__item {
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 12px;
-  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  border-radius: 10px;
   color: var(--text-secondary);
   font-size: 0.875rem;
-  font-weight: 500;
-  transition: all var(--transition);
-  margin-bottom: 4px;
+  font-weight: 600;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  margin-bottom: 2px;
   border: none;
   background: transparent;
   cursor: pointer;
@@ -83,11 +90,20 @@
 .admin-sidebar__item:hover {
   background: rgba(255,255,255,0.03);
   color: var(--text-primary);
+  transform: translateX(4px);
 }
 
 .admin-sidebar__item--active {
-  background: var(--accent-glow);
+  background: linear-gradient(90deg, var(--accent-glow), transparent);
   color: var(--accent-light);
+  border-left: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding-left: 11px; /* Offset for border */
+}
+
+.admin-sidebar__item--active svg {
+  color: var(--accent);
+  filter: drop-shadow(0 0 8px var(--accent-glow));
 }
 
 .admin-sidebar__arrow {

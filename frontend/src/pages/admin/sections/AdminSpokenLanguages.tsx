@@ -3,6 +3,7 @@ import { getSpokenLanguages, postSpokenLanguage, putSpokenLanguage, deleteSpoken
 import type { SpokenLang } from '../../../types'
 import { Plus, Trash2, Languages, Loader2, X, Edit2, Save } from 'lucide-react'
 import toast from 'react-hot-toast'
+import ConfirmModal from '../../../components/ConfirmModal'
 
 export default function AdminSpokenLanguages() {
   const [items, setItems] = useState<SpokenLang[]>([])
@@ -10,6 +11,9 @@ export default function AdminSpokenLanguages() {
   const [showForm, setShowForm] = useState(false)
   const [editIndex, setEditIndex] = useState<number | null>(null)
   
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [deleteIndex, setDeleteIndex] = useState<number | null>(null)
+
   const [formData, setFormData] = useState<SpokenLang>({
     language: '',
     level: '',
@@ -17,9 +21,15 @@ export default function AdminSpokenLanguages() {
   })
 
   useEffect(() => {
-    getSpokenLanguages()
-      .then(setItems)
-      .finally(() => setLoading(false))
+    const fetchData = async () => {
+      try {
+        const res = await getSpokenLanguages()
+        setItems(res)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
   }, [])
 
   const handleEdit = (index: number) => {
@@ -57,15 +67,23 @@ export default function AdminSpokenLanguages() {
     }
   }
 
-  const handleDelete = async (index: number) => {
-    if (!confirm('Are you sure?')) return
+  const confirmDelete = async () => {
+    if (deleteIndex === null) return
     try {
-      const updated = await deleteSpokenLanguage(index)
+      const updated = await deleteSpokenLanguage(deleteIndex)
       setItems(updated)
       toast.success('Language deleted')
     } catch (err) {
       toast.error('Failed to delete language')
+    } finally {
+      setDeleteIndex(null)
+      setShowDeleteModal(false)
     }
+  }
+
+  const handleDelete = (index: number) => {
+    setDeleteIndex(index)
+    setShowDeleteModal(true)
   }
 
   if (loading) return (
@@ -157,6 +175,16 @@ export default function AdminSpokenLanguages() {
           </div>
         ))}
       </div>
+
+      <ConfirmModal 
+        isOpen={showDeleteModal}
+        title="Delete Language"
+        message={`Are you sure you want to delete ${deleteIndex !== null ? items[deleteIndex]?.language : ''}? This action cannot be undone.`}
+        onConfirm={confirmDelete}
+        onCancel={() => setShowDeleteModal(false)}
+        danger
+        confirmText="Remove Language"
+      />
     </div>
   )
 }

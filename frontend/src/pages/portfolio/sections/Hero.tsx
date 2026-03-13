@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion'
-import { ArrowRight, Download, Github, Monitor, Globe } from 'lucide-react'
+import { ArrowRight, Download, Github, Monitor, Globe, Linkedin } from 'lucide-react'
 import type { Personal } from '../../../types'
 import MockTerminal from '../components/MockTerminal'
 import './Hero.css'
@@ -26,15 +26,17 @@ export default function Hero({ personal }: Props) {
             </span>
           </motion.div>
 
-          <motion.h1 className="hero__title mono" {...fadeUp(0.2)}>
-            Building Scalable <br />
-            <span className="text-gradient">Solutions</span> through <br />
-            Elegant Code.
+          <motion.h1 
+            key={personal.tagline}
+            className="hero__title mono" 
+            {...fadeUp(0.2)}
+          >
+            {personal.tagline.split(' ').slice(0, 2).join(' ')} <br />
+            <span className="text-gradient">{personal.tagline.split(' ')[2]}</span> {personal.tagline.split(' ').slice(3).join(' ')}
           </motion.h1>
 
           <motion.p className="hero__bio" {...fadeUp(0.3)}>
-            {personal.title} specializing in high-performance web applications and distributed systems. 
-            Crafting digital experiences that matter.
+            {personal.bio}
           </motion.p>
 
           <motion.div className="hero__ctas" {...fadeUp(0.4)}>
@@ -47,9 +49,26 @@ export default function Hero({ personal }: Props) {
           </motion.div>
 
           <motion.div className="hero__social-row" {...fadeUp(0.5)}>
-            <a href="#" className="hero__social-mini"><Github size={18} /></a>
-            <a href="#" className="hero__social-mini"><Monitor size={18} /></a>
-            <a href="#" className="hero__social-mini"><Globe size={18} /></a>
+            {personal.github && (
+              <a href={personal.github} target="_blank" rel="noopener noreferrer" className="hero__social-mini">
+                <Github size={18} />
+              </a>
+            )}
+            {personal.linkedin && (
+              <a href={personal.linkedin} target="_blank" rel="noopener noreferrer" className="hero__social-mini">
+                <Linkedin size={18} />
+              </a>
+            )}
+            {personal.twitter && personal.twitter !== '#' && (
+              <a href={personal.twitter} target="_blank" rel="noopener noreferrer" className="hero__social-mini">
+                <Monitor size={18} />
+              </a>
+            )}
+            {personal.website && (
+              <a href={personal.website} target="_blank" rel="noopener noreferrer" className="hero__social-mini">
+                <Globe size={18} />
+              </a>
+            )}
           </motion.div>
         </div>
 

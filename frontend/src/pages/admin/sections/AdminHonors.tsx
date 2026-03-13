@@ -3,6 +3,7 @@ import { getHonors, postHonor, putHonor, deleteHonor } from '../../../api/client
 import type { Honor } from '../../../types'
 import { Plus, Trash2, Star, Loader2, X, Edit2, Save } from 'lucide-react'
 import toast from 'react-hot-toast'
+import ConfirmModal from '../../../components/ConfirmModal'
 
 export default function AdminHonors() {
   const [items, setItems] = useState<Honor[]>([])
@@ -10,15 +11,24 @@ export default function AdminHonors() {
   const [showForm, setShowForm] = useState(false)
   const [editIndex, setEditIndex] = useState<number | null>(null)
   
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [deleteIndex, setDeleteIndex] = useState<number | null>(null)
+
   const [formData, setFormData] = useState<Honor>({
     title: '',
     detail: ''
   })
 
   useEffect(() => {
-    getHonors()
-      .then(setItems)
-      .finally(() => setLoading(false))
+    const fetchData = async () => {
+      try {
+        const res = await getHonors()
+        setItems(res)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
   }, [])
 
   const handleEdit = (index: number) => {
@@ -56,15 +66,23 @@ export default function AdminHonors() {
     }
   }
 
-  const handleDelete = async (index: number) => {
-    if (!confirm('Are you sure?')) return
+  const confirmDelete = async () => {
+    if (deleteIndex === null) return
     try {
-      const updated = await deleteHonor(index)
+      const updated = await deleteHonor(deleteIndex)
       setItems(updated)
       toast.success('Honor deleted')
     } catch (err) {
       toast.error('Failed to delete honor')
+    } finally {
+      setDeleteIndex(null)
+      setShowDeleteModal(false)
     }
+  }
+
+  const handleDelete = (index: number) => {
+    setDeleteIndex(index)
+    setShowDeleteModal(true)
   }
 
   if (loading) return (
@@ -143,6 +161,16 @@ export default function AdminHonors() {
           </div>
         ))}
       </div>
+
+      <ConfirmModal 
+        isOpen={showDeleteModal}
+        title="Remove Honor"
+        message={`Are you sure you want to remove "${deleteIndex !== null ? items[deleteIndex]?.title : ''}" from your awards?`}
+        onConfirm={confirmDelete}
+        onCancel={() => setShowDeleteModal(false)}
+        danger
+        confirmText="Remove Achievement"
+      />
     </div>
   )
 }

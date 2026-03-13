@@ -10,9 +10,15 @@ export default function AdminTechStack() {
   const [newItem, setNewItem] = useState('')
 
   useEffect(() => {
-    getTechStack()
-      .then(setItems)
-      .finally(() => setLoading(false))
+    const fetchData = async () => {
+      try {
+        const res = await getTechStack()
+        setItems(res)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
   }, [])
 
   const handleAdd = async (e: React.FormEvent) => {

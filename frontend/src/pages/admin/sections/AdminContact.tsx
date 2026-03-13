@@ -1,19 +1,27 @@
 import { useState, useEffect } from 'react'
 import { getContact, patchContact } from '../../../api/client'
+import { usePortfolio } from '../../../context/PortfolioContext'
 import type { Contact } from '../../../types'
 import { Save, Loader2, Plus, Trash2 } from 'lucide-react'
 import toast from 'react-hot-toast'
 
 export default function AdminContact() {
+  const { refreshData } = usePortfolio()
   const [data, setData] = useState<Contact | null>(null)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [subjectInput, setSubjectInput] = useState('')
 
   useEffect(() => {
-    getContact()
-      .then(setData)
-      .finally(() => setLoading(false))
+    const fetchData = async () => {
+      try {
+        const res = await getContact()
+        setData(res)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
   }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -23,6 +31,7 @@ export default function AdminContact() {
     setSaving(true)
     try {
       await patchContact(data)
+      await refreshData()
       toast.success('Contact info updated')
     } catch (err) {
       toast.error('Failed to update contact info')

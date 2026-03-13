@@ -3,6 +3,7 @@ import { getCertifications, postCertification, putCertification, deleteCertifica
 import type { Certification } from '../../../types'
 import { Plus, Trash2, Award, Loader2, X, Edit2, Save } from 'lucide-react'
 import toast from 'react-hot-toast'
+import ConfirmModal from '../../../components/ConfirmModal'
 
 export default function AdminCertifications() {
   const [items, setItems] = useState<Certification[]>([])
@@ -10,6 +11,9 @@ export default function AdminCertifications() {
   const [showForm, setShowForm] = useState(false)
   const [editIndex, setEditIndex] = useState<number | null>(null)
   
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [deleteIndex, setDeleteIndex] = useState<number | null>(null)
+
   const [formData, setFormData] = useState<Certification>({
     name: '',
     level: '',
@@ -17,9 +21,15 @@ export default function AdminCertifications() {
   })
 
   useEffect(() => {
-    getCertifications()
-      .then(setItems)
-      .finally(() => setLoading(false))
+    const fetchData = async () => {
+      try {
+        const res = await getCertifications()
+        setItems(res)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
   }, [])
 
   const handleEdit = (index: number) => {
@@ -57,15 +67,23 @@ export default function AdminCertifications() {
     }
   }
 
-  const handleDelete = async (index: number) => {
-    if (!confirm('Are you sure?')) return
+  const confirmDelete = async () => {
+    if (deleteIndex === null) return
     try {
-      const updated = await deleteCertification(index)
+      const updated = await deleteCertification(deleteIndex)
       setItems(updated)
       toast.success('Certification deleted')
     } catch (err) {
       toast.error('Failed to delete certification')
+    } finally {
+      setDeleteIndex(null)
+      setShowDeleteModal(false)
     }
+  }
+
+  const handleDelete = (index: number) => {
+    setDeleteIndex(index)
+    setShowDeleteModal(true)
   }
 
   if (loading) return (
@@ -153,6 +171,16 @@ export default function AdminCertifications() {
           </div>
         ))}
       </div>
+
+      <ConfirmModal 
+        isOpen={showDeleteModal}
+        title="Delete Certification"
+        message={`Are you sure you want to remove "${deleteIndex !== null ? items[deleteIndex]?.name : ''}" from your profile?`}
+        onConfirm={confirmDelete}
+        onCancel={() => setShowDeleteModal(false)}
+        danger
+        confirmText="Remove Certification"
+      />
     </div>
   )
 }

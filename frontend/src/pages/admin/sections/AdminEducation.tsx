@@ -3,6 +3,7 @@ import { getEducation, postEducation, putEducation, deleteEducation } from '../.
 import type { Education } from '../../../types'
 import { Plus, Trash2, GraduationCap, Loader2, X, Edit2, Save } from 'lucide-react'
 import toast from 'react-hot-toast'
+import ConfirmModal from '../../../components/ConfirmModal'
 
 export default function AdminEducation() {
   const [items, setItems] = useState<Education[]>([])
@@ -10,6 +11,9 @@ export default function AdminEducation() {
   const [showForm, setShowForm] = useState(false)
   const [editIndex, setEditIndex] = useState<number | null>(null)
   
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [deleteIndex, setDeleteIndex] = useState<number | null>(null)
+
   const [formData, setFormData] = useState<Education>({
     degree: '',
     institution: '',
@@ -19,9 +23,15 @@ export default function AdminEducation() {
   })
 
   useEffect(() => {
-    getEducation()
-      .then(setItems)
-      .finally(() => setLoading(false))
+    const fetchData = async () => {
+      try {
+        const res = await getEducation()
+        setItems(res)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
   }, [])
 
   const handleEdit = (index: number) => {
@@ -59,15 +69,23 @@ export default function AdminEducation() {
     }
   }
 
-  const handleDelete = async (index: number) => {
-    if (!confirm('Are you sure?')) return
+  const confirmDelete = async () => {
+    if (deleteIndex === null) return
     try {
-      const updated = await deleteEducation(index)
+      const updated = await deleteEducation(deleteIndex)
       setItems(updated)
       toast.success('Entry deleted')
     } catch (err) {
       toast.error('Failed to delete entry')
+    } finally {
+      setDeleteIndex(null)
+      setShowDeleteModal(false)
     }
+  }
+
+  const handleDelete = (index: number) => {
+    setDeleteIndex(index)
+    setShowDeleteModal(true)
   }
 
   if (loading) return (
@@ -177,6 +195,16 @@ export default function AdminEducation() {
           </div>
         ))}
       </div>
+
+      <ConfirmModal 
+        isOpen={showDeleteModal}
+        title="Delete Education"
+        message={`Are you sure you want to delete "${deleteIndex !== null ? items[deleteIndex]?.degree : ''}" from your profile?`}
+        onConfirm={confirmDelete}
+        onCancel={() => setShowDeleteModal(false)}
+        danger
+        confirmText="Remove Entry"
+      />
     </div>
   )
 }

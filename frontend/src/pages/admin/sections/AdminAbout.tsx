@@ -1,18 +1,26 @@
 import { useState, useEffect } from 'react'
 import { getAbout, patchAbout } from '../../../api/client'
+import { usePortfolio } from '../../../context/PortfolioContext'
 import type { About } from '../../../types'
 import { Save, Loader2, Plus, Trash2 } from 'lucide-react'
 import toast from 'react-hot-toast'
 
 export default function AdminAbout() {
+  const { refreshData } = usePortfolio()
   const [data, setData] = useState<About | null>(null)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
 
   useEffect(() => {
-    getAbout()
-      .then(setData)
-      .finally(() => setLoading(false))
+    const fetchData = async () => {
+      try {
+        const res = await getAbout()
+        setData(res)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
   }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -22,6 +30,7 @@ export default function AdminAbout() {
     setSaving(true)
     try {
       await patchAbout(data)
+      await refreshData()
       toast.success('About section updated')
     } catch (err) {
       toast.error('Failed to update About section')

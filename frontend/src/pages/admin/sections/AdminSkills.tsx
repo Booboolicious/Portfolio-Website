@@ -1,39 +1,64 @@
 import { useState, useEffect } from 'react'
-import { getPortfolio, patchPersonal, api } from '../../../api/client'
-import type { Skills, Competency, SkillItem } from '../../../types'
-import { Plus, Trash2, Code2, Database, Loader2, Save, Terminal, Users, Cpu } from 'lucide-react'
+import { getPortfolio, patchSkills } from '../../../api/client'
+import { usePortfolio } from '../../../context/PortfolioContext'
+import type { Skills } from '../../../types'
+import { Code2, Database, Loader2, Save, Terminal, Users, Cpu, Plus, Trash2 } from 'lucide-react'
 import toast from 'react-hot-toast'
+import ConfirmModal from '../../../components/ConfirmModal'
 
 export default function AdminSkills() {
+  const { refreshData } = usePortfolio()
   const [skills, setSkills] = useState<Skills | null>(null)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
 
-  // Temporary state for adding new items
-  const [newCompetency, setNewCompetency] = useState<Competency>({ name: '', description: '' })
-  const [newProgressSkill, setNewProgressSkill] = useState<SkillItem>({ name: '', proficiency: 90 })
-  const [skillCategory, setSkillCategory] = useState<'frontend' | 'backend'>('frontend')
-  const [newTool, setNewTool] = useState('')
-  const [newSoftSkill, setNewSoftSkill] = useState('')
+  const [deleteModal, setDeleteModal] = useState<{ isOpen: boolean, type: string, index: number | null }>({
+    isOpen: false,
+    type: '',
+    index: null
+  })
 
   useEffect(() => {
-    getPortfolio()
-      .then(data => setSkills(data.skills))
-      .finally(() => setLoading(false))
+    const fetchData = async () => {
+      try {
+        const data = await getPortfolio()
+        setSkills(data.skills)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
   }, [])
 
   const handleSave = async () => {
     if (!skills) return
     setSaving(true)
     try {
-      // Assuming a generic /data/skills patch works, or we patch via the full object
-      await api.patch('/data/skills', skills)
+      await patchSkills(skills)
+      await refreshData()
       toast.success('Skills configuration saved')
     } catch (err) {
       toast.error('Failed to save skills')
     } finally {
       setSaving(false)
     }
+  }
+
+  const handleDeleteRequest = (type: string, index: number) => {
+    setDeleteModal({ isOpen: true, type, index })
+  }
+
+  const confirmDelete = () => {
+    if (!skills || deleteModal.index === null) return
+    const next = { ...skills }
+    const i = deleteModal.index
+    
+    if (deleteModal.type === 'core') next.core_competencies.splice(i, 1)
+    if (deleteModal.type === 'frontend') next.frontend.splice(i, 1)
+    if (deleteModal.type === 'backend') next.backend.splice(i, 1)
+    
+    setSkills(next)
+    setDeleteModal({ isOpen: false, type: '', index: null })
   }
 
   if (loading) return (
@@ -68,11 +93,7 @@ export default function AdminSkills() {
               <button 
                 className="btn btn-icon btn-danger btn-sm" 
                 style={{ position: 'absolute', top: '10px', right: '10px' }}
-                onClick={() => {
-                  const next = [...skills.core_competencies]
-                  next.splice(i, 1)
-                  setSkills({...skills, core_competencies: next})
-                }}
+                onClick={() => handleDeleteRequest('core', i)}
               >
                 <Trash2 size={14} />
               </button>
@@ -134,11 +155,7 @@ export default function AdminSkills() {
                     setSkills({...skills, frontend: next})
                   }}
                 />
-                <button className="btn btn-icon btn-danger btn-sm" onClick={() => {
-                  const next = [...skills.frontend]
-                  next.splice(i, 1)
-                  setSkills({...skills, frontend: next})
-                }}>
+                <button className="btn btn-icon btn-danger btn-sm" onClick={() => handleDeleteRequest('frontend', i)}>
                   <Trash2 size={14} />
                 </button>
               </div>
@@ -175,11 +192,7 @@ export default function AdminSkills() {
                     setSkills({...skills, backend: next})
                   }}
                 />
-                <button className="btn btn-icon btn-danger btn-sm" onClick={() => {
-                  const next = [...skills.backend]
-                  next.splice(i, 1)
-                  setSkills({...skills, backend: next})
-                }}>
+                <button className="btn btn-icon btn-danger btn-sm" onClick={() => handleDeleteRequest('backend', i)}>
                   <Trash2 size={14} />
                 </button>
               </div>
@@ -192,6 +205,21 @@ export default function AdminSkills() {
       </div>
 
       <div className="grid-2">
+        {/* ─── Programming Languages ─── */}
+        <div className="card" style={{ padding: '32px' }}>
+          <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '24px' }}>
+            <Code2 size={20} className="text-gradient" /> Programming Languages
+          </h3>
+          <textarea 
+            className="textarea"
+            style={{ minHeight: '150px' }}
+            value={skills.languages.join('\n')}
+            onChange={e => setSkills({...skills, languages: e.target.value.split('\n')})}
+            placeholder="TypeScript, Python, Go..."
+          />
+          <p style={{ marginTop: '12px', fontSize: '0.8rem', color: 'var(--text-muted)' }}>Enter one language per line.</p>
+        </div>
+
         {/* ─── DevOps & Tooling ─── */}
         <div className="card" style={{ padding: '32px' }}>
           <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '24px' }}>
@@ -206,7 +234,9 @@ export default function AdminSkills() {
           />
           <p style={{ marginTop: '12px', fontSize: '0.8rem', color: 'var(--text-muted)' }}>Enter one tool per line.</p>
         </div>
+      </div>
 
+      <div style={{ marginTop: '32px' }}>
         {/* ─── Soft Skills ─── */}
         <div className="card" style={{ padding: '32px' }}>
           <h3 style={{ display: 'flex', alignItems: 'center', gap: '10px', marginBottom: '24px' }}>
@@ -222,6 +252,16 @@ export default function AdminSkills() {
           <p style={{ marginTop: '12px', fontSize: '0.8rem', color: 'var(--text-muted)' }}>Enter one skill per line.</p>
         </div>
       </div>
+
+      <ConfirmModal 
+        isOpen={deleteModal.isOpen}
+        title="Remove Skill"
+        message={`Are you sure you want to remove this ${deleteModal.type === 'core' ? 'competency' : 'technical skill'}? This will delete the entry immediately from your configuration.`}
+        onConfirm={confirmDelete}
+        onCancel={() => setDeleteModal({ ...deleteModal, isOpen: false })}
+        danger
+        confirmText="Remove Skill"
+      />
     </div>
   )
 }

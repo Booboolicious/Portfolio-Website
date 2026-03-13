@@ -1,18 +1,26 @@
 import { useState, useEffect } from 'react'
 import { getStats, patchStats } from '../../../api/client'
+import { usePortfolio } from '../../../context/PortfolioContext'
 import type { Stats } from '../../../types'
 import { Save, Loader2 } from 'lucide-react'
 import toast from 'react-hot-toast'
 
 export default function AdminStats() {
+  const { refreshData } = usePortfolio()
   const [data, setData] = useState<Stats | null>(null)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
 
   useEffect(() => {
-    getStats()
-      .then(setData)
-      .finally(() => setLoading(false))
+    const fetchData = async () => {
+      try {
+        const res = await getStats()
+        setData(res)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
   }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -22,6 +30,7 @@ export default function AdminStats() {
     setSaving(true)
     try {
       await patchStats(data)
+      await refreshData()
       toast.success('Statistics updated successfully')
     } catch (err) {
       toast.error('Failed to update statistics')

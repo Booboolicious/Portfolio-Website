@@ -47,7 +47,7 @@ export default function About() {
 
       {/* ─── Tech Bar ─── */}
       <div className="about-tech-bar">
-        {['TypeScript', 'React', 'Node.js', 'Python', 'AWS', 'Kubernetes', 'PostgreSQL'].map((tech, i) => (
+        {(data.tech_stack || []).map((tech, i) => (
           <motion.span 
             key={tech} 
             className="about-tech-bar__item"

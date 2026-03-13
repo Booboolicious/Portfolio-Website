@@ -15,9 +15,15 @@ export default function AdminMessages() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    getMessages()
-      .then(setMessages)
-      .finally(() => setLoading(false))
+    const fetchData = async () => {
+      try {
+        const res = await getMessages()
+        setMessages(res)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
   }, [])
 
   if (loading) return (

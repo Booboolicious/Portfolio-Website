@@ -6,6 +6,7 @@ interface PortfolioContextType {
   data: Portfolio | null
   loading: boolean
   error: string | null
+  refreshData: () => Promise<void>
 }
 
 const PortfolioContext = createContext<PortfolioContextType | undefined>(undefined)
@@ -15,18 +16,35 @@ export function PortfolioProvider({ children }: { children: React.ReactNode }) {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
+  const refreshData = async () => {
+    console.log('Refreshing global portfolio data...');
+    try {
+      const res = await getPortfolio()
+      console.log('New data received:', res.personal.tagline);
+      setData({ ...res }) // Force new object reference
+    } catch (err: any) {
+      console.error('Refresh error:', err)
+      setError(err.message || 'Failed to refresh data.')
+    }
+  }
+
   useEffect(() => {
-    getPortfolio()
-      .then(setData)
-      .catch(err => {
+    const initFetch = async () => {
+      try {
+        const res = await getPortfolio()
+        setData(res)
+      } catch (err: any) {
         console.error('Fetch error:', err)
         setError(err.message || 'Failed to fetch data from backend.')
-      })
-      .finally(() => setLoading(false))
+      } finally {
+        setLoading(false)
+      }
+    }
+    initFetch()
   }, [])
 
   return (
-    <PortfolioContext.Provider value={{ data, loading, error }}>
+    <PortfolioContext.Provider value={{ data, loading, error, refreshData }}>
       {children}
     </PortfolioContext.Provider>
   )

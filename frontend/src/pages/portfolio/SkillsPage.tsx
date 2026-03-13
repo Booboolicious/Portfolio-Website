@@ -12,7 +12,7 @@ const fadeUp = (delay = 0) => ({
   whileInView: { opacity: 1, y: 0 },
   viewport: { once: true },
   transition: { duration: 0.6, delay, ease: "easeOut" }
-})
+} as any)
 
 export default function Skills() {
   const { data } = usePortfolio()
@@ -112,6 +112,26 @@ export default function Skills() {
           ))}
         </section>
       </div>
+      
+      {/* ─── Programming Languages ─── */}
+      <section className="skills-section" style={{ marginTop: '40px' }}>
+        <h2 className="skills-section__header">
+          <Terminal size={24} /> Programming Languages
+        </h2>
+        <div className="tool-grid">
+          {skills.languages.map((lang, i) => (
+            <motion.div 
+              key={lang} 
+              className="tool-tag"
+              {...fadeUp(0.1 + (i * 0.05))}
+              style={{ background: 'var(--bg-card-2)', border: '1px solid var(--accent-20)' }}
+            >
+              <Code2 size={16} className="text-gradient" />
+              {lang}
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
       <div className="skills-main-grid">
         {/* DevOps & Tooling */}
@@ -181,7 +201,7 @@ export default function Skills() {
       {/* ─── CTA Box ─── */}
       <motion.section className="skills-cta" {...fadeUp(0.1)}>
         <h2>Interested in working together?</h2>
-        <p>I me currently open for senior-level opportunities or complex freelance architectures. Let's build something exceptional.</p>
+        <p>I am currently open for senior-level opportunities or complex freelance architectures. Let's build something exceptional.</p>
         <div className="skills-cta__buttons">
           <a href="/contact" className="btn btn-white btn-lg">Hire Me Now</a>
           <a href="#" className="btn btn-outline-white btn-lg">Download Resume</a>

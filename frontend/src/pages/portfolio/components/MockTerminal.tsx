@@ -20,8 +20,10 @@ export default function MockTerminal({ personal }: { personal: Personal }) {
           <span className="code-keyword">const</span> <span className="code-variable">engineer</span> = {'{'}<br />
           {'  '}name: <span className="code-string">"{personal.name}"</span>,<br />
           {'  '}role: <span className="code-string">"{personal.title}"</span>,<br />
-          {'  '}skills: [<span className="code-string">"React"</span>, <span className="code-string">"MySQL"</span>, <span className="code-string">"Go"</span>],<br />
-          {'  '}passion: <span className="code-string">"Scalable Systems"</span><br />
+          {'  '}skills: [{personal.hobbies.slice(0, 3).map((h, i) => (
+            <span key={i}><span className="code-string">"{h.split(' ')[0]}"</span>{i < 2 ? ', ' : ''}</span>
+          ))}],<br />
+          {'  '}passion: <span className="code-string">"{personal.tagline.split(' ').pop()?.replace('.', '')}"</span><br />
           {'}'};<br /><br />
           <span className="code-comment">// Initiating great ideas...</span><br />
           <span className="code-variable">engineer</span>.<span className="code-function">buildFuture</span>();

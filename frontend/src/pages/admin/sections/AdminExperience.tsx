@@ -3,6 +3,7 @@ import { getExperience, postExperience, putExperience, deleteExperience } from '
 import type { Experience } from '../../../types'
 import { Plus, Trash2, Briefcase, Loader2, X, Edit2, Save } from 'lucide-react'
 import toast from 'react-hot-toast'
+import ConfirmModal from '../../../components/ConfirmModal'
 
 export default function AdminExperience() {
   const [experience, setExperience] = useState<Experience[]>([])
@@ -10,6 +11,9 @@ export default function AdminExperience() {
   const [showForm, setShowForm] = useState(false)
   const [editIndex, setEditIndex] = useState<number | null>(null)
   
+  const [showDeleteModal, setShowDeleteModal] = useState(false)
+  const [deleteIndex, setDeleteIndex] = useState<number | null>(null)
+
   const [formData, setFormData] = useState<Experience>({
     title: '',
     company: '',
@@ -22,10 +26,13 @@ export default function AdminExperience() {
     loadExperience()
   }, [])
 
-  const loadExperience = () => {
-    getExperience()
-      .then(setExperience)
-      .finally(() => setLoading(false))
+  const loadExperience = async () => {
+    try {
+      const res = await getExperience()
+      setExperience(res)
+    } finally {
+      setLoading(false)
+    }
   }
 
   const handleEdit = (index: number) => {
@@ -59,15 +66,23 @@ export default function AdminExperience() {
     }
   }
 
-  const handleDelete = async (index: number) => {
-    if (!confirm('Are you sure you want to delete this experience?')) return
+  const confirmDelete = async () => {
+    if (deleteIndex === null) return
     try {
-      const res = await deleteExperience(index)
+      const res = await deleteExperience(deleteIndex)
       setExperience(res)
       toast.success('Experience deleted')
     } catch (err) {
       toast.error('Failed to delete experience')
+    } finally {
+      setDeleteIndex(null)
+      setShowDeleteModal(false)
     }
+  }
+
+  const handleDelete = (index: number) => {
+    setDeleteIndex(index)
+    setShowDeleteModal(true)
   }
 
   if (loading) return (
@@ -207,6 +222,16 @@ export default function AdminExperience() {
           </div>
         ))}
       </div>
+
+      <ConfirmModal 
+        isOpen={showDeleteModal}
+        title="Delete Experience"
+        message={`Are you sure you want to delete your experience as "${deleteIndex !== null ? experience[deleteIndex]?.title : ''}" at ${deleteIndex !== null ? experience[deleteIndex]?.company : ''}?`}
+        onConfirm={confirmDelete}
+        onCancel={() => setShowDeleteModal(false)}
+        danger
+        confirmText="Delete History"
+      />
     </div>
   )
 }

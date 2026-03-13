@@ -24,7 +24,6 @@ import AdminCertifications from './pages/admin/sections/AdminCertifications'
 import AdminHonors from './pages/admin/sections/AdminHonors'
 import AdminSpokenLanguages from './pages/admin/sections/AdminSpokenLanguages'
 import AdminTechStack from './pages/admin/sections/AdminTechStack'
-import { Toaster } from 'react-hot-toast'
 
 export default function App() {
   return (
@@ -57,13 +56,6 @@ export default function App() {
         <Route path="techstack"  element={<AdminTechStack />} />
       </Route>
       </Routes>
-      <Toaster position="bottom-right" toastOptions={{
-        style: {
-          background: 'var(--bg-1)',
-          color: 'var(--text-primary)',
-          border: '1px solid var(--border)',
-        },
-      }} />
     </PortfolioProvider>
   )
 }

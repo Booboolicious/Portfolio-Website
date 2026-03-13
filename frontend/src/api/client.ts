@@ -11,80 +11,261 @@ export const api = axios.create({
 const unwrap = (res: any) => res.data;
 
 // ─── Contact Messages ────────────────────────────────────────────────────────
-export const postMessage       = (body: any) => api.post('/contact/messages', body).then(unwrap);
-export const getMessages       = () => api.get('/data/messages').then(unwrap);
+export const postMessage = async (body: any) => {
+  const res = await api.post('/contact/messages', body);
+  return unwrap(res);
+};
+
+export const getMessages = async () => {
+  const res = await api.get('/data/messages');
+  return unwrap(res);
+};
 
 // ─── Portfolio ───────────────────────────────────────────────────────────────
-export const getPortfolio      = () => api.get('/data').then(unwrap);
+export const getPortfolio = async () => {
+  const res = await api.get(`/data?t=${Date.now()}`);
+  return unwrap(res);
+};
 
 // ─── Personal ────────────────────────────────────────────────────────────────
-export const getPersonal       = () => api.get('/data/personal').then(unwrap);
-export const patchPersonal     = (body: any) => api.patch('/data/personal', body).then(unwrap);
+export const getPersonal = async () => {
+  const res = await api.get('/data/personal');
+  return unwrap(res);
+};
+
+export const patchPersonal = async (body: any) => {
+  const res = await api.patch('/data/personal', body);
+  return unwrap(res);
+};
 
 // ─── Stats ───────────────────────────────────────────────────────────────────
-export const getStats          = () => api.get('/data/stats').then(unwrap);
-export const patchStats        = (body: any) => api.patch('/data/stats', body).then(unwrap);
+export const getStats = async () => {
+  const res = await api.get('/data/stats');
+  return unwrap(res);
+};
+
+export const patchStats = async (body: any) => {
+  const res = await api.patch('/data/stats', body);
+  return unwrap(res);
+};
 
 // ─── About ───────────────────────────────────────────────────────────────────
-export const getAbout          = () => api.get('/data/about').then(unwrap);
-export const patchAbout        = (body: any) => api.patch('/data/about', body).then(unwrap);
+export const getAbout = async () => {
+  const res = await api.get('/data/about');
+  return unwrap(res);
+};
+
+export const patchAbout = async (body: any) => {
+  const res = await api.patch('/data/about', body);
+  return unwrap(res);
+};
 
 // ─── Contact ─────────────────────────────────────────────────────────────────
-export const getContact        = () => api.get('/data/contact').then(unwrap);
-export const patchContact      = (body: any) => api.patch('/data/contact', body).then(unwrap);
+export const getContact = async () => {
+  const res = await api.get('/data/contact');
+  return unwrap(res);
+};
+
+export const patchContact = async (body: any) => {
+  const res = await api.patch('/data/contact', body);
+  return unwrap(res);
+};
 
 // ─── Projects ────────────────────────────────────────────────────────────────
-export const getProjects       = () => api.get('/data/projects').then(unwrap);
-export const postProject       = (body: any) => api.post('/data/projects', body).then(unwrap);
-export const putProject        = (id: number, body: any) => api.put(`/data/projects/${id}`, body).then(unwrap);
-export const deleteProject     = (id: number) => api.delete(`/data/projects/${id}`).then(unwrap);
+export const getProjects = async () => {
+  const res = await api.get('/data/projects');
+  return unwrap(res);
+};
+
+export const postProject = async (body: any) => {
+  const res = await api.post('/data/projects', body);
+  return unwrap(res);
+};
+
+export const putProject = async (id: number, body: any) => {
+  const res = await api.put(`/data/projects/${id}`, body);
+  return unwrap(res);
+};
+
+export const deleteProject = async (id: number) => {
+  const res = await api.delete(`/data/projects/${id}`);
+  return unwrap(res);
+};
 
 // ─── Timeline ────────────────────────────────────────────────────────────────
-export const getTimeline       = () => api.get('/data/timeline').then(unwrap);
-export const postTimeline      = (body: any) => api.post('/data/timeline', body).then(unwrap);
-export const putTimeline       = (id: number, body: any) => api.put(`/data/timeline/${id}`, body).then(unwrap);
-export const deleteTimeline    = (id: number) => api.delete(`/data/timeline/${id}`).then(unwrap);
+export const getTimeline = async () => {
+  const res = await api.get('/data/timeline');
+  return unwrap(res);
+};
+
+export const postTimeline = async (body: any) => {
+  const res = await api.post('/data/timeline', body);
+  return unwrap(res);
+};
+
+export const putTimeline = async (id: number, body: any) => {
+  const res = await api.put(`/data/timeline/${id}`, body);
+  return unwrap(res);
+};
+
+export const deleteTimeline = async (id: number) => {
+  const res = await api.delete(`/data/timeline/${id}`);
+  return unwrap(res);
+};
 
 // ─── Experience ──────────────────────────────────────────────────────────────
-export const getExperience     = () => api.get('/data/experience').then(unwrap);
-export const postExperience    = (body: any) => api.post('/data/experience', body).then(unwrap);
-export const putExperience     = (id: number, body: any) => api.put(`/data/experience/${id}`, body).then(unwrap);
-export const deleteExperience  = (id: number) => api.delete(`/data/experience/${id}`).then(unwrap);
+export const getExperience = async () => {
+  const res = await api.get('/data/experience');
+  return unwrap(res);
+};
+
+export const postExperience = async (body: any) => {
+  const res = await api.post('/data/experience', body);
+  return unwrap(res);
+};
+
+export const putExperience = async (id: number, body: any) => {
+  const res = await api.put(`/data/experience/${id}`, body);
+  return unwrap(res);
+};
+
+export const deleteExperience = async (id: number) => {
+  const res = await api.delete(`/data/experience/${id}`);
+  return unwrap(res);
+};
 
 // ─── Education ───────────────────────────────────────────────────────────────
-export const getEducation      = () => api.get('/data/education').then(unwrap);
-export const postEducation     = (body: any) => api.post('/data/education', body).then(unwrap);
-export const putEducation      = (id: number, body: any) => api.put(`/data/education/${id}`, body).then(unwrap);
-export const deleteEducation   = (id: number) => api.delete(`/data/education/${id}`).then(unwrap);
+export const getEducation = async () => {
+  const res = await api.get('/data/education');
+  return unwrap(res);
+};
+
+export const postEducation = async (body: any) => {
+  const res = await api.post('/data/education', body);
+  return unwrap(res);
+};
+
+export const putEducation = async (id: number, body: any) => {
+  const res = await api.put(`/data/education/${id}`, body);
+  return unwrap(res);
+};
+
+export const deleteEducation = async (id: number) => {
+  const res = await api.delete(`/data/education/${id}`);
+  return unwrap(res);
+};
 
 // ─── Certifications ──────────────────────────────────────────────────────────
-export const getCertifications = () => api.get('/data/certifications').then(unwrap);
-export const postCertification = (body: any) => api.post('/data/certifications', body).then(unwrap);
-export const putCertification  = (id: number, body: any) => api.put(`/data/certifications/${id}`, body).then(unwrap);
-export const deleteCertification = (id: number) => api.delete(`/data/certifications/${id}`).then(unwrap);
+export const getCertifications = async () => {
+  const res = await api.get('/data/certifications');
+  return unwrap(res);
+};
+
+export const postCertification = async (body: any) => {
+  const res = await api.post('/data/certifications', body);
+  return unwrap(res);
+};
+
+export const putCertification = async (id: number, body: any) => {
+  const res = await api.put(`/data/certifications/${id}`, body);
+  return unwrap(res);
+};
+
+export const deleteCertification = async (id: number) => {
+  const res = await api.delete(`/data/certifications/${id}`);
+  return unwrap(res);
+};
 
 // ─── Honors ──────────────────────────────────────────────────────────────────
-export const getHonors         = () => api.get('/data/honors').then(unwrap);
-export const postHonor         = (body: any) => api.post('/data/honors', body).then(unwrap);
-export const putHonor          = (id: number, body: any) => api.put(`/data/honors/${id}`, body).then(unwrap);
-export const deleteHonor       = (id: number) => api.delete(`/data/honors/${id}`).then(unwrap);
+export const getHonors = async () => {
+  const res = await api.get('/data/honors');
+  return unwrap(res);
+};
+
+export const postHonor = async (body: any) => {
+  const res = await api.post('/data/honors', body);
+  return unwrap(res);
+};
+
+export const putHonor = async (id: number, body: any) => {
+  const res = await api.put(`/data/honors/${id}`, body);
+  return unwrap(res);
+};
+
+export const deleteHonor = async (id: number) => {
+  const res = await api.delete(`/data/honors/${id}`);
+  return unwrap(res);
+};
 
 // ─── Spoken Languages ────────────────────────────────────────────────────────
-export const getSpokenLanguages = () => api.get('/data/spoken_languages').then(unwrap);
-export const postSpokenLanguage = (body: any) => api.post('/data/spoken_languages', body).then(unwrap);
-export const putSpokenLanguage  = (id: number, body: any) => api.put(`/data/spoken_languages/${id}`, body).then(unwrap);
-export const deleteSpokenLanguage = (id: number) => api.delete(`/data/spoken_languages/${id}`).then(unwrap);
+export const getSpokenLanguages = async () => {
+  const res = await api.get('/data/spoken_languages');
+  return unwrap(res);
+};
+
+export const postSpokenLanguage = async (body: any) => {
+  const res = await api.post('/data/spoken_languages', body);
+  return unwrap(res);
+};
+
+export const putSpokenLanguage = async (id: number, body: any) => {
+  const res = await api.put(`/data/spoken_languages/${id}`, body);
+  return unwrap(res);
+};
+
+export const deleteSpokenLanguage = async (id: number) => {
+  const res = await api.delete(`/data/spoken_languages/${id}`);
+  return unwrap(res);
+};
 
 // ─── Tech Stack ──────────────────────────────────────────────────────────────
-export const getTechStack      = () => api.get('/data/tech_stack').then(unwrap);
-export const postTechStackItem = (body: string) => api.post('/data/tech_stack', body).then(unwrap);
-export const deleteTechStackItem = (id: number) => api.delete(`/data/tech_stack/${id}`).then(unwrap);
+export const getTechStack = async () => {
+  const res = await api.get('/data/tech_stack');
+  return unwrap(res);
+};
+
+export const postTechStackItem = async (body: string) => {
+  const res = await api.post('/data/tech_stack', body);
+  return unwrap(res);
+};
+
+export const deleteTechStackItem = async (id: number) => {
+  const res = await api.delete(`/data/tech_stack/${id}`);
+  return unwrap(res);
+};
 
 // ─── Skills ──────────────────────────────────────────────────────────────────
-export const getFrontendSkills  = () => api.get('/data/skills/frontend').then(unwrap);
-export const postFrontendSkill  = (body: any) => api.post('/data/skills/frontend', body).then(unwrap);
-export const deleteFrontendSkill = (id: number) => api.delete(`/data/skills/frontend/${id}`).then(unwrap);
+export const getFrontendSkills = async () => {
+  const res = await api.get('/data/skills/frontend');
+  return unwrap(res);
+};
 
-export const getBackendSkills   = () => api.get('/data/skills/backend').then(unwrap);
-export const postBackendSkill   = (body: any) => api.post('/data/skills/backend', body).then(unwrap);
-export const deleteBackendSkill = (id: number) => api.delete(`/data/skills/backend/${id}`).then(unwrap);
+export const postFrontendSkill = async (body: any) => {
+  const res = await api.post('/data/skills/frontend', body);
+  return unwrap(res);
+};
+
+export const deleteFrontendSkill = async (id: number) => {
+  const res = await api.delete(`/data/skills/frontend/${id}`);
+  return unwrap(res);
+};
+
+export const getBackendSkills = async () => {
+  const res = await api.get('/data/skills/backend');
+  return unwrap(res);
+};
+
+export const postBackendSkill = async (body: any) => {
+  const res = await api.post('/data/skills/backend', body);
+  return unwrap(res);
+};
+
+export const deleteBackendSkill = async (id: number) => {
+  const res = await api.delete(`/data/skills/backend/${id}`);
+  return unwrap(res);
+};
+
+export const patchSkills = async (body: any) => {
+  const res = await api.patch('/data/skills', body);
+  return unwrap(res);
+};

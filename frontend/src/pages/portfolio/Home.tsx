@@ -9,7 +9,7 @@ export default function Home() {
   return (
     <>
       <Hero personal={data.personal} />
-      <TechBar />
+      <TechBar tech={data.tech_stack} />
       <StatsGrid stats={data.stats} />
     </>
   )

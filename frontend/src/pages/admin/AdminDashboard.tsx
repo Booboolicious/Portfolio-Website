@@ -16,12 +16,16 @@ export default function AdminDashboard() {
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    Promise.all([getPortfolio(), getMessages()])
-      .then(([p, m]) => {
+    const fetchData = async () => {
+      try {
+        const [p, m] = await Promise.all([getPortfolio(), getMessages()])
         setData(p)
         setMessages(m || [])
-      })
-      .finally(() => setLoading(false))
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
   }, [])
 
   if (loading) return (

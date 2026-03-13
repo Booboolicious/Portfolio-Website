@@ -1,18 +1,26 @@
 import { useState, useEffect } from 'react'
 import { getPersonal, patchPersonal } from '../../../api/client'
+import { usePortfolio } from '../../../context/PortfolioContext'
 import type { Personal } from '../../../types'
 import { Save, Loader2 } from 'lucide-react'
 import toast from 'react-hot-toast'
 
 export default function AdminPersonal() {
+  const { refreshData } = usePortfolio()
   const [data, setData] = useState<Personal | null>(null)
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
 
   useEffect(() => {
-    getPersonal()
-      .then(setData)
-      .finally(() => setLoading(false))
+    const fetchData = async () => {
+      try {
+        const res = await getPersonal()
+        setData(res)
+      } finally {
+        setLoading(false)
+      }
+    }
+    fetchData()
   }, [])
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -22,6 +30,7 @@ export default function AdminPersonal() {
     setSaving(true)
     try {
       await patchPersonal(data)
+      await refreshData()
       toast.success('Personal info updated successfully')
     } catch (err) {
       toast.error('Failed to update personal info')

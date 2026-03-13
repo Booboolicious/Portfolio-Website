@@ -103,6 +103,8 @@ func main() {
 	mux.HandleFunc("PUT /api/data/skills/backend/{id}", api.PutRoute(func(d *models.Database) *[]models.SkillItem { return &d.Portfolio.Skills.Backend }))
 	mux.HandleFunc("DELETE /api/data/skills/backend/{id}", api.DeleteRoute(func(d *models.Database) *[]models.SkillItem { return &d.Portfolio.Skills.Backend }))
 
+	mux.HandleFunc("PATCH /api/data/skills", api.PatchRoute(func(d *models.Database) *models.Skills { return &d.Portfolio.Skills }))
+
 	// Contact Form Messages
 	mux.HandleFunc("POST /api/contact/messages", api.PostRoute(func(d *models.Database) *[]models.Message { return &d.Messages }))
 	mux.HandleFunc("GET /api/data/messages", api.GetRoute(func(d *models.Database) *[]models.Message { return &d.Messages }))
