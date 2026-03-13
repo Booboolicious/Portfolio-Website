@@ -1,0 +1,323 @@
+.about-page {
+  padding-top: 120px;
+  padding-bottom: 100px;
+}
+
+/* ─── Profile Header ─────────────────────────────────────────────────────── */
+.about-hero {
+  text-align: center;
+  margin-bottom: 100px;
+}
+
+.about-hero__image-wrapper {
+  position: relative;
+  width: 180px;
+  height: 180px;
+  margin: 0 auto 32px;
+}
+
+.about-hero__image {
+  width: 100%;
+  height: 100%;
+  border-radius: 24px;
+  object-fit: cover;
+  border: 4px solid var(--bg-1);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.05);
+}
+
+.about-hero__image-glow {
+  position: absolute;
+  inset: -10px;
+  background: var(--accent);
+  filter: blur(30px);
+  opacity: 0.3;
+  z-index: -1;
+  border-radius: 40px;
+}
+
+.about-hero__name {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.about-hero__title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: var(--accent-light);
+  margin-bottom: 24px;
+}
+
+.about-hero__tagline {
+  max-width: 700px;
+  margin: 0 auto;
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ─── Tech List Bar ──────────────────────────────────────────────────────── */
+.about-tech-bar {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 40px;
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 100px;
+}
+
+.about-tech-bar__item {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+/* ─── Journey Section ────────────────────────────────────────────────────── */
+.about-section {
+  margin-bottom: 120px;
+}
+
+.about-section__title {
+  font-size: 2rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.about-section__title::before {
+  content: '';
+  width: 4px;
+  height: 32px;
+  background: var(--accent);
+  border-radius: 99px;
+}
+
+.about-section__title--centered {
+  justify-content: center;
+}
+.about-section__title--centered::before { display: none; }
+
+.about-journey__text {
+  column-count: 1;
+  column-gap: 60px;
+  font-size: 1.125rem;
+  line-height: 1.8;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 1024px) {
+  .about-journey__text {
+    column-count: 1; /* Keeping it simple for now, but can be 2 */
+  }
+}
+
+/* ─── Philosophy Cards ──────────────────────────────────────────────────── */
+.philosophy-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.philosophy-card {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  padding: 40px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.philosophy-card:hover {
+  border-color: var(--accent-glow);
+  background: var(--bg-2);
+  transform: translateY(-5px);
+}
+
+.philosophy-card__icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--accent-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.philosophy-card__title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.philosophy-card__desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ─── Career Timeline ────────────────────────────────────────────────────── */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: var(--border);
+  transform: translateX(-50%);
+}
+
+.timeline-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  margin-bottom: 60px;
+  position: relative;
+}
+
+.timeline-dot {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 16px;
+  height: 16px;
+  background: var(--accent);
+  border: 4px solid var(--bg-0);
+  border-radius: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.timeline-content {
+  width: 45%;
+}
+
+.timeline-content--left { text-align: right; }
+.timeline-content--right { text-align: left; }
+
+.timeline-year {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-light);
+  margin-bottom: 8px;
+  display: block;
+}
+
+.timeline-role {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.timeline-org {
+  font-size: 0.95rem;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.timeline-note {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .timeline::before { left: 24px; }
+  .timeline-dot { left: 24px; }
+  .timeline-item { flex-direction: column; padding-left: 60px; }
+  .timeline-content { width: 100%; margin-bottom: 32px; text-align: left !important; }
+}
+
+/* ─── Beyond Section ─────────────────────────────────────────────────────── */
+.about-beyond__desc {
+  text-align: center;
+  max-width: 700px;
+  margin: -20px auto 48px;
+  color: var(--text-secondary);
+}
+
+.beyond-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.beyond-card {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.beyond-card__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.beyond-card:hover .beyond-card__img {
+  transform: scale(1.1);
+}
+
+.beyond-card__overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent 60%);
+  display: flex;
+  align-items: flex-end;
+  padding: 20px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.beyond-card:hover .beyond-card__overlay { opacity: 1; }
+
+.beyond-card__title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* ─── Contact CTA ────────────────────────────────────────────────────────── */
+.about-cta {
+  text-align: center;
+  padding: 100px 0;
+  border-top: 1px solid var(--border);
+}
+
+.about-cta__title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 24px;
+}
+
+.about-cta__desc {
+  max-width: 600px;
+  margin: 0 auto 40px;
+  color: var(--text-secondary);
+}
+
+.about-cta__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}

@@ -2,6 +2,7 @@ package models
 
 type Database struct {
 	Portfolio Portfolio `json:"portfolio"`
+	Messages  []Message `json:"messages"`
 }
 
 type Portfolio struct {
@@ -30,6 +31,8 @@ type Personal struct {
 	Website      string   `json:"website"`
 	Github       string   `json:"github"`
 	Linkedin     string   `json:"linkedin"`
+	Twitter      string   `json:"twitter"`
+	Dribbble     string   `json:"dribbble"`
 	Availability string   `json:"availability"`
 	Hobbies      []string `json:"hobbies"`
 }
@@ -123,4 +126,12 @@ type Contact struct {
 	Github       string   `json:"github"`
 	Location     string   `json:"location"`
 	FormSubjects []string `json:"form_subjects"`
+}
+
+type Message struct {
+	Name    string `json:"name"`
+	Email   string `json:"email"`
+	Subject string `json:"subject"`
+	Message string `json:"message"`
+	Date    string `json:"date"`
 }

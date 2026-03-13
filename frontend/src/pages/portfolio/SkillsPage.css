@@ -1,0 +1,290 @@
+.skills-page {
+  padding-top: 140px;
+  padding-bottom: 100px;
+}
+
+/* ─── Header ────────────────────────────────────────────────────────────── */
+.skills-header {
+  margin-bottom: 80px;
+}
+
+.skills-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(99, 102, 241, 0.1);
+  border: 1px solid var(--border-accent);
+  color: var(--accent-light);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 6px 14px;
+  border-radius: 99px;
+  margin-bottom: 24px;
+}
+
+.skills-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 800;
+  margin-bottom: 24px;
+  letter-spacing: -0.02em;
+}
+
+.skills-desc {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+  max-width: 700px;
+}
+
+/* ─── Section Common ────────────────────────────────────────────────────── */
+.skills-section {
+  margin-bottom: 100px;
+}
+
+.skills-section__header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 40px;
+}
+
+.skills-section__header svg {
+  color: var(--accent);
+}
+
+/* ─── Competency Cards ──────────────────────────────────────────────────── */
+.competency-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 24px;
+}
+
+.competency-card {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  padding: 40px;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.competency-card:hover {
+  border-color: var(--accent-glow);
+  background: var(--bg-2);
+  transform: translateY(-5px);
+}
+
+.competency-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(99, 102, 241, 0.1);
+  color: var(--accent-light);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.competency-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+.competency-desc {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+/* ─── Progress Sections ─────────────────────────────────────────────────── */
+.skills-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+}
+
+.progress-group {
+  margin-bottom: 32px;
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.progress-track {
+  height: 8px;
+  background: var(--bg-2);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: var(--accent);
+  border-radius: 4px;
+}
+
+/* ─── Tool Tag Grid ─────────────────────────────────────────────────────── */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 48px;
+}
+
+.tool-tag {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  padding: 12px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+  transition: all 0.2s ease;
+}
+
+.tool-tag:hover {
+  background: var(--bg-2);
+  border-color: var(--accent-light);
+  color: var(--accent-light);
+}
+
+/* ─── Soft Skills ───────────────────────────────────────────────────────── */
+.soft-skills-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.soft-skill-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+}
+
+.soft-skill-item svg {
+  color: var(--accent);
+}
+
+/* ─── Certifications ────────────────────────────────────────────────────── */
+.cert-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.cert-card {
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  padding: 32px;
+  border-radius: 16px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.cert-card:hover {
+  border-color: var(--accent-glow);
+  background: var(--bg-2);
+}
+
+.cert-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-light);
+}
+
+.cert-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.cert-level {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+  display: block;
+}
+
+.cert-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--accent-light);
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  text-decoration: none;
+}
+
+/* ─── Responsive ────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .skills-main-grid {
+    grid-template-columns: 1fr;
+    gap: 60px;
+  }
+}
+
+@media (max-width: 768px) {
+  .soft-skills-grid { grid-template-columns: 1fr; }
+}
+
+/* ─── CTA Box ───────────────────────────────────────────────────────────── */
+.skills-cta {
+  background: var(--accent);
+  color: white;
+  padding: 80px 40px;
+  border-radius: 32px;
+  text-align: center;
+  margin-top: 100px;
+}
+
+.skills-cta h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.skills-cta p {
+  font-size: 1.1rem;
+  margin-bottom: 40px;
+  opacity: 0.9;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.skills-cta__buttons {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.skills-cta .btn-white {
+  background: white;
+  color: var(--accent);
+}
+
+.skills-cta .btn-outline-white {
+  border: 1px solid white;
+  color: white;
+}

@@ -1,0 +1,16 @@
+# Binaries
+server
+tmp/
+*.exe
+*.bin
+
+# Air (Go reloader)
+.air.toml
+
+# Logs
+*.log
+
+# Frontend dependencies and builds
+frontend/node_modules/
+frontend/dist/
+frontend/dist-ssr/
