@@ -111,4 +111,6 @@ func main() {
 
 	log.Println("Server running on http://127.0.0.1:8081/")
 	log.Fatal(http.ListenAndServe(":8081", enableCORS(mux)))
+
+	// log.Fatal(http.ListenAndServe(":8081", enableCORS(mux)))
 }

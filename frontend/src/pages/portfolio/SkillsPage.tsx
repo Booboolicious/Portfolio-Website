@@ -160,7 +160,7 @@ export default function Skills() {
           <ShieldCheck size={24} /> Verified Certifications
         </h2>
         <div className="cert-grid">
-          {certifications.filter(c => c.year).map((cert, i) => (
+          {certifications.map((cert, i) => (
             <motion.div 
               key={cert.name} 
               className="cert-card"
@@ -170,7 +170,9 @@ export default function Skills() {
                 <ShieldCheck size={32} />
               </div>
               <h3 className="cert-title">{cert.name}</h3>
-              <span className="cert-level">{cert.level} {cert.year && `, ${cert.year}`}</span>
+              <span className="cert-level">
+                {cert.level}{cert.year ? `, ${cert.year}` : ''}
+              </span>
               <a href="#" className="cert-link">
                 View Certificate <ExternalLink size={14} />
               </a>
